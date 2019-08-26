@@ -1,4 +1,3 @@
-$black: #2b212f;
 $pink: hsl(322, 100%, 66%);
 $pale-cyan: hsl(193, 100%, 96%);
 $dark-cyan: hsl(192, 100%, 9%);
@@ -12,20 +11,37 @@ $grayish-blue: hsl(208, 11%, 55%);
 
 body {
     font-size: 16px;
+    line-height: 16px*1.5;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    color: $black;
+    color: $dark-cyan;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
+h1 {
+    font-size: 26px;
+    line-height: 26*1.5px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
 .call-to-action-text {
     font-weight: 700;
-    text-transform: capitalize;
     font-size: 12px;
+}
+
+h1, h2, h3, .call-to-action-text {
+    text-transform: capitalize;
 }
 
 .button-cta {
@@ -33,11 +49,17 @@ h1, h2 {
     justify-content: center;
     align-items: center;
     background: $pink;
-    color: #ffffff;
+    color: $pale-cyan;
     border-radius: 100px;
     text-decoration: none;
     padding: 12px 0px;
-    box-shadow: 0px 4px 24px rgba($color: $black, $alpha: .25);
+    box-shadow: 0px 4px 24px rgba($color: $dark-cyan, $alpha: .25);
+    transition: box-shadow .3s ease-in-out;
+
+
+    &:hover {
+        box-shadow: none;
+    }
 }
 
 header {
@@ -45,6 +67,7 @@ header {
     background: url(../assets/img/bg-hero-mobile.svg) no-repeat, $pale-cyan;
     background-position: right center;
     background-size: contain;
+    margin-bottom: 60px;
 
     .header__top-wrapper {
         display: flex;
@@ -66,11 +89,11 @@ header {
             width: 96px;
             background: #fff;
             border-radius: 100px;
-            box-shadow: 0px 0px 4px rgba($color: $black, $alpha: .25);
+            box-shadow: 0px 0px 10px rgba($color: $dark-cyan, $alpha: .1);
 
             a {
                 padding: 6px 0px;
-                color: $black;
+                color: $dark-cyan;
                 text-decoration: none;
             }
         }
@@ -81,10 +104,7 @@ header {
         margin: 0 auto;
 
         h1 {
-            font-size: 26px;
-            line-height: 26*1.5px;
             text-align: center;
-            text-transform: capitalize;
             margin-bottom: 32px;
         }
 
@@ -98,4 +118,129 @@ header {
             margin: 48px 0px 32px;
         }
     }
+}
+
+section.wrapper {
+    padding: 0 16px;
+
+    .wrapper__box {
+        padding: 48px 10% 32px;
+        border-radius: 20px;
+        box-shadow: 0px 4px 20px rgba($color: $dark-cyan, $alpha: .15);
+        overflow: hidden;
+        margin-bottom: 40px;
+
+        img {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            margin: 48px 0px 16px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            text-align: center;
+            color: $grayish-blue;
+        }
+    }
+}
+
+footer {
+    margin-top: 230px;
+    padding: 140px 16px 0px;
+    background: $dark-cyan;
+    color: $pale-cyan;
+    position: relative;
+
+    .footer__get-started {
+        position: absolute;
+        top: -110px;
+        left: 16px;
+        right: 16px;
+        color: $dark-cyan;
+        padding: 40px 5%;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0px 4px 20px rgba($color: $dark-cyan, $alpha: .15);
+
+        h3 {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .button-cta {
+            width: 70%;
+            margin: 0px auto;
+        }
+    }
+
+    .footer__logo {
+        margin-bottom: 32px;
+
+        a img {
+            width: 150px;
+        }
+    }
+
+    .footer__info {
+        margin-bottom: 60px;
+
+        div {
+            margin-bottom: 24px;
+
+            p {
+                margin: -27px 0px 0px 40px;
+            }
+        }
+    }
+
+    .footer__nav {
+        text-transform: capitalize;
+
+        ul {
+            list-style: none;
+            font-size: 18px;
+
+            li {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    .footer__social {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            margin-right: 12px;
+            border: 1px solid $pale-cyan;
+            border-radius: 50%;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+
+            img {
+                height: 16px;
+            }
+        }
+    }
+
+    & > p {
+        font-size: 12px;
+        text-align: center;
+        padding: 24px 0px 48px;
+    }
+
 }
