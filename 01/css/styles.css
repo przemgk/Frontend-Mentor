@@ -283,6 +283,7 @@ footer > p {
   }
   section.wrapper .wrapper__box h2 {
     text-align: left;
+    margin-top: 0px;
   }
   section.wrapper .wrapper__box p {
     text-align: left;
