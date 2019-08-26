@@ -272,7 +272,7 @@ footer > p {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    padding: 56px 2% 56px 10%;
+    padding: 56px 4% 56px 10%;
     margin-bottom: 40px;
   }
   section.wrapper .wrapper__box .box__text {
@@ -280,6 +280,7 @@ footer > p {
   }
   section.wrapper .wrapper__box img {
     width: 40%;
+    margin: 0px;
   }
   section.wrapper .wrapper__box h2 {
     text-align: left;
@@ -290,7 +291,6 @@ footer > p {
   }
   section.wrapper .wrapper__box:nth-child(even) {
     flex-direction: row;
-    padding: 56px 10% 56px 2%;
   }
 
   footer {

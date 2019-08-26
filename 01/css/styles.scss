@@ -320,7 +320,7 @@ footer {
             flex-direction: row-reverse;
             justify-content: space-between;
             align-items: center;
-            padding: 56px 2% 56px 10%;
+            padding: 56px 4% 56px 10%;
             margin-bottom: 40px;
 
             .box__text {
@@ -329,6 +329,7 @@ footer {
 
             img {
                 width: 40%;
+                margin: 0px;
             }
 
             h2 {
@@ -342,7 +343,6 @@ footer {
 
             &:nth-child(even) {
                 flex-direction: row;
-                padding: 56px 10% 56px 2%;
             }
         }
     }
