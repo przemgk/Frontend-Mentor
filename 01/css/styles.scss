@@ -54,7 +54,7 @@ h1, h2, h3, .call-to-action-text {
     text-decoration: none;
     padding: 12px 0px;
     box-shadow: 0px 4px 24px rgba($color: $dark-cyan, $alpha: .25);
-    transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .2s ease-in-out;
 
 
     &:hover {
@@ -90,11 +90,16 @@ header {
             background: #fff;
             border-radius: 100px;
             box-shadow: 0px 0px 10px rgba($color: $dark-cyan, $alpha: .1);
+            transition: box-shadow .2s ease-in-out;
 
             a {
                 padding: 6px 0px;
                 color: $dark-cyan;
                 text-decoration: none;
+            }
+
+            &:hover {
+                box-shadow: none;
             }
         }
     }
@@ -126,7 +131,7 @@ section.wrapper {
     .wrapper__box {
         padding: 48px 10% 32px;
         border-radius: 20px;
-        box-shadow: 0px 4px 20px rgba($color: $dark-cyan, $alpha: .15);
+        box-shadow: 0px 4px 20px rgba($color: $dark-cyan, $alpha: .1);
         overflow: hidden;
         margin-bottom: 40px;
 
@@ -165,7 +170,7 @@ footer {
         padding: 40px 5%;
         background: #ffffff;
         border-radius: 20px;
-        box-shadow: 0px 4px 20px rgba($color: $dark-cyan, $alpha: .15);
+        box-shadow: 0px 4px 20px rgba($color: $dark-cyan, $alpha: .1);
 
         h3 {
             text-align: center;
@@ -207,6 +212,11 @@ footer {
 
             li {
                 margin-bottom: 24px;
+
+                a {
+                    color: $pale-cyan;
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -241,6 +251,137 @@ footer {
         font-size: 12px;
         text-align: center;
         padding: 24px 0px 48px;
+    }
+
+}
+
+@media (min-width: 1440px) {
+
+    h1 {
+        font-size: 32px;
+        line-height: 26*1.5px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    header {
+        background: url(../assets/img/bg-hero-desktop.svg) no-repeat, $pale-cyan;
+        margin-bottom: 150px;
+
+        .header__top-wrapper {
+            padding: 48px 6%;
+            margin-bottom: 0px;
+
+            .top-wrapper__button-try {
+                width: 150px;
+            }
+        }
+
+        .header__welcome {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0px 6%;
+
+            .welcome__text {
+                width: 35%;
+
+                h1 {
+                    text-align: left;
+                }
+
+                p {
+                    text-align: left;
+                }
+
+                .button-cta {
+                    width: 55%;
+                }
+            }
+
+            img {
+                margin: 0px 0px 64px;
+                width: 60%;
+            }
+        }
+    }
+
+    section.wrapper {
+        padding: 0 7%;
+
+        .wrapper__box {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            padding: 56px 2% 56px 10%;
+            margin-bottom: 40px;
+
+            .box__text {
+                width: 38%;
+            }
+
+            img {
+                width: 40%;
+            }
+
+            h2 {
+                // margin: 48px 0px 16px;
+                text-align: left;
+            }
+
+            p {
+                text-align: left;
+            }
+
+            &:nth-child(even) {
+                flex-direction: row;
+                padding: 56px 10% 56px 2%;
+            }
+        }
+    }
+
+    footer {
+        padding: 160px 7% 0px;
+
+        .footer__get-started {
+            left: 22%;
+            right: 22%;
+
+            .button-cta {
+                width: 40%;
+            }
+        }
+
+        .footer__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .footer__info {
+                width: 32%;
+            }
+
+            .footer__nav {
+                column-count: 2;
+                column-gap: 100px;
+            }
+
+            .footer__social {
+                margin-top: 0px;
+            }
+        }
+
+        & > p {
+            text-align: right;
+        }
     }
 
 }
