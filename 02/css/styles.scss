@@ -87,3 +87,38 @@ section {
         width: 100%;
     }
 }
+
+footer {
+    margin: 120px 0px 32px;
+
+    .footer__socials {
+        display: flex;
+        justify-content: center;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+            border: 1px solid rgba($color: $pale-blue, $alpha: .4);
+            border-radius: 50%;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+
+            img {
+                height: 16px;
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+        margin: 32px 0px 40px;
+        font-size: 14px;
+        color: $pale-blue;
+    }
+}
