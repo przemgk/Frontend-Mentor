@@ -5,7 +5,7 @@
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   font-family: 'Libre Franklin', sans-serif;
   color: #151f29;
@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 300;
   text-align: center;
   color: #969696;
@@ -27,12 +27,39 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 72px auto 40px;
+  margin: 80px auto 32px;
 }
 header .header__logo {
   width: 56px;
 }
 
+section h1 {
+  margin: 0px 24px 16px;
+}
+section p {
+  margin: 0px 24px;
+  text-align: center;
+}
+section form {
+  margin: 40px 24px 72px;
+}
+section form input {
+  width: 100%;
+  border: none;
+  border-radius: 100px;
+  height: 40px;
+}
+section form input:first-child {
+  margin-bottom: 12px;
+}
+section form input.form__email {
+  border: 1px solid #c2d3ff;
+  padding: 0px 16px;
+  font-size: 14px;
+}
+section form input.form__email::placeholder {
+  color: rgba(150, 150, 150, 0.5);
+}
 section img {
   width: 100%;
 }

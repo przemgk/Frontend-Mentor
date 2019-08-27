@@ -13,7 +13,7 @@ $dark-blue: hsl(209, 33%, 12%);
 // Weights: 300, 600, 700
 
 body {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     font-family: 'Libre Franklin', sans-serif;
     color: $dark-blue;
@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 300;
     text-align: center;
     color: $gray;
@@ -36,7 +36,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 72px auto 40px;
+    margin: 80px auto 32px;
 
     .header__logo {
         width: 56px;
@@ -44,6 +44,40 @@ header {
 }
 
 section {
+    h1 {
+        margin: 0px 24px 16px;
+    }
+
+    p {
+        margin: 0px 24px;
+        text-align: center;
+    }
+
+    form {
+        margin: 40px 24px 72px;
+
+        input {
+            width: 100%;
+            border: none;
+            border-radius: 100px;
+            height: 40px;
+
+            &:first-child {
+                margin-bottom: 12px;
+            }
+
+            &.form__email {
+                border: 1px solid $pale-blue;
+                padding: 0px 16px;
+                font-size: 14px;
+
+                &::placeholder {
+                    color: rgba($color: $gray, $alpha: .5);
+                }
+            }
+        }
+    }
+
     img {
         width: 100%;
     }
