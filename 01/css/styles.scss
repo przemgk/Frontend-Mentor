@@ -215,6 +215,10 @@ footer {
                 a {
                     color: $pale-cyan;
                     text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -235,6 +239,7 @@ footer {
             margin-right: 12px;
             border: 1px solid $pale-cyan;
             border-radius: 50%;
+            transition: background .2s ease-out;
 
             &:last-child {
                 margin-right: 0px;
@@ -242,6 +247,10 @@ footer {
 
             img {
                 height: 16px;
+            }
+
+            &:hover {
+                background: rgba($color: $pale-cyan, $alpha: .25);
             }
         }
     }
