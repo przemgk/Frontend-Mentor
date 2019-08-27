@@ -13,7 +13,38 @@ $dark-blue: hsl(209, 33%, 12%);
 // Weights: 300, 600, 700
 
 body {
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 300;
     font-family: 'Libre Franklin', sans-serif;
+    color: $dark-blue;
+    padding: 0px 32px;
+}
 
+h1 {
+    font-size: 28px;
+    font-weight: 300;
+    text-align: center;
+    color: $gray;
+
+    strong {
+        color: $dark-blue;
+        font-weight: 700;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 72px auto 40px;
+
+    .header__logo {
+        width: 56px;
+    }
+}
+
+section {
+    img {
+        width: 100%;
+    }
 }

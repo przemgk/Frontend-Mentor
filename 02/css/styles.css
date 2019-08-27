@@ -5,8 +5,36 @@
 }
 
 body {
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 300;
   font-family: 'Libre Franklin', sans-serif;
+  color: #151f29;
+  padding: 0px 32px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 300;
+  text-align: center;
+  color: #969696;
+}
+h1 strong {
+  color: #151f29;
+  font-weight: 700;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 72px auto 40px;
+}
+header .header__logo {
+  width: 56px;
+}
+
+section img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
