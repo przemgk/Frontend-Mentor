@@ -15,7 +15,6 @@ body {
     font-weight: 300;
     font-family: 'Libre Franklin', sans-serif;
     color: $dark-blue;
-    padding: 0px 32px;
 }
 
 h1 {
@@ -52,7 +51,7 @@ section {
     }
 
     form {
-        margin: 40px 0px 72px;
+        margin: 40px 24px 72px;
 
         input {
             width: 100%;
@@ -117,8 +116,8 @@ footer {
 
     p {
         text-align: center;
-        margin: 32px 0px 40px;
+        margin: 32px 0px 56px;
         font-size: 14px;
-        color: rgba($color: $gray, $alpha: .4);
+        color: rgba($color: $gray, $alpha: .6);
     }
 }

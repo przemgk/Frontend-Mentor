@@ -1,13 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="86" height="26">
+<svg width="86" height="26" xmlns="http://www.w3.org/2000/svg">
+
     <defs>
         <style>
-            @import url("https://fonts.googleapis.com/css?family=Libre+Franklin:700")
+            @import url("https://fonts.googleapis.com/css?family=Libre+Franklin:700");
         </style>
     </defs>
 
-    <text fill="none" fill-rule="evenodd" font-family="LibreFranklin-Bold, Libre Franklin" font-size="32" font-weight="bold">
-        <tspan x="-2" y="25" fill="#15202a">PING</tspan>
-        <tspan x="79.312" y="25" fill="#4c7bf3">.</tspan>
+    <text transform="translate(-677 -86)" fill="none" fill-rule="evenodd" font-family="LibreFranklin-Bold, Libre Franklin" font-size="32" font-weight="bold">
+        <tspan x="675" y="111" fill="#15202A">PING</tspan>
+        <tspan x="756.312" y="111" fill="#4C7BF3">.</tspan>
     </text>
 
 </svg>

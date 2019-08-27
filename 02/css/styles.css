@@ -9,7 +9,6 @@ body {
   font-weight: 300;
   font-family: 'Libre Franklin', sans-serif;
   color: #151f29;
-  padding: 0px 32px;
 }
 
 h1 {
@@ -41,7 +40,7 @@ section p {
   text-align: center;
 }
 section form {
-  margin: 40px 0px 72px;
+  margin: 40px 24px 72px;
 }
 section form input {
   width: 100%;
@@ -96,9 +95,9 @@ footer .footer__socials a img {
 }
 footer p {
   text-align: center;
-  margin: 32px 0px 40px;
+  margin: 32px 0px 56px;
   font-size: 14px;
-  color: rgba(150, 150, 150, 0.4);
+  color: rgba(150, 150, 150, 0.6);
 }
 
 /*# sourceMappingURL=styles.css.map */
