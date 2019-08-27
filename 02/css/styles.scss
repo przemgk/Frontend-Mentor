@@ -59,9 +59,9 @@ section {
             border-radius: 100px;
             height: 40px;
             font-family: 'Libre Franklin', sans-serif;
+            outline: none;
 
             &.form__email {
-                margin-bottom: 12px;
                 border: 1px solid $pale-blue;
                 padding: 0px 24px;
                 font-size: 12px;
@@ -70,14 +70,24 @@ section {
                 &::placeholder {
                     color: rgba($color: $dark-blue, $alpha: .4);
                 }
+
+                &:focus {
+                    border: 1px solid $blue;
+                }
             }
 
             &.form__send {
+                margin-top: 16px;
                 background: $blue;
                 color: #ffffff;
                 text-transform: capitalize;
                 box-shadow: 0px 8px 16px rgba($color: $blue, $alpha: .25);
                 font-weight: 500;
+                transition: box-shadow .2s ease-in;
+
+                &:hover {
+                    box-shadow: none;
+                }
             }
         }
     }
@@ -103,9 +113,17 @@ footer {
             margin-right: 16px;
             border: 1px solid rgba($color: $pale-blue, $alpha: .4);
             border-radius: 50%;
+            transition-property: border, background;
+            transition-timing-function: ease-in;
+            transition-duration: .2s;
 
             &:last-child {
                 margin-right: 0px;
+            }
+
+            &:hover {
+                border: 1px solid rgba($color: $pale-blue, $alpha: 1);
+                background: rgba($color: $pale-blue, $alpha: .3);
             }
 
             img {
@@ -116,8 +134,23 @@ footer {
 
     p {
         text-align: center;
-        margin: 32px 0px 56px;
+        margin: 32px 0px 48px;
         font-size: 14px;
         color: rgba($color: $gray, $alpha: .6);
     }
+}
+
+//validation styles
+
+.form__input--error {
+    border: 1px solid $light-red;
+}
+
+.form__message--error {
+    display: none;
+    margin-top: 8px;
+    color: $light-red;
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
 }
