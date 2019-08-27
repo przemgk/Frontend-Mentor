@@ -59,6 +59,7 @@ section {
             border: none;
             border-radius: 100px;
             height: 40px;
+            font-family: 'Libre Franklin', sans-serif;
 
             &.form__email {
                 margin-bottom: 12px;
@@ -77,6 +78,7 @@ section {
                 color: #ffffff;
                 text-transform: capitalize;
                 box-shadow: 0px 8px 16px rgba($color: $blue, $alpha: .25);
+                font-weight: 500;
             }
         }
     }

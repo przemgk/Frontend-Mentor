@@ -48,6 +48,7 @@ section form input {
   border: none;
   border-radius: 100px;
   height: 40px;
+  font-family: 'Libre Franklin', sans-serif;
 }
 section form input.form__email {
   margin-bottom: 12px;
@@ -64,6 +65,7 @@ section form input.form__send {
   color: #ffffff;
   text-transform: capitalize;
   box-shadow: 0px 8px 16px rgba(79, 125, 243, 0.25);
+  font-weight: 500;
 }
 section img {
   width: 100%;
