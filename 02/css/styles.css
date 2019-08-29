@@ -159,7 +159,7 @@ footer p {
   color: rgba(150, 150, 150, 0.6);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 900px) {
   body {
     font-size: 16px;
   }
