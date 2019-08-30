@@ -1,0 +1,139 @@
+//colors
+$red: hsl(0, 100%, 74%);
+$green: hsl(154, 59%, 51%);
+$blue: hsl(248, 32%, 49%);
+$dark-blue: hsl(249, 10%, 26%);
+$grayish-blue: hsl(246, 25%, 77%);
+
+*, *::after, *::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;;
+}
+
+//fw 400 500 600 700
+
+body {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background: url(../assets/img/bg-intro-mobile.png) repeat-y center top;
+    background-color: $red;
+    color: #ffffff;
+    padding: 0px 24px;
+}
+
+.box-wrapper {
+    width: 100%;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 0px rgba($color: #000, $alpha: .15);
+}
+
+.form__message {
+    display: block;
+    width: 100%;
+    color: $red;
+    text-align: right;
+}
+
+header {
+    margin: 92px 0px 56px;
+
+    h1 {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 28*1.4px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    p {
+        text-align: center;
+        font-weight: 400;
+    }
+}
+
+section {
+    .section__try {
+        background: $blue;
+        font-weight: 400;
+        font-size: 14px;
+        text-align: center;
+        padding: 16px 24px;
+        margin-bottom: 24px;
+
+        span {
+            display: block;
+            padding: 0px 20%;
+            line-height: 14*1.8px;
+
+            strong {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .section__form {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        margin-bottom: 62px;
+
+        .form__input-box {
+            input {
+                width: 100%;
+                padding: 16px 18px;
+                margin-bottom: 16px;
+                border: 1px solid $grayish-blue;
+                border-radius: 10px;
+                outline: none;
+
+                &::placeholder {
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .form__submit {
+            width: 100%;
+            background: $green;
+            color: #ffffff;
+            border-radius: 10px;
+            border: none;
+            border-bottom: 4px solid darken($color: $green, $amount: 10%);
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 16px 0px;
+            margin-bottom: 16px;
+        }
+
+        .form__terms {
+            display: block;
+            margin: 0px auto;
+            width: 90%;
+            font-size: 12px;
+            color: $grayish-blue;
+            text-align: center;
+
+            a {
+                font-weight: 700;
+                text-decoration: none;
+                color: $red;
+            }
+        }
+    }
+}
+
+
+
+
+@media screen and (min-width: 600px) {
+    body {
+        background-image: url(../assets/img/bg-intro-desktop.png);
+        background-repeat: repeat;
+        background-position: left top;
+    }
+}
