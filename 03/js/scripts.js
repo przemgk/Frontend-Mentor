@@ -46,9 +46,9 @@ form.onsubmit = function (e) {
                 message.classList.add("message--error");
                 message.textContent = "Looks like this is not an email";
 
-                //input class
-                input.classList.remove("input--success");
-                input.classList.add("input--error");
+                //icon class
+                icon.classList.remove("icon--success");
+                icon.classList.add("icon--error");
 
                 //input class
                 input.classList.remove("input--success");
@@ -67,7 +67,7 @@ form.onsubmit = function (e) {
 
                 //input class
                 input.classList.remove("input--error");
-                input.classList.add("input--success");
+                input.classList.add("input--success")
             }
         }
     });
