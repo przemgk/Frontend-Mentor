@@ -67,7 +67,7 @@ form.onsubmit = function (e) {
 
                 //input class
                 input.classList.remove("input--error");
-                input.classList.add("input--success")
+                input.classList.add("input--success");
             }
         }
     });
