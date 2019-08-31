@@ -5,6 +5,10 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
   background: url(../assets/img/bg-intro-mobile.png) repeat-y center top;
@@ -23,8 +27,32 @@ body {
 .form__message {
   display: block;
   width: 100%;
-  color: #ff7a7a;
   text-align: right;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 4px;
+}
+.form__message.message--error {
+  color: #ff7a7a;
+}
+
+.input__icon {
+  display: none;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-12px);
+}
+.input__icon.icon--error {
+  display: block;
+  background: url(../assets/img/icon-error.svg) no-repeat;
+}
+.input__icon.icon--success {
+  display: block;
+  background: url(../assets/img/icon-success.svg) no-repeat;
 }
 
 header {
@@ -64,18 +92,34 @@ section .section__form {
   background: #ffffff;
   margin-bottom: 62px;
 }
-section .section__form .form__input-box input {
+section .section__form .form__input {
+  margin-bottom: 16px;
+}
+section .section__form .form__input .input__box {
+  position: relative;
+}
+section .section__form .form__input .input__box input {
   width: 100%;
   padding: 16px 18px;
-  margin-bottom: 16px;
   border: 1px solid #b9b6d3;
   border-radius: 10px;
   outline: none;
-}
-section .section__form .form__input-box input::placeholder {
   font-size: 12px;
+  color: #3e3c49;
   font-weight: 600;
-  text-transform: capitalize;
+}
+section .section__form .form__input .input__box input:focus {
+  border-color: #3e3c49;
+}
+section .section__form .form__input .input__box input.input--error {
+  padding-right: 64px;
+  border-width: 1.5px;
+  border-color: #ff7a7a;
+}
+section .section__form .form__input .input__box input.input--success {
+  padding-right: 64px;
+  border-width: 1.5px;
+  border-color: #38cc8c;
 }
 section .section__form .form__submit {
   width: 100%;
@@ -89,6 +133,15 @@ section .section__form .form__submit {
   font-weight: 700;
   padding: 16px 0px;
   margin-bottom: 16px;
+  transition: background .2s ease-in;
+  cursor: pointer;
+}
+section .section__form .form__submit:hover {
+  background: rgba(56, 204, 140, 0.75);
+}
+section .section__form .form__submit[disabled='disabled'] {
+  background: rgba(56, 204, 140, 0.55);
+  border: none;
 }
 section .section__form .form__terms {
   display: block;
@@ -109,5 +162,50 @@ section .section__form .form__terms a {
     background-image: url(../assets/img/bg-intro-desktop.png);
     background-repeat: repeat;
     background-position: left top;
+    padding: 0px 10%;
+  }
+}
+@media screen and (min-width: 768px) {
+  body {
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 5%;
+  }
+
+  header {
+    width: 45%;
+    margin: 0px 5% 0px 0px;
+  }
+  header h1 {
+    font-size: 48px;
+    line-height: 57.6px;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+  header p {
+    text-align: left;
+  }
+
+  section {
+    width: 50%;
+  }
+  section .section__try {
+    padding: 16px;
+  }
+  section .section__try span {
+    padding: 0px 5%;
+  }
+  section .section__form {
+    margin-bottom: 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  body {
+    padding: 0px 10%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  body {
+    padding: 0px 15%;
   }
 }

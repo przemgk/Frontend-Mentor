@@ -11,9 +11,11 @@ $grayish-blue: hsl(246, 25%, 77%);
     box-sizing: border-box;;
 }
 
-//fw 400 500 600 700
-
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     background: url(../assets/img/bg-intro-mobile.png) repeat-y center top;
@@ -32,8 +34,35 @@ body {
 .form__message {
     display: block;
     width: 100%;
-    color: $red;
     text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 4px;
+
+    &.message--error {
+        color: $red;
+    }
+}
+
+.input__icon {
+    display: none;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-12px);
+
+    &.icon--error {
+        display: block;
+        background: url(../assets/img/icon-error.svg) no-repeat;
+    }
+
+    &.icon--success {
+        display: block;
+        background: url(../assets/img/icon-success.svg) no-repeat;
+    }
 }
 
 header {
@@ -79,19 +108,37 @@ section {
         background: #ffffff;
         margin-bottom: 62px;
 
-        .form__input-box {
-            input {
-                width: 100%;
-                padding: 16px 18px;
-                margin-bottom: 16px;
-                border: 1px solid $grayish-blue;
-                border-radius: 10px;
-                outline: none;
+        .form__input {
+            margin-bottom: 16px;
 
-                &::placeholder {
+            .input__box {
+                position: relative;
+
+                input {
+                    width: 100%;
+                    padding: 16px 18px;
+                    border: 1px solid $grayish-blue;
+                    border-radius: 10px;
+                    outline: none;
                     font-size: 12px;
+                    color: $dark-blue;
                     font-weight: 600;
-                    text-transform: capitalize;
+
+                    &:focus {
+                        border-color: $dark-blue;
+                    }
+
+                    &.input--error {
+                        padding-right: 64px;
+                        border-width: 1.5px;
+                        border-color: $red;
+                    }
+
+                    &.input--success {
+                        padding-right: 64px;
+                        border-width: 1.5px;
+                        border-color: $green;
+                    }
                 }
             }
         }
@@ -108,6 +155,17 @@ section {
             font-weight: 700;
             padding: 16px 0px;
             margin-bottom: 16px;
+            transition: background .2s ease-in;
+            cursor: pointer;
+
+            &:hover {
+                background: rgba($color: $green, $alpha: .75);
+            }
+
+            &[disabled='disabled'] {
+                background: rgba($color: $green, $alpha: .55);
+                border: none;
+            }
         }
 
         .form__terms {
@@ -127,13 +185,63 @@ section {
     }
 }
 
-
-
-
 @media screen and (min-width: 600px) {
     body {
         background-image: url(../assets/img/bg-intro-desktop.png);
         background-repeat: repeat;
         background-position: left top;
+        padding: 0px 10%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        flex-direction: row;
+        align-items: center;
+        padding: 0px 5%;
+    }
+
+    header {
+        width: 45%;
+        margin: 0px 5% 0px 0px;
+
+        h1 {
+            font-size: 48px;
+            line-height: 48*1.2px;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        p {
+            text-align: left;
+        }
+    }
+
+    section {
+        width: 50%;
+
+        .section__try {
+            padding: 16px;
+
+            span {
+                padding: 0px 5%;
+            }
+        }
+
+        .section__form {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    body {
+        padding: 0px 10%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        padding: 0px 15%;
     }
 }
