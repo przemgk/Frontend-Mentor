@@ -109,6 +109,7 @@ section .section__form .form__input .input__box input {
   font-size: 12px;
   color: #3e3c49;
   font-weight: 600;
+  appearance: none;
 }
 section .section__form .form__input .input__box input:focus {
   border-color: #3e3c49;
