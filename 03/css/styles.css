@@ -39,20 +39,22 @@ body {
 .input__icon {
   display: none;
   position: absolute;
-  width: 24px;
-  height: 24px;
+  background-position: center;
+  width: 16px;
+  height: 16px;
   right: 24px;
   top: 50%;
-  transform: scale(0.75);
-  margin-top: -12px;
+  transform: translateY(-8px);
 }
 .input__icon.icon--error {
   display: block;
   background: url(../assets/img/icon-error.svg) no-repeat;
+  background-size: 16px;
 }
 .input__icon.icon--success {
   display: block;
   background: url(../assets/img/icon-success.svg) no-repeat;
+  background-size: 16px;
 }
 
 header {
@@ -174,8 +176,15 @@ section .section__form .form__terms a {
   }
 
   .input__icon {
+    width: 24px;
+    height: 24px;
     transform: translateY(-12px);
-    margin-top: 0px;
+  }
+  .input__icon.icon--error {
+    background-size: 24px;
+  }
+  .input__icon.icon--success {
+    background-size: 24px;
   }
 
   header {

@@ -47,21 +47,23 @@ body {
 .input__icon {
     display: none;
     position: absolute;
-    width: 24px;
-    height: 24px;
+    background-position: center;
+    width: 16px;
+    height: 16px;
     right: 24px;
     top: 50%;
-    transform: scale(.75);
-    margin-top: -12px;
+    transform: translateY(-8px);
 
     &.icon--error {
         display: block;
         background: url(../assets/img/icon-error.svg) no-repeat;
+        background-size: 16px;
     }
 
     &.icon--success {
         display: block;
         background: url(../assets/img/icon-success.svg) no-repeat;
+        background-size: 16px;
     }
 }
 
@@ -203,8 +205,17 @@ section {
     }
 
     .input__icon {
+        width: 24px;
+        height: 24px;
         transform: translateY(-12px);
-        margin-top: 0px;
+
+        &.icon--error {
+            background-size: 24px;
+        }
+
+        &.icon--success {
+            background-size: 24px;
+        }
     }
 
     header {
