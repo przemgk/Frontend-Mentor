@@ -47,11 +47,12 @@ body {
 .input__icon {
     display: none;
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     right: 24px;
     top: 50%;
-    transform: translateY(-8px);
+    transform: scale(.75);
+    margin-top: -12px;
 
     &.icon--error {
         display: block;
@@ -202,10 +203,8 @@ section {
     }
 
     .input__icon {
-        width: 24px;
-        height: 24px;
-        right: 24px;
         transform: translateY(-12px);
+        margin-top: 0px;
     }
 
     header {
