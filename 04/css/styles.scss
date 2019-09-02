@@ -1,0 +1,135 @@
+//colors
+$dark-blue: hsl(243, 87%, 12%);
+$desaturated-blue: hsl(238, 22%, 44%);
+$bright-blue: hsl(224, 93%, 58%);
+$moderate-cyan: hsl(170, 45%, 43%);
+$light-grayish-blue: hsl(240, 75%, 98%);
+$light-gray: hsl(0, 0%, 75%);
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+//Headings, Call-to-actions, Header Navigation -> Raleway
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 14*1.6px;
+    font-weight: 400;
+    color: $dark-blue;
+}
+
+h1, h2, h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 26px;
+    line-height: 26*1.5px;
+}
+
+.cta-button {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    background: $bright-blue;
+    text-transform: capitalize;
+    box-shadow: 0px 4px 16px rgba($color: $dark-blue, $alpha: .25);
+}
+
+.header {
+    padding: 24px 24px 90px;
+
+    .header__nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 90px;
+
+        .header__logo {
+            display: flex;
+            width: 80px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .header__nav {
+            .nav__list {
+                display: flex;
+                list-style: none;
+
+                .nav__item {
+                    padding-right: 24px;
+
+                    &:last-child {
+                        padding-right: 0px;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: $dark-blue;
+                    }
+                }
+            }
+        }
+    }
+
+    .header__welcome-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .welcome-wrapper__illustration {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .welcome-wrapper__get-started {
+            h1 {
+                text-align: center;
+                margin-bottom: 24px;
+            }
+
+            p {
+                // width: 90%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .welcome-wrapper__form {
+                margin-top: 32px;
+
+                .form__email-input {
+                    width: 100%;
+                    border: 1px solid $dark-blue;
+                    border-radius: 4px;
+                    padding: 12px 16px;
+                    color: $dark-blue;
+                    outline: none;
+                    box-shadow: 0px 4px 8px rgba($color: $dark-blue, $alpha: .1);
+
+
+                    &::placeholder {
+                        color: $light-gray;
+                    }
+                }
+
+                .form__submit-button {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+}
