@@ -71,6 +71,8 @@ h1 {
 
                 .nav__item {
                     padding-right: 24px;
+                    font-family: 'Raleway';
+                    font-weight: 400;
 
                     &:last-child {
                         padding-right: 0px;
@@ -117,6 +119,9 @@ h1 {
                     padding: 12px 16px;
                     color: $dark-blue;
                     outline: none;
+                    -moz-appearance: none;
+                    -webkit-appearance: none;
+                    appearance: none;
                     box-shadow: 0px 4px 8px rgba($color: $dark-blue, $alpha: .1);
 
 
@@ -129,6 +134,16 @@ h1 {
                     margin-top: 16px;
                 }
             }
+        }
+    }
+}
+
+.main {
+    .main__stay-productive-wrapper {
+        padding: 112px 24px 80px;
+
+        .stay-productive-wrapper__illustration {
+            width: 100%;
         }
     }
 }

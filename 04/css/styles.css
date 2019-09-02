@@ -58,6 +58,8 @@ h1 {
 }
 .header .header__nav-wrapper .header__nav .nav__list .nav__item {
   padding-right: 24px;
+  font-family: 'Raleway';
+  font-weight: 400;
 }
 .header .header__nav-wrapper .header__nav .nav__list .nav__item:last-child {
   padding-right: 0px;
@@ -94,6 +96,9 @@ h1 {
   padding: 12px 16px;
   color: #070439;
   outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   box-shadow: 0px 4px 8px rgba(7, 4, 57, 0.1);
 }
 .header .header__welcome-wrapper .welcome-wrapper__get-started .welcome-wrapper__form .form__email-input::placeholder {
@@ -101,4 +106,11 @@ h1 {
 }
 .header .header__welcome-wrapper .welcome-wrapper__get-started .welcome-wrapper__form .form__submit-button {
   margin-top: 16px;
+}
+
+.main .main__stay-productive-wrapper {
+  padding: 112px 24px 80px;
+}
+.main .main__stay-productive-wrapper .stay-productive-wrapper__illustration {
+  width: 100%;
 }
