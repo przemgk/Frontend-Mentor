@@ -153,8 +153,7 @@ h3 {
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__review .review__quotes {
   display: block;
-  width: 12px;
-  height: auto;
+  height: 12px;
   margin-bottom: 10px;
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__review .review__text {
