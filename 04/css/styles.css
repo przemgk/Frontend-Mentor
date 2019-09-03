@@ -153,6 +153,9 @@ h3 {
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__review .review__quotes {
   width: 13px;
+  height: 12px;
+  background: url(../assets/img/icon-quotes.svg) no-repeat center center;
+  background-size: contain;
   margin-bottom: 10px;
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__review .review__text {
