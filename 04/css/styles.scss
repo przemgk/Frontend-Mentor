@@ -368,6 +368,7 @@ h2 {
             border: 1px solid #ffffff;
             border-radius: 50%;
             margin-right: 12px;
+            transition: background .2s ease-in;
 
             &:last-child {
                 margin-right: 0px;
@@ -376,21 +377,38 @@ h2 {
             .socials__facebook, .socials__twitter, .socials__instagram {
                 width: 14px;
                 height: 14px;
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: contain;
+                -webkit-mask-repeat: no-repeat;
+                -webkit-mask-position: center center;
+                -webkit-mask-size: contain;
+                mask-repeat: no-repeat;
+                mask-position: center center;
+                mask-size: contain;
             }
 
             .socials__facebook {
-                background-image: url(../assets/img/icon-facebook.svg);
+                -webkit-mask-image: url(../assets/img/icon-facebook.svg);
+                mask-image: url(../assets/img/icon-facebook.svg);
+                background: #ffffff;
             }
 
             .socials__twitter {
-                background-image: url(../assets/img/icon-twitter.svg);
+                -webkit-mask-image: url(../assets/img/icon-twitter.svg);
+                mask-image: url(../assets/img/icon-twitter.svg);
+                background: #ffffff;
             }
 
             .socials__instagram {
-                background-image: url(../assets/img/icon-instagram.svg);
+                -webkit-mask-image: url(../assets/img/icon-instagram.svg);
+                mask-image: url(../assets/img/icon-instagram.svg);
+                background: #ffffff;
+            }
+
+            &:hover {
+                background: #ffffff;
+
+                .socials__facebook, .socials__twitter, .socials__instagram {
+                    background: $dark-blue;
+                }
             }
         }
     }
