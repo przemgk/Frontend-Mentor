@@ -32,6 +32,11 @@ h1 {
     line-height: 30*1.4px;
 }
 
+h3 {
+    font-size: 18px;
+    line-height: 18*1.4px;
+}
+
 .cta-button {
     width: 100%;
     font-family: 'Open Sans', sans-serif;
@@ -139,11 +144,95 @@ h1 {
 }
 
 .main {
+
     .main__stay-productive-wrapper {
         padding: 112px 24px 80px;
+        background: $light-grayish-blue;
 
         .stay-productive-wrapper__illustration {
             width: 100%;
+            margin-bottom: 80px;
+        }
+
+        .stay-productive-wrapper__description {
+            .description__header {
+                text-align: center;
+                margin-bottom: 32px;
+            }
+
+            .description__paragraph {
+                &:nth-child(even) {
+                    margin-bottom: 16px;
+                }
+            }
+
+            .description__see-how {
+                display: flex;
+                align-items: center;
+                margin: 40px auto;
+                padding: 6px 0px;
+                background: none;
+                border: none;
+                border-bottom: 1px solid $moderate-cyan;
+                color: $moderate-cyan;
+                font-family: 'Raleway';
+                font-weight: 400;
+                cursor: pointer;
+
+                img {
+                    margin-left: 8px;
+                }
+            }
+
+            .description__review {
+                background: #fff;
+                border-radius: 4px;
+                margin: 0px 8px;
+                padding: 24px 32px;
+                box-shadow: 0px 4px 12px rgba($color: $dark-blue, $alpha: .1);
+
+                .review__quotes {
+                    display: block;
+                    width: 12px;
+                    height: 12px;
+                    margin-bottom: 14px;
+                }
+
+                .review__text {
+                    display: block;
+                    font-size: 12px;
+                    font-style: normal;
+                    margin-bottom: 14px;
+                }
+
+                .review__author {
+                    display: flex;
+                    align-items: center;
+
+                    .author__avatar {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        margin-right: 8px;
+                    }
+
+                    .author__signature {
+                        display: flex;
+                        flex-direction: column;
+
+                        .signature__name {
+                            font-size: 12px;
+                            line-height: 14px;
+                            margin-bottom: 2px;
+                        }
+
+                        .signature__position {
+                            font-size: 10px;
+                            line-height: 12px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
