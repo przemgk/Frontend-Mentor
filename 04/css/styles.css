@@ -38,6 +38,13 @@ h2 {
   background: #3065f8;
   text-transform: capitalize;
   box-shadow: 0px 4px 16px rgba(7, 4, 57, 0.25);
+  cursor: pointer;
+  -webkit-transition: box-shadow .2s ease-in;
+  -o-transition: box-shadow .2s ease-in;
+  transition: box-shadow .2s ease-in;
+}
+.cta-button:hover {
+  box-shadow: 0px 4px 16px rgba(7, 4, 57, 0.5);
 }
 
 .form .form__input {
@@ -86,8 +93,26 @@ h2 {
   padding-right: 0px;
 }
 .header .header__nav-wrapper .header__nav .nav__list .nav__item a {
+  position: relative;
   text-decoration: none;
   color: #070439;
+}
+.header .header__nav-wrapper .header__nav .nav__list .nav__item a::after {
+  position: absolute;
+  content: '';
+  width: 0%;
+  height: 1.5px;
+  bottom: -4px;
+  left: 0;
+  background: #070439;
+  visibility: hidden;
+  -webkit-transition: width .3s ease-in, visibility .3s ease-in;
+  -o-transition: width .3s ease-in, visibility .3s ease-in;
+  transition: width .3s ease-in, visibility .3s ease-in;
+}
+.header .header__nav-wrapper .header__nav .nav__list .nav__item a:hover::after {
+  visibility: visible;
+  width: 100%;
 }
 .header .header__welcome-wrapper {
   display: flex;
@@ -135,7 +160,7 @@ h2 {
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__header {
   text-align: center;
-  margin: 32px;
+  margin-bottom: 32px;
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__paragraph:nth-child(even) {
   margin-bottom: 16px;
@@ -296,6 +321,8 @@ h2 {
   border: 1px solid #ffffff;
   border-radius: 50%;
   margin-right: 12px;
+  -webkit-transition: background .2s ease-in;
+  -o-transition: background .2s ease-in;
   transition: background .2s ease-in;
 }
 .footer .footer__socials a:last-child {
