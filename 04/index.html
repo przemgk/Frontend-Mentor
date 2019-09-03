@@ -26,6 +26,7 @@
                 </ul>
             </nav>
         </section>
+
         <section class="header__welcome-wrapper">
             <img class="welcome-wrapper__illustration" src="assets/img/illustration-1.svg"
                 alt="All your files in one secure location, accessible anywhere">
@@ -33,20 +34,25 @@
                 <h1>All your files in one secure location, accessible anywhere.</h1>
                 <p>Fylo stores your most important files in one secure location. Access them wherever you need, share
                     and collaborate with friends, family, and co-workers.</p>
-                <form class="welcome-wrapper__form" method="POST" action="index.html">
-                    <input class="form__email-input" type="email" placeholder="Enter your email..."
+                <form class="welcome-wrapper__form form" method="POST" action="index.html">
+                    <input class="form__input" type="email" placeholder="Enter your email..."
                         aria-label="Email address">
                     <button class="form__submit-button cta-button">Get started</button>
                 </form>
             </div>
         </section>
     </header>
+
     <main class="main">
+        <div class="bg-wave">
+            <img src="assets/img/bg-curve-mobile.svg" alt="Background curve">
+        </div>
+
         <section class="main__stay-productive-wrapper">
             <img class="stay-productive-wrapper__illustration" src="assets/img/illustration-2.svg"
                 alt="Stay productive, whereever you are">
             <div class="stay-productive-wrapper__description">
-                <h3 class="description__header">Stay productive, whereever you are</h3>
+                <h2 class="description__header">Stay productive, whereever you are</h2>
                 <p class="description__paragraph">Never let location be an issue when accessing your files. Fylo has you
                     covered for all of your file
                     storage needs.</p>
@@ -71,9 +77,59 @@
                 </div>
             </div>
         </section>
-        <section class="main__early-access-wrapper"></section>
+
+        <section class="main__early-access-wrapper">
+            <h2 class="early-access-wrapper__header">Get early access today</h2>
+            <p class="early-access-wrapper__description">It only takes a minute to sign up and our free starter tier is
+                extremely generous. If you have any questions, our support team would be happy to help you.</p>
+            <form class="early-access-wrapper__form form" method="POST" action="index.html">
+                <input class="form__input" type="email" placeholder="email@example.com" aria-label="Email address">
+                <button class="form__submit-button cta-button" type="submit">Get started for free</button>
+            </form>
+        </section>
     </main>
-    <footer></footer>
+
+    <footer class="footer">
+        <a class="footer__logo" href="index.html">
+            <div></div>
+        </a>
+
+        <section class="footer__section-box footer__contact">
+            <div><img src="assets/img/icon-phone.svg" alt="Phone number"><span>Phone: <a
+                        href="tel:+000000000">1-543-123-4567</a></span></div>
+            <div><img src="assets/img/icon-email.svg" alt="Email address"><span><a
+                        href="mailto:example@fylo.com">example@fylo.com</a></span></div>
+        </section>
+
+        <section class="footer__section-box footer__info">
+            <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </section>
+
+        <section class="footer__section-box footer__info">
+            <ul>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+        </section>
+
+        <section class="footer__section-box footer__socials">
+            <a href="http://facebook.com">
+                <div class="socials__facebook"></div>
+            </a>
+            <a href="http://twitter.com">
+                <div class="socials__twitter"></div>
+            </a>
+            <a href="http:instagram.com">
+                <div class="socials__instagram"></div>
+            </a>
+        </section>
+    </footer>
 </body>
 
 </html>
