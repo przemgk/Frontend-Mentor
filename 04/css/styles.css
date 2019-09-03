@@ -155,13 +155,13 @@ h3 {
   display: block;
   width: 12px;
   height: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__review .review__text {
   display: block;
   font-size: 12px;
   font-style: normal;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .main .main__stay-productive-wrapper .stay-productive-wrapper__description .description__review .review__author {
   display: flex;
