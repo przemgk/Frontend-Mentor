@@ -433,10 +433,10 @@ h2 {
                 height: 14px;
                 -webkit-mask-repeat: no-repeat;
                 -webkit-mask-position: center center;
-                -webkit-mask-size: auto 16px;
+                -webkit-mask-size: contain;
                 mask-repeat: no-repeat;
                 mask-position: center center;
-                mask-size: auto 16px;
+                mask-size: contain;
             }
 
             .socials__facebook {
