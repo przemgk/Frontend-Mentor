@@ -21,9 +21,9 @@
                     alt="Fylo"></a>
             <nav class="header__nav">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#">Features</a></li>
-                    <li class="nav__item"><a href="#">Team</a></li>
-                    <li class="nav__item"><a href="#">Sign in</a></li>
+                    <li class="nav__item"><a class="link-animated-underline" href="#">Features</a></li>
+                    <li class="nav__item"><a class="link-animated-underline" href="#">Team</a></li>
+                    <li class="nav__item"><a class="link-animated-underline" href="#">Sign in</a></li>
                 </ul>
             </nav>
         </section>
@@ -46,7 +46,8 @@
 
     <main class="main">
         <div class="bg-wave">
-            <img src="assets/img/bg-curve-mobile.svg" alt="Background curve">
+            <img class="wave--mobile" src="assets/img/bg-curve-mobile.svg" alt="Background curve">
+            <img class="wave--desktop" src="assets/img/bg-curve-desktop.svg" alt="Background curve">
         </div>
 
         <section class="main__stay-productive-wrapper">
@@ -80,9 +81,11 @@
         </section>
 
         <section class="main__early-access-wrapper">
-            <h2 class="early-access-wrapper__header">Get early access today</h2>
-            <p class="early-access-wrapper__description">It only takes a minute to sign up and our free starter tier is
-                extremely generous. If you have any questions, our support team would be happy to help you.</p>
+            <div>
+                <h2 class="early-access-wrapper__header">Get early access today</h2>
+                <p class="early-access-wrapper__description">It only takes a minute to sign up and our free starter tier
+                    is extremely generous. If you have any questions, our support team would be happy to help you.</p>
+            </div>
             <form class="early-access-wrapper__form form" method="POST" action="index.html">
                 <input class="form__input" type="email" placeholder="email@example.com" aria-label="Email address">
                 <button class="form__submit-button cta-button" type="submit">Get started for free</button>
