@@ -6,6 +6,11 @@ $moderate-cyan: hsl(170, 45%, 43%);
 $light-grayish-blue: hsl(240, 75%, 98%);
 $light-gray: hsl(0, 0%, 75%);
 
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 *, *::after, *::before {
     box-sizing: border-box;
     margin: 0;
@@ -101,7 +106,7 @@ h2 {
 }
 
 .header {
-    padding: 24px 24px 90px;
+    padding: 24px 24px 143px;
 
     .header__nav-wrapper {
         display: flex;
@@ -177,20 +182,19 @@ h2 {
 }
 
 .main {
-    overflow: hidden;
+    position: relative;
 
-    .bg-wave {
-        display: flex;
+    &::before {
+        position: absolute;
         width: 100%;
-
-        img {
-            width: 100%;
-            height: auto;
-
-            &.wave--desktop {
-                display: none;
-            }
-        }
+        height: 53px;
+        top: -53px;
+        content: '';
+        background-image: url(../assets/img/bg-curve-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+        z-index: -1;
     }
 
     .main__stay-productive-wrapper {
@@ -336,18 +340,9 @@ h2 {
         width: 100%;
         margin-bottom: 40px;
 
-        div {
+        img {
             width: 160px;
-            height: 48px;
-            -webkit-mask-image: url(../assets/img/logo.svg);
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-position: top left;
-            -webkit-mask-size: contain;
-            mask-image: url(../assets/img/logo.svg);
-            mask-repeat: no-repeat;
-            mask-position: top left;
-            mask-size: contain;
-            background: #ffffff;
+            filter: contrast(0) brightness(100);
         }
     }
 
@@ -415,8 +410,8 @@ h2 {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             border: 1px solid #ffffff;
             border-radius: 50%;
             margin-right: 12px;
@@ -429,32 +424,32 @@ h2 {
             }
 
             .socials__facebook, .socials__twitter, .socials__instagram {
-                width: 14px;
-                height: 14px;
-                -webkit-mask-repeat: no-repeat;
-                -webkit-mask-position: center center;
+                width: 16px;
+                height: 16px;
                 -webkit-mask-size: contain;
-                mask-repeat: no-repeat;
-                mask-position: center center;
+                -webkit-mask-repeat: no-repeat;
+                -webkit-mask-position: center;
                 mask-size: contain;
+                mask-repeat: no-repeat;
+                mask-position: center;
             }
 
             .socials__facebook {
                 -webkit-mask-image: url(../assets/img/icon-facebook.svg);
                 mask-image: url(../assets/img/icon-facebook.svg);
-                background: #ffffff;
+                background-color: #ffffff;
             }
 
             .socials__twitter {
                 -webkit-mask-image: url(../assets/img/icon-twitter.svg);
                 mask-image: url(../assets/img/icon-twitter.svg);
-                background: #ffffff;
+                background-color: #ffffff;
             }
 
             .socials__instagram {
                 -webkit-mask-image: url(../assets/img/icon-instagram.svg);
                 mask-image: url(../assets/img/icon-instagram.svg);
-                background: #ffffff;
+                background-color: #ffffff;
             }
 
             &:hover {
@@ -464,6 +459,20 @@ h2 {
                     background: $dark-blue;
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .footer {
+        flex-direction: row;
+
+        .footer__contact {
+            width: 100%;
+        }
+
+        .footer__info {
+            width: 50%;
         }
     }
 }
@@ -485,7 +494,7 @@ h2 {
     }
 
     .header {
-        padding: 64px 72px 120px;
+        padding: 64px 72px 234px;
 
         .header__welcome-wrapper {
             .welcome-wrapper__illustration {
@@ -495,16 +504,10 @@ h2 {
     }
 
     .main {
-        .bg-wave {
-            img {
-                &.wave--desktop {
-                    display: block;
-                }
-
-                &.wave--mobile {
-                    display: none;
-                }
-            }
+        &::before {
+            height: 114px;
+            top: -114px;
+            background-image: url(../assets/img/bg-curve-desktop.svg);
         }
 
         .main__stay-productive-wrapper {
@@ -541,7 +544,7 @@ h2 {
 
 @media screen and(min-width: 1024px) {
     .header {
-        padding-bottom: 160px;
+        padding-bottom: 274px;
 
         .header__nav-wrapper {
             .header__nav {
