@@ -112,6 +112,7 @@ h1 {
             border: none;
             background: url(../assets/img/icon-arrow.svg) no-repeat center center, $gradient2;
             background-size: auto 20px, cover;
+            box-shadow: 0px 16px 24px rgba($color: $dark-grayish-red, $alpha: .15);
         }
     }
 }
