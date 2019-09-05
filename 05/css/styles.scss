@@ -4,8 +4,8 @@ $soft-red: hsl(0, 93%, 68%);
 $dark-grayish-red: hsl(0, 6%, 24%);
 
 //gradients
-//- Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
-//- Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%)
+$gradient1: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 100%, 98%) 100%);
+$gradient2: linear-gradient(135deg, hsl(0, 80%, 86%) 0%, hsl(0, 74%, 74%) 100%);
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -21,8 +21,81 @@ $dark-grayish-red: hsl(0, 6%, 24%);
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 14px;
+    font-weight: 400;
+    color: $dark-grayish-red;
+}
 
-    @media screen and (min-width: 768px) {
-        font-size: 16px;
+h1 {
+    font-size: 48px;
+    line-height: 48*1.1px;
+}
+
+.header {
+    width: 100%;
+    padding: 32px;
+    background: #ffffff;
+
+    .header__logo {
+        display: flex;
+        width: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.hero-photo {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: url(../assets/img/hero-mobile.jpg) no-repeat top left;
+    background-size: cover;
+}
+
+.main {
+    background: $gradient1;
+    padding: 72px 32px 92px;
+
+    .main__header {
+        margin: 0 auto 32px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 12px;
+
+        span {
+            font-weight: 300;
+            color: $desaturated-red;
+        }
+    }
+
+    .main__description {
+        text-align: center;
+        color: $desaturated-red;
+        line-height: 14*1.6px;
+        margin-bottom: 40px;
+    }
+
+    .main__form {
+        width: 100%;
+
+        .form__email-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 16px 24px;
+            border: 1px solid rgba($color: $desaturated-red, $alpha: .75);
+            border-radius: 100px;
+            background: rgba(0, 0, 0, 0);
+
+            &::placeholder {
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 600;
+                color: rgba($color: $desaturated-red, $alpha: .35);
+                text-transform: capitalize;
+            }
+        }
     }
 }
