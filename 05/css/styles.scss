@@ -58,7 +58,7 @@ h1 {
     padding: 72px 32px 92px;
 
     .main__header {
-        margin: 0 auto 32px;
+        margin: 0 auto 16px;
         text-align: center;
         text-transform: uppercase;
         font-weight: 600;
@@ -86,14 +86,14 @@ h1 {
             appearance: none;
             width: 100%;
             padding: 16px 24px;
-            border: 1px solid rgba($color: $desaturated-red, $alpha: .75);
+            border: 1px solid rgba($color: $desaturated-red, $alpha: .45);
             border-radius: 100px;
             background: rgba(0, 0, 0, 0);
 
             &::placeholder {
                 font-family: 'Josefin Sans', sans-serif;
                 font-weight: 600;
-                color: rgba($color: $desaturated-red, $alpha: .35);
+                color: rgba($color: $desaturated-red, $alpha: .5);
                 text-transform: capitalize;
             }
         }
