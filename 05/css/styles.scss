@@ -21,6 +21,7 @@ $gradient2: linear-gradient(135deg, hsl(0, 80%, 86%) 0%, hsl(0, 74%, 74%) 100%);
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
+    line-height: 16*1.6px;
     font-weight: 400;
     color: $dark-grayish-red;
 }
@@ -73,11 +74,11 @@ h1 {
     .main__description {
         text-align: center;
         color: $desaturated-red;
-        line-height: 16*1.6px;
         margin-bottom: 40px;
     }
 
     .main__form {
+        position: relative;
         width: 100%;
 
         .form__email-input {
@@ -89,6 +90,7 @@ h1 {
             border: 1px solid rgba($color: $desaturated-red, $alpha: .45);
             border-radius: 100px;
             background: rgba(0, 0, 0, 0);
+            outline: none;
 
             &::placeholder {
                 font-family: 'Josefin Sans', sans-serif;
@@ -97,6 +99,19 @@ h1 {
                 color: rgba($color: $desaturated-red, $alpha: .5);
                 text-transform: capitalize;
             }
+        }
+
+        .form__submit {
+            position: absolute;
+            display: block;
+            width: 64px;
+            height: 100%;
+            top: 0;
+            right: 0;
+            border-radius: 100px;
+            border: none;
+            background: url(../assets/img/icon-arrow.svg) no-repeat center center, $gradient2;
+            background-size: auto 18px, cover;
         }
     }
 }
