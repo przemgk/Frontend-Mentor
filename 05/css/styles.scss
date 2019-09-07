@@ -176,7 +176,8 @@ h1 {
 
 @media screen and (min-width: 768px) {
     body {
-        background: url(../assets/img/bg-pattern-desktop.svg) top left/70% 100vh no-repeat, $gradient1;
+        min-height: 100vh;
+        background: url(../assets/img/bg-pattern-desktop.svg) top left/70% 100% no-repeat, $gradient1;
     }
 
     h1 {
