@@ -11,7 +11,7 @@ form.onsubmit = e => {
 
         messageBox.classList.remove("message--error");
         messageBox.classList.add("message--success");
-        messageBox.textContent = "Success!";
+        messageBox.textContent = "Your email addres has been saved!!";
 
         errorIcon.classList.remove("message-icon--error");
 
