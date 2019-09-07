@@ -76,43 +76,163 @@ h1 {
         color: $desaturated-red;
         margin-bottom: 40px;
     }
+}
 
-    .main__form {
-        position: relative;
+.form__input-box {
+    position: relative;
+
+    .form__email-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         width: 100%;
+        padding: 16px 80px 16px 24px;
+        border: 1px solid rgba($color: $desaturated-red, $alpha: .45);
+        border-radius: 100px;
+        background: rgba(0, 0, 0, 0);
+        outline: none;
+        font-weight: 600;
 
-        .form__email-input {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            width: 100%;
-            padding: 16px 24px;
-            border: 1px solid rgba($color: $desaturated-red, $alpha: .45);
-            border-radius: 100px;
-            background: rgba(0, 0, 0, 0);
-            outline: none;
-
-            &::placeholder {
-                font-family: 'Josefin Sans', sans-serif;
-                font-size: 14px;
-                font-weight: 600;
-                color: rgba($color: $desaturated-red, $alpha: .5);
-                text-transform: capitalize;
-            }
+        &::placeholder {
+            color: rgba($color: $desaturated-red, $alpha: .5);
+            text-transform: capitalize;
         }
 
-        .form__submit {
+        &:focus {
+            border-color: rgba($color: $desaturated-red, $alpha: 1);
+        }
+
+        &.error-data {
+            border-color: $soft-red;
+            border-width: 1.5px;
+            padding-right: 112px;
+        }
+    }
+
+    .form__submit {
+        position: absolute;
+        display: block;
+        width: 64px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        border-radius: 100px;
+        border: none;
+        background: url(../assets/img/icon-arrow.svg) no-repeat center center, $gradient2;
+        background-size: auto 20px, cover;
+        box-shadow: 0px 16px 16px rgba($color: $dark-grayish-red, $alpha: .15);
+
+        &::after {
             position: absolute;
-            display: block;
-            width: 64px;
+            content: '';
+            width: 100%;
             height: 100%;
             top: 0;
             right: 0;
             border-radius: 100px;
-            border: none;
-            background: url(../assets/img/icon-arrow.svg) no-repeat center center, $gradient2;
-            background-size: auto 20px, cover;
             box-shadow: 0px 16px 16px rgba($color: $dark-grayish-red, $alpha: .15);
+            opacity: 0;
+            will-change: opacity;
+            transition: opacity .3s ease-in;
         }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+}
+
+.form__message {
+    display: none;
+    font-size: 12px;
+    margin: 4px 0px 0px 24px;
+
+    &.message--error {
+        display: block;
+        color: $soft-red;
+    }
+
+    &.message--success {
+        display: block;
+        color: green;
+    }
+}
+
+.form__message-icon {
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-12px);
+    transform-origin: center center;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity .3s ease-in;
+
+    &.message-icon--error {
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 64px;
+        line-height: 64*1.1px;
+    }
+
+    .header {
+        width: 70%;
+        padding: 64px;
+        background: none;
+
+        .header__logo {
+            width: 160px;
+        }
+    }
+
+    .hero-photo {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100%;
+        background-image: url(../assets/img/hero-desktop.jpg);
+    }
+
+    .main {
+        width: 70%;
+        background: none;
+        padding: 112px 64px;
+
+        .main__header {
+            margin: 0 0 40px;
+            text-align: left;
+        }
+
+        .main__description {
+            text-align: left;
+            margin-bottom: 48px;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header {
+        padding: 64px 160px;
+    }
+
+    .main {
+        padding: 112px 160px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .header {
+        padding: 64px 200px;
+    }
+
+    .main {
+        padding: 112px 200px;
     }
 }
