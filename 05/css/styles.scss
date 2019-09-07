@@ -50,8 +50,7 @@ h1 {
     width: 100%;
     height: 280px;
     overflow: hidden;
-    background: url(../assets/img/hero-mobile.jpg) no-repeat center center;
-    background-size: cover;
+    background: url(../assets/img/hero-mobile.jpg) top left/cover no-repeat ;
 }
 
 .main {
@@ -176,6 +175,10 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
+    body {
+        background: url(../assets/img/bg-pattern-desktop.svg) top left/70% 100vh no-repeat, $gradient1;
+    }
+
     h1 {
         font-size: 64px;
         line-height: 64*1.1px;
@@ -198,6 +201,7 @@ h1 {
         width: 30%;
         height: 100%;
         background-image: url(../assets/img/hero-desktop.jpg);
+        background-position: center center;
     }
 
     .main {
