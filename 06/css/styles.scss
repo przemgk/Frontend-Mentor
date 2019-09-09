@@ -26,6 +26,7 @@ body {
     min-height: 100vh;
     font-family: 'Karla', sans-serif;
     font-weight: 400;
+    color: #ffffff;
     background-color: $light-gray;
 }
 
@@ -40,6 +41,17 @@ h2 {
 h1, h2 {
     line-height: 1.2;
     font-weight: 700;
+}
+
+.button {
+    width: 100%;
+    background-color: $bright-yellow;
+    text-transform: capitalize;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 32px rgba($color: hsl(0, 0, 10%), $alpha: .12);
+    padding: 16px 24px;
 }
 
 .container {
@@ -81,9 +93,30 @@ h1, h2 {
 .subscription {
     grid-area: subscription;
     background-color: $cyan;
+
+    &__header {
+        text-transform: capitalize;
+        margin-bottom: 24px;
+    }
+
+    &__fee {
+        color: rgba($color: #ffffff, $alpha: .5);
+    }
+
+    &__price {
+        font-size: 2rem;
+        right: 700px;
+        color: #ffffff;
+        line-height: 0;
+    }
 }
 
 .why-us {
     grid-area: why-us;
     background-color: rgba($color: $cyan, $alpha: .8);
+
+    &__header {
+        color: #ffffff;
+        text-transform: capitalize;
+    }
 }
