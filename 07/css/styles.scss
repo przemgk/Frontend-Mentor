@@ -28,8 +28,13 @@ h1 {
 }
 
 .container {
-    background: url(../assets/img/bg-mobile.svg) top left/100% auto no-repeat $violet;
+    background-image: url(../assets/img/bg-mobile.svg);;
+    background-position: top left;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: $violet;
     padding: 32px 24px;
+    min-height: 100vh;
 }
 
 .logo {
@@ -43,8 +48,16 @@ h1 {
 
 .info {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     overflow: hidden;
+
+    &__description {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
 
     &__illustration {
         margin: 64px 0;
@@ -60,50 +73,127 @@ h1 {
         margin-bottom: 24px;
     }
 
-    &__description {
+    &__paragraph {
         text-align: center;
         line-height: 1.8;
         margin-bottom: 32px;
     }
 
     &__button {
+        position: relative;
         background-color: #ffffff;
         border: none;
         border-radius: 100px;
-        margin: 0 64px 64px;
+        margin-bottom: 64px;
+        width: 60%;
         padding: 12px 0;
         text-align: center;
         color: $violet;
-        box-shadow: 0px 8px 16px rgba($color: #000000, $alpha: .1);
+        cursor: pointer;
+        box-shadow: 0px 8px 16px rgba(#000000, .1);
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 100px;
+            box-shadow: 0px 8px 16px rgba(#000000, .25);
+            will-change: opacity;
+            transition: opacity .3s ease-out;
+            opacity: 0;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
     }
 }
 
 .socials {
     display: flex;
     justify-content: center;
-    align-items: center;
     list-style: none;
-    margin-bottom: 40px;
 
     &__item {
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        border: 1px solid #ffffff;
-        overflow: hidden;
-        cursor: pointer;
-
-        &:not(:last-child) {
-            margin-right: 24px;
-        }
-    }
-
-    &__link {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 100%;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ffffff;
+        border-radius: 100%;
+        cursor: pointer;
+        will-change: background-color;
+        transition: background-color .3s ease-out;
+        background-color: transparent;
+
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+
+        &:hover {
+            background-color: #ffffff;
+
+            .socials__icon path {
+                fill: $violet;
+            }
+        }
     }
 
+    &__icon {
+        display: block;
+        max-width: 16px;
+        max-height: 16px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        background-image: url(../assets/img/bg-desktop.svg);
+        background-position: center left;
+        background-size: cover;
+        padding: 64px 80px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .info {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 120px 0 40px;
+
+        &__illustration {
+            width: 45%;
+            margin: 0;
+        }
+
+        &__description {
+            width: 50%;
+            align-items: flex-start;
+        }
+
+        &__header {
+            text-align: left;
+        }
+
+        &__paragraph {
+            text-align: left;
+        }
+
+        &__button {
+            margin: 0;
+            max-width: 200px;
+        }
+    }
+
+    .socials {
+        justify-content: flex-end;
+    }
 }
