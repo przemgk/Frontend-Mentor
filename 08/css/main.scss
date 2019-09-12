@@ -176,7 +176,7 @@ h2 {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(270deg, $cyan, $blue);
+        background-color: $blue;
         border-radius: 100px;
         opacity: 0;
         will-change: opacity;
@@ -184,11 +184,7 @@ h2 {
         z-index: -1;
     }
 
-    &:hover {
+    &:hover::after {
         opacity: 1;
-
-        &::after {
-            opacity: 1;
-        }
     }
 }
