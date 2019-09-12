@@ -103,7 +103,7 @@ h2 {
     display: flex;
     flex-direction: column;
     padding: 0 32px 120px;
-    background: url('../assets/bg/bg-curvy-mobile.svg') center calc(53vh - 141px)/100% 141px no-repeat, linear-gradient(180deg, white 53vh, pink 53vh);
+    background: url('../assets/bg/bg-curvy-mobile.svg') center calc(53vh - 141px)/100% 141px no-repeat, linear-gradient(180deg, $dark-blue-intro 53vh, $dark-blue-main 53vh);
 
     &__description {
         display: flex;
