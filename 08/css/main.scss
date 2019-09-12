@@ -1,0 +1,148 @@
+@charset 'utf-8';
+
+// Colors
+$dark-blue-intro: hsl(217, 28%, 15%); //intro and email sign up background
+$dark-blue-main: hsl(218, 28%, 13%); //main background
+$dark-blue-footer: hsl(216, 53%, 9%); //footer background
+$dark-blue-testimonials: hsl(219, 30%, 18%); //testimonials background
+$cyan: hsl(176, 68%, 64%); //inside call-to-action gradient
+$blue: hsl(198, 60%, 50%); //inside call-to-action gradient
+$white: hsl(0, 0%, 100%);
+
+// Fonts
+@mixin font-heading-cta($font-weight: 700, $font-size: 1rem) {
+    font-family: 'Raleway', sans-serif;
+    font-weight: $font-weight;
+
+    @if $font-size != 1rem {
+        font-size: $font-size;
+    }
+}
+
+@mixin font-body($font-weight: 400, $font-size: 1rem) {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: $font-weight;
+
+    @if $font-size != 1rem {
+        font-size: $font-size;
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 14px;
+}
+
+body {
+    @include font-body();
+
+    color: $white;
+    background-color: $dark-blue-main;
+}
+
+h1, h2 {
+    @include font-heading-cta();
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 64px;
+    background-color: $dark-blue-intro;
+}
+
+.logo {
+    display: block;
+    width: 80px;
+
+    &__image {
+        width: 100%;
+    }
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 24px;;
+        }
+    }
+
+    &__link {
+        color: $white;
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    padding: 0 32px 120px;
+    background: url('../assets/bg/bg-curvy-mobile.svg') center calc(50vh - 141px)/100% 141px no-repeat, linear-gradient(180deg, white 50vh, pink 50vh);
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__heading {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    &__paragraph {
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 40px;
+    }
+}
+
+.illustration {
+    width: 100%;
+    margin-bottom: 32px;
+
+    &__image {
+        width: 100%;
+    }
+}
+
+.cta-button {
+    @include font-heading-cta();
+
+    width: 70%;
+    max-width: 300px;
+    min-width: 150px;
+    padding: 16px 0;
+    border: none;
+    border-radius: 100px;
+    text-transform: capitalize;
+    color: $white;
+    cursor: pointer;
+    background: linear-gradient(45deg, $cyan, $blue)
+}
