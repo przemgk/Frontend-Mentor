@@ -45,15 +45,17 @@ body {
 
     color: $white;
     background-color: $dark-blue-main;
+    line-height: 1.6;
 }
 
 h1, h2 {
     @include font-heading-cta();
+
+    line-height: 1.5;
 }
 
 h1 {
     font-size: 2rem;
-    line-height: 1.5;
 }
 
 h2 {
@@ -120,7 +122,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 5%;
+    padding: 0 7%;
     background:
         url('../assets/bg/bg-curvy-mobile.svg') center calc(55vh - 141px)/100% 141px no-repeat,
         linear-gradient(180deg, $dark-blue-intro 55vh, $dark-blue-main 55vh);
@@ -129,7 +131,8 @@ h2 {
 .intro {
     display: flex;
     flex-direction: column;
-    padding: 0 2% 120px;
+    align-items: center;
+    margin-bottom: 120px;
 
     &__description {
         display: flex;
@@ -144,14 +147,13 @@ h2 {
 
     &__paragraph {
         text-align: center;
-        line-height: 1.6;
         margin-bottom: 40px;
     }
 }
 
 .illustration {
     display: block;
-    width: 100%;
+    width: 90%;
     margin-bottom: 32px;
 }
 
@@ -197,20 +199,98 @@ h2 {
     grid-gap: 96px 120px;
     text-align: center;
     margin-bottom: 120px;
-    padding: 0 2%;
 
     &__icon {
         display: inline-block;
         max-width: 64px;
         max-height: 64px;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
     }
 
     &__heading {
         margin-bottom: 16px;
     }
+}
+
+.how-works {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 120px;
+
+    &__heading {
+        margin-bottom: 24px;
+        text-align: center;
+    }
 
     &__paragraph {
-        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    &__button {
+        @include font-heading-cta(400);
+
+        position: relative;
+        align-self: flex-start;
+        padding: 6px 22px 6px 0;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $cyan;
+        color: $cyan;
+        cursor: pointer;
+
+        &::after {
+            position: absolute;
+            content: '';
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            background: url('../assets/icons/icon-arrow.svg') center/cover no-repeat;
+        }
+    }
+}
+
+.testimonials {
+    display: grid;
+    grid-gap: 24px;
+    padding: 0 4%;
+}
+
+.review {
+    border-radius: 4px;
+    background-color: $dark-blue-testimonials;
+    padding: 26px 20px;
+    font-size: 0.85rem;
+
+    &__paragraph {
+        line-height: 1.8;
+    }
+
+    &__author {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 24px;
+    }
+
+    &__avatar {
+        display: block;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+    }
+
+    &__name {
+        @include font-heading-cta(700);
+
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+    }
+
+    &__position {
+        @include font-body(400, .7rem);
     }
 }
