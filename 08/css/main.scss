@@ -124,8 +124,8 @@ h2 {
     align-items: center;
     padding: 0 7%;
     background:
-        url('../assets/bg/bg-curvy-mobile.svg') center calc(55vh - 141px)/100% 141px no-repeat,
-        linear-gradient(180deg, $dark-blue-intro 55vh, $dark-blue-main 55vh);
+        url('../assets/bg/bg-curvy-mobile.svg') center calc(53vh - 141px)/100% 141px no-repeat,
+        linear-gradient(180deg, $dark-blue-intro 53vh, $dark-blue-main 53vh);
 }
 
 .intro {
@@ -263,7 +263,7 @@ h2 {
     background-color: $dark-blue-testimonials;
     padding: 26px 20px;
     font-size: 0.85rem;
-    box-shadow: 6px 8px 24px -8px lighten($dark-blue-testimonials, 10%);
+    box-shadow: 6px 8px 24px lighten($dark-blue-testimonials, 5%);
 
     &__paragraph {
         line-height: 1.8;
