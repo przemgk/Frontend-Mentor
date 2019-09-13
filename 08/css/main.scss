@@ -253,9 +253,21 @@ h2 {
 }
 
 .testimonials {
+    position: relative;
     display: grid;
     grid-gap: 24px;
     padding: 0 4%;
+
+    &::before {
+        position: absolute;
+        top: -17px;
+        left: 8%;
+        content: '';
+        width: 24px;
+        height: 24px;
+        background: url('../assets/bg/bg-quotes.png') top left/contain no-repeat;
+        z-index: 0;
+    }
 }
 
 .review {
@@ -264,6 +276,7 @@ h2 {
     padding: 26px 20px;
     font-size: 0.85rem;
     box-shadow: 2px 4px 12px rgba(lighten($dark-blue-testimonials, 10%), .24);
+    z-index: 1;
 
     &__paragraph {
         line-height: 1.8;
