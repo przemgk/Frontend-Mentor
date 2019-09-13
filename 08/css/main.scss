@@ -263,7 +263,7 @@ h2 {
     background-color: $dark-blue-testimonials;
     padding: 26px 20px;
     font-size: 0.85rem;
-    box-shadow: 6px 8px 24px lighten($dark-blue-testimonials, 5%);
+    box-shadow: 6px 8px 16px rgba(lighten($dark-blue-testimonials, 5%), .2);
 
     &__paragraph {
         line-height: 1.8;
