@@ -32,9 +32,6 @@ $white: hsl(0, 0%, 100%);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-* {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -67,7 +64,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 24px 64px;
+    padding: 32px 5% 64px;
     background-color: $dark-blue-intro;
 }
 
@@ -82,10 +79,10 @@ h2 {
 }
 
 .menu {
+    @include font-heading-cta(400);
+
     display: flex;
     list-style: none;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
 
     &__item {
         &:not(:last-child) {
@@ -119,13 +116,20 @@ h2 {
     }
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+    background:
+        url('../assets/bg/bg-curvy-mobile.svg') center calc(55vh - 141px)/100% 141px no-repeat,
+        linear-gradient(180deg, $dark-blue-intro 55vh, $dark-blue-main 55vh);
+}
+
 .intro {
     display: flex;
     flex-direction: column;
-    padding: 0 32px 120px;
-    background:
-        url('../assets/bg/bg-curvy-mobile.svg') center calc(53vh - 141px)/100% 141px no-repeat,
-        linear-gradient(180deg, $dark-blue-intro 53vh, $dark-blue-main 53vh);
+    padding: 0 2% 120px;
 
     &__description {
         display: flex;
@@ -185,5 +189,28 @@ h2 {
 
     &:hover::after {
         opacity: 1;
+    }
+}
+
+.features {
+    display: grid;
+    grid-gap: 96px 120px;
+    text-align: center;
+    margin-bottom: 120px;
+    padding: 0 2%;
+
+    &__icon {
+        display: inline-block;
+        max-width: 64px;
+        max-height: 64px;
+        margin-bottom: 32px;
+    }
+
+    &__heading {
+        margin-bottom: 16px;
+    }
+
+    &__paragraph {
+        line-height: 1.6;
     }
 }
