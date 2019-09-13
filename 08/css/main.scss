@@ -11,7 +11,7 @@ $white: hsl(0, 0%, 100%);
 
 // Fonts
 @mixin font-heading-cta($font-weight: 700, $font-size: 1rem) {
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: $font-weight;
 
     @if $font-size != 1rem {
@@ -20,7 +20,7 @@ $white: hsl(0, 0%, 100%);
 }
 
 @mixin font-body($font-weight: 400, $font-size: 1rem) {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: $font-weight;
 
     @if $font-size != 1rem {
@@ -88,7 +88,7 @@ h2 {
 
     &__item {
         &:not(:last-child) {
-            margin-right: 24px;;
+        margin-right: 24px;
         }
     }
 
@@ -99,21 +99,21 @@ h2 {
         text-transform: capitalize;
 
         &::after {
-            position: absolute;
-            content: '';
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: $white;
-            transform-origin: top left;
-            transform: scaleX(0);
-            will-change: transform;
-            transition: transform .3s ease-in;
+        position: absolute;
+        content: "";
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $white;
+        transform-origin: top left;
+        transform: scaleX(0);
+        will-change: transform;
+        transition: transform 0.3s ease-in;
         }
 
         &:hover::after {
-            transform: scaleX(1);
+        transform: scaleX(1);
         }
     }
 }
@@ -123,8 +123,8 @@ h2 {
     flex-direction: column;
     align-items: center;
     padding: 0 7%;
-    background:
-        url('../assets/bg/bg-curvy-mobile.svg') center calc(53vh - 141px)/100% 141px no-repeat,
+    background: url("../assets/bg/bg-curvy-mobile.svg") center calc(53vh - 141px) /
+        100% 141px no-repeat,
         linear-gradient(180deg, $dark-blue-intro 53vh, $dark-blue-main 53vh);
 }
 
@@ -172,11 +172,11 @@ h2 {
     cursor: pointer;
     background: linear-gradient(90deg, $cyan, $blue);
     will-change: opacity;
-    transition: opacity .3s ease-in;
+    transition: opacity 0.3s ease-in;
 
     &::after {
         position: absolute;
-        content: '';
+        content: "";
         top: 0;
         left: 0;
         width: 100%;
@@ -185,7 +185,7 @@ h2 {
         border-radius: 100px;
         opacity: 0;
         will-change: opacity;
-        transition: opacity .3s ease-in;
+        transition: opacity 0.3s ease-in;
         z-index: -1;
     }
 
@@ -240,14 +240,14 @@ h2 {
         cursor: pointer;
 
         &::after {
-            position: absolute;
-            content: '';
-            width: 16px;
-            height: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0;
-            background: url('../assets/icons/icon-arrow.svg') center/cover no-repeat;
+        position: absolute;
+        content: "";
+        width: 16px;
+        height: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        background: url("../assets/icons/icon-arrow.svg") center/cover no-repeat;
         }
     }
 }
@@ -262,10 +262,10 @@ h2 {
         position: absolute;
         top: -17px;
         left: 8%;
-        content: '';
+        content: "";
         width: 24px;
         height: 24px;
-        background: url('../assets/bg/bg-quotes.png') top left/contain no-repeat;
+        background: url("../assets/bg/bg-quotes.png") top left/contain no-repeat;
         z-index: 0;
     }
 }
@@ -275,7 +275,7 @@ h2 {
     background-color: $dark-blue-testimonials;
     padding: 26px 20px;
     font-size: 0.85rem;
-    box-shadow: 2px 4px 12px rgba(lighten($dark-blue-testimonials, 10%), .24);
+    box-shadow: 2px 4px 12px rgba(lighten($dark-blue-testimonials, 10%), 0.24);
     z-index: 1;
 
     &__paragraph {
@@ -306,7 +306,7 @@ h2 {
     }
 
     &__position {
-        @include font-body(400, .7rem);
+        @include font-body(400, 0.7rem);
     }
 }
 
@@ -316,10 +316,10 @@ h2 {
     flex-direction: column;
     padding: 0 7%;
     background-color: $dark-blue-footer;
-    margin-top: 200px;
+    margin-top: 300px;
 
     &__logo {
-        margin-top: 200px;
+        margin-top: 260px;
         width: 180px;
     }
 }
@@ -333,7 +333,7 @@ h2 {
     padding: 40px 24px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 4px 8px 16px rgba(darken($dark-blue-intro, 10%), .48);
+    box-shadow: 4px 8px 16px rgba(darken($dark-blue-intro, 10%), 0.48);
 
     &__heading {
         margin-bottom: 16px;
@@ -343,7 +343,8 @@ h2 {
 .form {
     margin-top: 32px;
 
-    &__button, &__input {
+    &__button,
+    &__input {
         width: 100%;
     }
 
@@ -357,8 +358,7 @@ h2 {
         color: $dark-blue-footer;
 
         &::placeholder {
-            @include font-body()
+            @include font-body();
         }
     }
-
 }
