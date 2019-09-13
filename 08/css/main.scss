@@ -309,3 +309,56 @@ h2 {
         @include font-body(400, .7rem);
     }
 }
+
+.footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 7%;
+    background-color: $dark-blue-footer;
+    margin-top: 200px;
+
+    &__logo {
+        margin-top: 200px;
+        width: 180px;
+    }
+}
+
+.newsletter {
+    position: absolute;
+    transform: translateY(-50%);
+    left: 7%;
+    right: 7%;
+    background-color: $dark-blue-intro;
+    padding: 40px 24px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 4px 8px 16px rgba(darken($dark-blue-intro, 10%), .48);
+
+    &__heading {
+        margin-bottom: 16px;
+    }
+}
+
+.form {
+    margin-top: 32px;
+
+    &__button, &__input {
+        width: 100%;
+    }
+
+    &__input {
+        @include font-body(700, 0.8rem);
+
+        margin-bottom: 16px;
+        padding: 16px 24px;
+        border-radius: 100px;
+        border: none;
+        color: $dark-blue-footer;
+
+        &::placeholder {
+            @include font-body()
+        }
+    }
+
+}
