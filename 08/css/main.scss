@@ -88,7 +88,7 @@ h2 {
 
     &__item {
         &:not(:last-child) {
-        margin-right: 24px;
+            margin-right: 24px;
         }
     }
 
@@ -99,21 +99,21 @@ h2 {
         text-transform: capitalize;
 
         &::after {
-        position: absolute;
-        content: "";
-        bottom: -4px;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background-color: $white;
-        transform-origin: top left;
-        transform: scaleX(0);
-        will-change: transform;
-        transition: transform 0.3s ease-in;
+            position: absolute;
+            content: "";
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $white;
+            transform-origin: top left;
+            transform: scaleX(0);
+            will-change: transform;
+            transition: transform 0.3s ease-in;
         }
 
         &:hover::after {
-        transform: scaleX(1);
+            transform: scaleX(1);
         }
     }
 }
@@ -147,7 +147,7 @@ h2 {
 
     &__paragraph {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
     }
 }
 
@@ -196,7 +196,7 @@ h2 {
 
 .features {
     display: grid;
-    grid-gap: 96px 120px;
+    grid-row-gap: 96px;
     text-align: center;
     margin-bottom: 120px;
 
@@ -261,7 +261,7 @@ h2 {
     &::before {
         position: absolute;
         top: -17px;
-        left: 8%;
+        left: 8vw;
         content: "";
         width: 24px;
         height: 24px;
@@ -311,6 +311,9 @@ h2 {
 }
 
 .newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     transform: translateY(-50%);
     left: 7%;
@@ -327,6 +330,7 @@ h2 {
 }
 
 .form {
+    width: 100%;
     margin-top: 32px;
 
     &__button,
@@ -364,7 +368,7 @@ h2 {
 
     &__container {
         display: grid;
-        grid-gap: 64px 30%;
+        grid-row-gap: 64px;
         margin: 40px 0;
     }
 
@@ -376,12 +380,12 @@ h2 {
 
 .f-info {
     display: grid;
-    grid-gap: 16px;
+    grid-row-gap: 16px;
 
     &__location, &__phone, &__email {
         display: grid;
         grid-template-columns: 16px 1fr;
-        grid-gap: 0px 16px;
+        grid-column-gap: 16px;
         align-items: center;
     }
 
@@ -454,5 +458,288 @@ h2 {
         display: block;
         max-width: 16px;
         max-height: 16px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        font-size: 16px;
+    }
+
+    .navigation {
+        padding: 48px 7% 72px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .menu {
+        &__item {
+            &:not(:last-child) {
+                margin-right: 40px;
+            }
+        }
+    }
+
+    .main {
+        padding: 0 10%;
+        background: url("../assets/bg/bg-curvy-desktop.svg") center calc(120vh - 449px) / 100% 449px no-repeat,
+            linear-gradient(180deg, $dark-blue-intro 120vh, $dark-blue-main 120vh);
+    }
+
+    .intro {
+        margin-bottom: 160px;
+        padding: 0 10%;
+    }
+
+    .illustration {
+        width: 100%;
+        margin-bottom: 56px;
+    }
+
+    .cta-button {
+        max-width: 250px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 64px;
+        padding: 0 5%;
+        margin-bottom: 160px;
+
+        &__icon {
+            max-width: unset;
+            max-height: unset;
+            height: 72px;
+            margin-bottom: 32px;
+        }
+    }
+
+    .how-works {
+        flex-direction: row;
+        margin-bottom: 200px;
+
+        &__illustration {
+            width: 50%;
+            margin-bottom: 0;
+            margin-right: 10%;
+        }
+
+        &__description {
+            width: 40%;
+        }
+
+        &__heading {
+            text-align: left;
+        }
+
+        &__paragraph {
+            margin-bottom: 16px;
+        }
+    }
+
+    .testimonials {
+        grid-gap: 32px;
+
+        &::before {
+            top: -28px;
+            left: 2vw;
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    .newsletter {
+        left: 10%;
+        right: 10%;
+        padding: 48px 72px;
+
+        &__heading {
+            margin-bottom: 24px;
+        }
+    }
+
+    .form {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+
+        &__button {
+            width: 30%;
+        }
+
+        &__input {
+            width: 65%;
+            margin-bottom: 0px;
+            padding: 16px 24px;
+        }
+    }
+
+    .footer {
+        padding: 0 10%;
+        margin-top: 380px;
+
+        &__container {
+            grid-template-columns: repeat(3, 1fr);
+            margin: 40px 0 96px;
+        }
+
+        &__logo {
+            margin-bottom: 24px;
+        }
+    }
+
+    .f-info {
+        grid-column: 1 / span 3;
+    }
+
+    .f-socials {
+        justify-self: end;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .intro {
+        &__paragraph {
+            width: 80%;
+        }
+    }
+
+    .illustration {
+        width: 80%;
+        margin-bottom: 64px;
+    }
+
+    .features {
+        grid-column-gap: 80px;
+    }
+
+    .how-works {
+        &__illustration {
+            width: 40%;
+            margin-bottom: 0;
+            margin-right: 10%;
+        }
+
+        &__description {
+            width: 50%;
+        }
+    }
+
+    .testimonials {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 48px;
+        padding: 0 5%;
+
+        &::before {
+            top: -28px;
+            left: 3vw;
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    .review {
+        border-radius: 8px;
+        padding: 32px 20px 26px;
+    }
+
+    .footer {
+        &__container {
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 0 24px;
+        }
+    }
+
+    .f-info {
+        grid-column: 1 / span 2;
+    }
+
+    .f-nav {
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .intro {
+        padding: 0 20%;
+    }
+
+    .features {
+        grid-column-gap: 120px;
+        padding: 0 10%;
+        margin-bottom: 200px;
+    }
+
+    .testimonials {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0 8%;
+
+        &::before {
+            top: -28px;
+            left: 5.75vw;
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    .newsletter {
+        left: 25%;
+        right: 25%;
+        padding: 48px 72px;
+    }
+
+    .form {
+        &__input {
+            width: 67%;
+        }
+    }
+
+    .footer {
+        padding: 0 5%;
+    }
+
+    .f-info {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: 2fr 1fr;
+        grid-row-gap: 0px;
+        grid-column-gap: 56px;
+
+        &__location, &__phone, &__email {
+            grid-template-columns: 24px 1fr;
+        }
+
+        &__location {
+            grid-row: 1 / span 4;
+            grid-column: 1 / 2;
+        }
+
+        &__phone, &__email {
+            align-items: start;
+            grid-column: 2 / 3;
+            line-height: 1;
+        }
+
+        &__phone {
+            grid-row: 1 / 2;
+        }
+
+        &__email {
+            grid-row: 2 / 3;
+        }
+
+        &__icon {
+            max-width: 24px;
+            max-height: 24px;
+        }
+    }
+
+    .f-nav {
+        justify-self: end;
+    }
+
+    .f-nav + .f-nav {
+        justify-self: center;
     }
 }
