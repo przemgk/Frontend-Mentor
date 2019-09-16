@@ -1,0 +1,38 @@
+// Colors
+$red: hsl(0, 100%, 68%);
+
+$very-dark-blue: hsl(230, 29%, 20%);
+$dark-grayish-blue: hsl(230, 11%, 40%);
+$grayish-blue: hsl(231, 7%, 65%);
+$light-grayish-blue: hsl(207, 33%, 95%);
+
+// Fonts
+@mixin font-headings ($font-weight: 700, $font-size: 1rem) {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: $font-weight;
+
+    @if $font-size != 1rem {
+        font-size: $font-size;
+    }
+}
+
+@mixin font-body ($font-size: 1rem) {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+
+    @if $font-size != 1rem {
+        font-size: $font-size;
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 18px;
+}
+
+body {
+    @include font-body();
+}
