@@ -27,6 +27,10 @@ $light-grayish-blue: hsl(207, 33%, 95%);
 
 *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -35,8 +39,8 @@ $light-grayish-blue: hsl(207, 33%, 95%);
 
 body {
     @include font-body();
-    margin: 0;
-    padding: 0;
+
+    background-color: $white;
 }
 
 .navigation {
@@ -50,7 +54,7 @@ body {
         position: absolute;
         content: '';
         width: 50vw;
-        height: 50vh;
+        height: 60vh;
         top: 0;
         right: 0;
         border-bottom-left-radius: 80px;
@@ -69,34 +73,35 @@ body {
     }
 }
 
+
 .hamburger {
-    padding: 10px;
     display: inline-block;
-    background-color: transparent;
-    cursor: pointer;
     border: 0;
-    margin: 0;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
 
     &__box {
-        width: 24px;
-        height: 18px;
         position: relative;
         display: inline-block;
+        width: 24px;
+        height: 18px;
     }
 
     &__inner {
         top: 50%;
         transform: translateY(-50%);
 
-        &, &::after, &::before {
+        &, &::before, &::after {
+            position: absolute;
+            display: inline-block;
             width: 100%;
             height: 2px;
-            position: absolute;
-            left: 0;
             background-color: $very-dark-blue;
+            left: 0;
         }
 
-        &::after, &::before {
+        &::before, &::after {
             content: '';
         }
 
@@ -108,4 +113,5 @@ body {
             top: 6px;
         }
     }
+
 }
