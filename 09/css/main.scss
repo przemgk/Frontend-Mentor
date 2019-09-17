@@ -79,47 +79,54 @@ body {
     border: 0;
     background-color: transparent;
     cursor: pointer;
+    overflow: hidden;
 
     &__container {
         position: relative;
         display: flex;
-        align-items: center;
-        justify-content: center;
         width: 24px;
         height: 18px;
     }
 
-    @mixin hamburger-line {
+    &__bar {
         position: absolute;
         width: 100%;
         height: 2px;
         background-color: $very-dark-blue;
         left: 0;
-    }
-
-    &__bar {
-        @include hamburger-line();
-
         display: inline-block;
-        top: 50%;
-        transform: translateY(-50%);
 
-        &::before, &::after {
-            @include hamburger-line();
-
-            content: '';
+        &:first-of-type {
+            top: 0;
         }
 
-        &::before {
-            top: -8px;
+        &:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease-in, opacity 0.3s ease-in;
         }
 
-        &::after {
-            top: 8px;
+        &:last-of-type {
+            bottom: 0;
+        }
+
+        &:first-of-type, &:last-of-type {
+            transition: transform 0.3s ease-in;
         }
     }
 
     &--active {
+        .hamburger__bar:first-of-type {
+            transform: translateY(8px) rotate(135deg);
+        }
 
+        .hamburger__bar:last-of-type {
+            transform: translateY(-8px) rotate(-135deg);
+        }
+
+        .hamburger__bar:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-24px);
+        }
     }
 }
