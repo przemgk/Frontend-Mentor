@@ -27,8 +27,6 @@ $light-grayish-blue: hsl(207, 33%, 95%);
 
 *, *::before, *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -41,6 +39,8 @@ body {
     @include font-body();
 
     background-color: $white;
+    padding: 0;
+    margin: 0;
 }
 
 .navigation {
@@ -73,36 +73,32 @@ body {
     }
 }
 
-
 .hamburger {
-    display: inline-block;
+    display: flex;
+    margin: 0;
+    padding: 10px;
     border: 0;
     background-color: transparent;
-    padding: 10px;
     cursor: pointer;
 
-    &__box {
+    &__container {
         position: relative;
-        display: inline-block;
+        display: flex;
         width: 24px;
         height: 18px;
     }
 
-    &__inner {
+    &__bar {
         top: 50%;
         transform: translateY(-50%);
 
         &, &::before, &::after {
             position: absolute;
-            display: inline-block;
+            content: '';
             width: 100%;
             height: 2px;
-            background-color: $very-dark-blue;
             left: 0;
-        }
-
-        &::before, &::after {
-            content: '';
+            background-color: $very-dark-blue;
         }
 
         &::before {
@@ -113,5 +109,4 @@ body {
             top: 6px;
         }
     }
-
 }
