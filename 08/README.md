@@ -12,7 +12,7 @@ Thanks for checking out this front-end coding challenge.
 
 ## Lighthouse report
 
-(./lighthouse-report/lighthouse-08-challenge.JPG)
+![Lighthouse report for my solution](./lighthouse-report/lighthoufse-08-challenge.JPG)
 
 ## Where to find everything
 
