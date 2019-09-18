@@ -145,7 +145,7 @@ h1 {
     @include font-headings();
 
     position: absolute;
-    top: 110px;
+    top: 96px;
     left: 24px;
     right: 24px;
     background-color: $white;
@@ -154,8 +154,8 @@ h1 {
     padding: 32px;
     border-radius: 4px;
     box-shadow: 0px 8px 16px 4px rgba($very-dark-blue, 0.16);
-    transform: translateY(-50px) scale(0);
-    transform-origin: top right;
+    transform: scaleY(0);
+    transform-origin: top center;
     opacity: 0;
     will-change: transform, opacity;
     transition: transform 0.3s ease-in, opacity 0.3s ease-in;
@@ -185,7 +185,7 @@ h1 {
     }
 
     &--open {
-        transform: translateY(0) scale(1);
+        transform: scaleY(1);
         opacity: 1;
     }
 }
