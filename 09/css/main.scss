@@ -212,9 +212,6 @@ h1 {
     }
 
     &__demo {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
         margin-top: 32px;
     }
 }
@@ -264,11 +261,13 @@ h1 {
 .button {
     @include font-headings(700, 0.75rem);
 
+    display: inline-block;
     text-transform: uppercase;
     padding: 12px 16px;
-    margin-right: 12px;
+    margin: 0 12px 8px 0;
     border-radius: 4px;
     border: 0;
     background-color: $red;
     color: $light-grayish-blue;
+    cursor: pointer;
 }
