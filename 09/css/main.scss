@@ -317,25 +317,8 @@ h1 {
             margin: 0;
         }
 
-        &__item {
-            position: relative;
-
-            &::after {
-                position: absolute;
-                content: '';
-                width: 100%;
-                height: 1px;
-                background-color: $very-dark-blue;
-                left: 0;
-                bottom: 0;
-                transform: scaleX(0);
-                will-change: transform;
-                transition: transform 0.3s ease-in;
-            }
-
-            &:hover::after {
-                transform: scaleX(1);
-            }
+        &__item:hover {
+            text-decoration: underline;
         }
 
         &__item:not(:last-child) {
@@ -344,6 +327,7 @@ h1 {
         }
 
         &__item:last-child {
+            position: relative;
             padding: 0;
             border-top: 0;
             margin-bottom: 0;
