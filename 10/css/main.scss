@@ -24,6 +24,12 @@ $gray: hsl(0, 0, 70%);
     }
 }
 
+// Variables for waves backgrounds heights
+$wave-bg1-top: 112px;
+$wave-bg1-bottom: 52px;
+$wave-bg2-top: 103px;
+$wave-bg2-bottom: 101px;
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -61,11 +67,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.25rem;
-
-    @media screen and (min-width: 768px) {
-        font-size: 1.5rem;
-    }
+    font-size: 1.5rem;
 }
 
 h3 {
@@ -171,4 +173,35 @@ h3 {
         color: $gray;
         text-transform: capitalize;
     }
+}
+
+.wave-box {
+
+    display: grid;
+    justify-items: center;
+    padding: 120px 32px;
+    text-align: center;
+
+    &__heading {
+        margin: 80px 0 24px;
+    }
+
+    &:nth-of-type(4n+1) {
+        background: url('../assets/bg/bg-section-top-mobile-1.svg') no-repeat left 0 top 0/100% $wave-bg1-top,
+                    url('../assets/bg/bg-section-bottom-mobile-1.svg') no-repeat left 0 bottom 0/100% $wave-bg1-bottom,
+                    linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left 0 top #{$wave-bg1-top}/100% calc(100% - #{$wave-bg1-top} - #{$wave-bg1-bottom});
+        padding: (80px + $wave-bg1-top) 32px (80px + $wave-bg1-bottom);
+    }
+
+    &:nth-of-type(4n+3) {
+        background: url('../assets/bg/bg-section-top-mobile-2.svg') no-repeat left 0 top 0/100% $wave-bg2-top,
+                    url('../assets/bg/bg-section-bottom-mobile-2.svg') no-repeat left 0 bottom 0/100% $wave-bg2-bottom,
+                    linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left 0 top #{$wave-bg2-top}/100% calc(100% - #{$wave-bg2-top} - #{$wave-bg2-bottom});
+        padding: (80px + $wave-bg2-top) 32px (80px + $wave-bg2-bottom);
+    }
+}
+
+.illustration {
+    display: block;
+    width: 90%;
 }
