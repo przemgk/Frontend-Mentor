@@ -1,35 +1,45 @@
 // Colors
-$pink: hsl(322, 100%, 66%);
-$very-dark-cyan: hsl(192, 100%, 9%);
-$very-pale-blue: hsl(207, 100%, 98%);
-$white: hsl(0, 100, 100%);
-$gray: hsl(0, 0, 70%);
+    $pink: hsl(322, 100%, 66%);
+    $very-dark-cyan: hsl(192, 100%, 9%);
+    $very-pale-blue: hsl(207, 100%, 98%);
+    $white: hsl(0, 100, 100%);
+    $gray: hsl(0, 0, 70%);
 
 // Fonts
-@mixin font-body($font-weight: 400, $font-size: 1rem) {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: $font-weight;
+    @mixin font-body($font-weight: 400, $font-size: 1rem) {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: $font-weight;
 
-    @if ($font-size != 1rem) {
-        font-size: $font-size;
+        @if ($font-size != 1rem) {
+            font-size: $font-size;
+        }
     }
-}
 
-@mixin font-heading-cta($font-size: 1rem)  {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    @mixin font-heading-cta($font-size: 1rem)  {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
 
-    @if ($font-size != 1rem) {
-        font-size: $font-size;
+        @if ($font-size != 1rem) {
+            font-size: $font-size;
+        }
     }
-}
 
-// Variables for waves and footer backgrounds heights
-$wave-bg1-top: 112px;
-$wave-bg1-bottom: 52px;
-$wave-bg2-top: 103px;
-$wave-bg2-bottom: 101px;
-$footer-bg-top: 53px;
+// Variables for waves sections and footer backgrounds
+// Heights
+    $wave-bg1-top-height: 112px;
+    $wave-bg1-bottom-height: 52px;
+    $wave-bg2-top-height: 103px;
+    $wave-bg2-bottom-height: 101px;
+    $footer-bg-top-height: 53px;
+// Backgrounds names
+    $wave-bg1-top-name: 'bg-section-top-mobile-1.svg';
+    $wave-bg1-bottom-name: 'bg-section-bottom-mobile-1.svg';
+    $wave-bg2-top-name: 'bg-section-top-mobile-2.svg';
+    $wave-bg2-bottom-name: 'bg-section-bottom-mobile-2.svg';
+    $footer-bg-top-name: 'bg-footer-top-mobile.svg';
+
+
+
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -136,6 +146,11 @@ h3 {
         padding: 6px 12px;
         background-color: transparent;
         color: $pink;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: rgba($pink, 0.16);
+        }
     }
 
     &--rounded {
@@ -144,12 +159,32 @@ h3 {
         border-radius: 100px;
         background-color: $pink;
         color: $white;
+        position: relative;
         width: 70%;
         padding: 16px 0;
         margin: 40px 0;
         min-width: 180px;
-        max-width: 400px;
+        max-width: 300px;
         box-shadow: 0px 8px 12px rgba($very-dark-cyan, 0.2);
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 100px;
+            top: 0;
+            left: 0;
+            box-shadow: 0px 8px 12px rgba($very-dark-cyan, 0.2);
+            opacity: 0;
+            will-change: opacity;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
     }
 
     &--rectangular {
@@ -162,14 +197,25 @@ h3 {
         min-width: 100px;
         max-width: 250px;
         padding: 16px 0;
+        will-change: opacity;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 
 .stats {
     display: grid;
     justify-content: center;
+    justify-items: center;
     grid-gap: 64px;
     margin-bottom: 24px;
+
+    &__item {
+        display: inline-block;
+    }
 
     &__icon {
         display: block;
@@ -196,8 +242,9 @@ h3 {
 }
 
 .wave-box {
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 120px 32px;
     text-align: center;
 
@@ -207,17 +254,17 @@ h3 {
     }
 
     &:nth-of-type(4n+1) {
-        background: url('../assets/bg/bg-section-top-mobile-1.svg') no-repeat left top/100% $wave-bg1-top,
-                    url('../assets/bg/bg-section-bottom-mobile-1.svg') no-repeat left bottom/100% $wave-bg1-bottom,
-                    linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left top #{$wave-bg1-top}/100% calc(100% - #{$wave-bg1-top} - #{$wave-bg1-bottom});
-        padding: (80px + $wave-bg1-top) 32px (80px + $wave-bg1-bottom);
+        background: url('../assets/bg/#{$wave-bg1-top-name}') no-repeat left top/100% $wave-bg1-top-height,
+                    url('../assets/bg/#{$wave-bg1-bottom-name}') no-repeat left bottom/100% $wave-bg1-bottom-height,
+                    linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left top #{$wave-bg1-top-height}/100% calc(100% - #{$wave-bg1-top-height} - #{$wave-bg1-bottom-height});
+        padding: (80px + $wave-bg1-top-height) 32px (80px + $wave-bg1-bottom-height);
     }
 
     &:nth-of-type(4n+3) {
-        background: url('../assets/bg/bg-section-top-mobile-2.svg') no-repeat left top/100% $wave-bg2-top,
-                    url('../assets/bg/bg-section-bottom-mobile-2.svg') no-repeat left bottom/100% $wave-bg2-bottom,
-                    linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left top #{$wave-bg2-top}/100% calc(100% - #{$wave-bg2-top} - #{$wave-bg2-bottom});
-        padding: (80px + $wave-bg2-top) 32px (80px + $wave-bg2-bottom);
+        background: url('../assets/bg/#{$wave-bg2-top-name}') no-repeat left top/100% $wave-bg2-top-height,
+                    url('../assets/bg/#{$wave-bg2-bottom-name}') no-repeat left bottom/100% $wave-bg2-bottom-height,
+                    linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left top #{$wave-bg2-top-height}/100% calc(100% - #{$wave-bg2-top-height} - #{$wave-bg2-bottom-height});
+        padding: (80px + $wave-bg2-top-height) 32px (80px + $wave-bg2-bottom-height);
     }
 }
 
@@ -242,10 +289,10 @@ h3 {
 .footer {
     display: grid;
     grid-row-gap: 80px;
-    background: url('../assets/bg/bg-footer-top-mobile.svg') no-repeat left top/100% $footer-bg-top,
-                linear-gradient($very-dark-cyan, $very-dark-cyan) no-repeat left top #{$footer-bg-top}/cover;
+    background: url('../assets/bg/#{$footer-bg-top-name}') no-repeat left top/100% $footer-bg-top-height,
+                linear-gradient($very-dark-cyan, $very-dark-cyan) no-repeat left top #{$footer-bg-top-height}/cover;
     color: $white;
-    padding: (72px + $footer-bg-top) 24px 48px;
+    padding: (88px + $footer-bg-top-height) 24px 48px;
 
     &__heading {
         margin-bottom: 16px;
@@ -295,7 +342,7 @@ h3 {
         border: none;
         width: 100%;
         margin-bottom: 16px;
-        padding: 16px 24px;
+        padding: 14px 24px;
         color: $very-dark-cyan;
         font-size: 1rem;
 
@@ -314,10 +361,279 @@ h3 {
         display: block;
         width: 24px;
         height: 24px;
-        background-color: wheat;
+        will-change: opacity;
+        transition: opacity 0.3s ease-in-out;
 
         &:not(:last-child) {
             margin-right: 16px;
         }
+
+        &:hover {
+            opacity: 0.4;
+        }
+    }
+
+    &__facebook {
+        background: url('../assets/icons/icon-facebook.svg') no-repeat center center/cover;
+    }
+
+    &__instagram {
+        background: url('../assets/icons/icon-instagram.svg') no-repeat center center/cover;
+    }
+
+    &__twitter {
+        background: url('../assets/icons/icon-twitter.svg') no-repeat center center/cover;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    // Variables for waves sections and footer backgrounds
+        // Heights
+            $wave-bg1-top-height: 165px;
+            $wave-bg1-bottom-height: 139px;
+            $wave-bg2-top-height: 152px;
+            $wave-bg2-bottom-height: 139px;
+            $footer-bg-top-height: 158px;
+        // Backgrounds names
+            $wave-bg1-top-name: 'bg-section-top-desktop-1.svg';
+            $wave-bg1-bottom-name: 'bg-section-bottom-desktop-1.svg';
+            $wave-bg2-top-name: 'bg-section-top-desktop-2.svg';
+            $wave-bg2-bottom-name: 'bg-section-bottom-desktop-2.svg';
+            $footer-bg-top-name: 'bg-footer-top-desktop.svg';
+
+
+
+
+    .header {
+        padding: 64px 40px 120px;
+
+        &__intro {
+            width: 80%;
+            padding: 80px 0 0;
+            margin: 0 10%;
+        }
+
+        &__paragraph {
+            width: 80%;
+        }
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        width: 70%;
+        grid-gap: 64px;
+        margin: 0 15% 120px;
+    }
+
+    .wave-box {
+        justify-content: space-between;
+        align-items: center;
+        padding: 96px 40px;
+        text-align: left;
+
+        &__heading {
+            margin: 0 0 24px;
+            width: 100%;
+        }
+
+        &__paragraph {
+            width: 100%;
+        }
+
+        &:nth-of-type(odd) {
+            flex-direction: row-reverse;
+        }
+
+        &:nth-of-type(even) {
+            flex-direction: row;
+        }
+
+        &:nth-of-type(odd) .illustration {
+            margin-left: 5%;
+        }
+
+        &:nth-of-type(even) .illustration {
+            margin-right: 5%;
+        }
+
+        &:nth-of-type(4n+1) {
+            background: url('../assets/bg/#{$wave-bg1-top-name}') no-repeat left top/100% $wave-bg1-top-height,
+                        url('../assets/bg/#{$wave-bg1-bottom-name}') no-repeat left bottom/100% $wave-bg1-bottom-height,
+                        linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left top #{$wave-bg1-top-height}/100% calc(100% - #{$wave-bg1-top-height} - #{$wave-bg1-bottom-height});
+            padding: (96px + $wave-bg1-top-height) 40px (96px + $wave-bg1-bottom-height);
+        }
+
+        &:nth-of-type(4n+3) {
+            background: url('../assets/bg/#{$wave-bg2-top-name}') no-repeat left top/100% $wave-bg2-top-height,
+                        url('../assets/bg/#{$wave-bg2-bottom-name}') no-repeat left bottom/100% $wave-bg2-bottom-height,
+                        linear-gradient($very-pale-blue, $very-pale-blue) no-repeat left top #{$wave-bg2-top-height}/100% calc(100% - #{$wave-bg2-top-height} - #{$wave-bg2-bottom-height});
+            padding: (96px + $wave-bg2-top-height) 40px (96px + $wave-bg2-bottom-height);
+        }
+    }
+
+    .illustration {
+        width: 45%;
+    }
+
+    .build-community {
+        padding: 160px 16% 180px;
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 0;
+        grid-column-gap: 10%;
+        background: url('../assets/bg/#{$footer-bg-top-name}') no-repeat left top/100% $footer-bg-top-height,
+                    linear-gradient($very-dark-cyan, $very-dark-cyan) no-repeat left top #{$footer-bg-top-height - 1px}/cover;
+        padding: (64px + $footer-bg-top-height) 40px 48px;
+
+        &__section:first-child {
+            grid-area: 1 / 2 / 2 / 3;
+        }
+
+        &__section:last-child {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        &__contact {
+            margin: 24px 0 64px;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    // Variables for waves sections and footer backgrounds
+        // Heights
+        $wave-bg1-top-height: 165px;
+        $wave-bg1-bottom-height: 139px;
+        $wave-bg2-top-height: 152px;
+        $wave-bg2-bottom-height: 139px;
+        $footer-bg-top-height: 158px;
+
+
+
+
+    .header {
+        padding: 64px 64px 120px;
+
+        &__image {
+            width: 80%;
+        }
+    }
+
+    .stats {
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .wave-box {
+        padding: 120px 64px;
+
+        &:nth-of-type(odd) .illustration {
+            margin-left: 10%;
+        }
+
+        &:nth-of-type(even) .illustration {
+            margin-right: 10%;
+        }
+
+        &:nth-of-type(4n+1) {
+            padding: (120px + $wave-bg1-top-height) 64px (120px + $wave-bg1-bottom-height);
+        }
+
+        &:nth-of-type(4n+3) {
+            padding: (120px + $wave-bg2-top-height) 64px (120px + $wave-bg2-bottom-height);
+        }
+    }
+
+    .footer {
+        padding-right: 64px;
+        padding-left: 64px;
+        grid-column-gap: 15%;
+    }
+
+    .form {
+        flex-direction: row;
+        align-items: center;
+
+        &__input {
+            width: 80%;
+            margin-right: 3%;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    // Variables for waves sections and footer backgrounds
+        // Heights
+        $wave-bg1-top-height: 165px;
+        $wave-bg1-bottom-height: 139px;
+        $wave-bg2-top-height: 152px;
+        $wave-bg2-bottom-height: 139px;
+        $footer-bg-top-height: 158px;
+
+
+
+
+    .header {
+        padding: 64px 120px 120px;
+
+        &__intro {
+            width: 70%;
+            padding: 80px 0 0;
+            margin: 0 15%;
+        }
+
+        &__paragraph {
+            width: 70%;
+        }
+
+        &__image {
+            width: 70%;
+        }
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        width: 40%;
+        grid-gap: 64px;
+        margin: 0 30% 120px;
+    }
+
+    .wave-box {
+        padding: 120px;
+
+        &:nth-of-type(odd) .illustration {
+            margin-left: 15%;
+        }
+
+        &:nth-of-type(even) .illustration {
+            margin-right: 15%;
+        }
+
+        &:nth-of-type(4n+1) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
+        &:nth-of-type(4n+3) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+    }
+
+    .illustration {
+        width: 40%;
+    }
+
+    .footer {
+        padding: (80px + $footer-bg-top-height) 120px 80px;
+        grid-column-gap: 30%;
     }
 }
