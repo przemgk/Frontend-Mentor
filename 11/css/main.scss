@@ -1,0 +1,104 @@
+// Colors
+    $strong-cyan: hsl(171, 66%, 44%);
+    $light-blue: hsl(233, 100%, 69%);
+    $dark-grayish-blue: hsl(210, 10%, 33%);
+    $grayish-blue: hsl(201, 11%, 66%);
+    $white: hsl(0, 100%, 100%);
+
+// Fast normalize
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: $white;
+    color: $dark-grayish-blue;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 8% 160px;
+    text-align: center;
+    background: url('../assets/bg/bg-header-mobile.png') no-repeat center top/100% auto;
+
+    &__heading {
+        margin-bottom: 24px;
+    }
+
+    &__paragraph {
+        width: 98%;
+        color: $grayish-blue;
+        margin-bottom: 48px;
+    }
+
+    &__install-apps {
+        display: grid;
+        grid-gap: 24px;
+        width: 100%;
+    }
+}
+
+.logo {
+    display: block;
+    width: 120px;
+    margin-bottom: 64px;
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+}
+
+.button {
+    width: 100%;
+    padding: 16px 0;
+    color: $white;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 0;
+    border-radius: 100px;
+    cursor: pointer;
+    will-change: opacity;
+    transition: opacity 0.3s ease-in;
+
+    &:hover {
+        opacity: 0.7
+    }
+
+    &--blue {
+        background-color: $light-blue;
+        border: 1px solid hsl(233, 44%, 55%);
+        border-bottom: 3px solid hsl(233, 44%, 55%);
+        box-shadow: 0 8px 16px rgba($dark-grayish-blue, 0.32);
+    }
+
+    &--green {
+        background-color: $strong-cyan;
+        border: 1px solid hsl(171, 52%, 39%);
+        border-bottom: 3px solid hsl(171, 52%, 39%);
+        box-shadow: 0 8px 16px rgba($strong-cyan, 0.32);
+    }
+}
