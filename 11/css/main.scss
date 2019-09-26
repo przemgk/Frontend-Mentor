@@ -207,6 +207,10 @@ h3 { font-size: 1.25rem; }
     &__link {
         text-decoration: none;
         color: $dark-grayish-blue;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -220,7 +224,7 @@ h3 { font-size: 1.25rem; }
         justify-content: center;
 
         &:not(:last-child) {
-            margin-right: 24px;
+            margin-right: 32px;
         }
     }
 
