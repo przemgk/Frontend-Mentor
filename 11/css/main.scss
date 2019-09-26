@@ -218,10 +218,9 @@ h3 { font-size: 1.25rem; }
     &__item {
         display: flex;
         justify-content: center;
-        padding: 10px;
 
         &:not(:last-child) {
-            margin-right: 16px;
+            margin-right: 24px;
         }
     }
 
@@ -229,5 +228,16 @@ h3 { font-size: 1.25rem; }
         display: block;
         max-width: 24px;
         max-width: 24px;
+
+        path {
+            will-change: fill;
+            transition: fill 0.2s ease-in;
+        }
+
+        &:hover {
+            & path {
+                fill: $strong-cyan;
+            }
+        }
     }
 }
