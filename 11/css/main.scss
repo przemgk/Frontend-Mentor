@@ -39,9 +39,20 @@ h3 { font-size: 1.25rem; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px 8% 160px;
-    text-align: center;
+    padding: 120px 0 160px;
     background: url('../assets/bg/bg-header-mobile.png') no-repeat center top/100% auto;
+
+    &__install-apps {
+        display: grid;
+        grid-gap: 24px;
+        width: 100%;
+        padding: 0 8%;
+    }
+}
+
+.box-header {
+    margin: 0 8% 48px;
+    text-align: center;
 
     &__heading {
         margin-bottom: 24px;
@@ -50,13 +61,6 @@ h3 { font-size: 1.25rem; }
     &__paragraph {
         width: 98%;
         color: $grayish-blue;
-        margin-bottom: 48px;
-    }
-
-    &__install-apps {
-        display: grid;
-        grid-gap: 24px;
-        width: 100%;
     }
 }
 
@@ -101,4 +105,8 @@ h3 { font-size: 1.25rem; }
         border-bottom: 3px solid hsl(171, 52%, 39%);
         box-shadow: 0 8px 16px rgba($strong-cyan, 0.32);
     }
+}
+
+.box-header {
+
 }
