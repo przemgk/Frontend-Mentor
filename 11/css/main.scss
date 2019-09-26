@@ -23,12 +23,13 @@ body {
     font-weight: 400;
     line-height: 1.5;
     background-color: $white;
-    color: $dark-grayish-blue;
+    color: $grayish-blue;
 }
 
 h1, h2, h3 {
     font-weight: 600;
     line-height: 1.2;
+    color: $dark-grayish-blue;
 }
 
 h1 { font-size: 2rem; }
@@ -39,19 +40,8 @@ h3 { font-size: 1.25rem; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px 0 160px;
+    padding: 120px 8% 160px;
     background: url('../assets/bg/bg-header-mobile.png') no-repeat center top/100% auto;
-
-    &__install-apps {
-        display: grid;
-        grid-gap: 24px;
-        width: 100%;
-        padding: 0 8%;
-    }
-}
-
-.box-header {
-    margin: 0 8% 48px;
     text-align: center;
 
     &__heading {
@@ -59,8 +49,14 @@ h3 { font-size: 1.25rem; }
     }
 
     &__paragraph {
-        width: 98%;
-        color: $grayish-blue;
+        margin-bottom: 56px;
+    }
+
+    &__install-apps {
+        display: grid;
+        grid-gap: 24px;
+        width: 100%;
+        padding: 0 8%;
     }
 }
 
@@ -107,6 +103,60 @@ h3 { font-size: 1.25rem; }
     }
 }
 
-.box-header {
+.track-snippets,
+.access-anywhere,
+.workflow {
+    text-align: center;
+    padding: 0 8% 160px;
 
+    &__heading {
+        margin-bottom: 24px;
+    }
+
+    &__paragraph {
+        margin-bottom: 56px;
+    }
+}
+
+.image {
+    width: 100%;
+    margin-bottom: 64px;
+
+    &__element {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.features {
+    text-align: center;
+    display: grid;
+    grid-gap: 56px;
+    justify-items: center;
+
+    &__icon {
+        max-width: 40px;
+        max-height: 40px;
+        margin-bottom: 32px;
+    }
+
+    &__item {
+        width: 90%;
+    }
+
+    &__heading {
+        margin-bottom: 16px;
+        text-transform: capitalize;
+    }
+}
+
+.access-anywhere .image {
+    margin-bottom: 0;
+}
+
+.workflow {
+    &__paragraph {
+        margin-bottom: 80px;
+    }
 }
