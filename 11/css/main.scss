@@ -133,12 +133,14 @@ h3 { font-size: 1.25rem; }
 .image {
     display: block;
     width: 100%;
-
-    &--track-snippets {
-        margin-bottom: 64px;
-    }
 }
 
+.track-snippets {
+    &__description {
+        display: grid;
+        grid-gap: 64px;
+    }
+}
 
 .features {
     text-align: center;
@@ -307,20 +309,22 @@ h3 { font-size: 1.25rem; }
         width: 70%;
 
         &--track-snippets {
-            width: 60%;
-            margin: 0 5% 0 -5%;
+            width: 110%;
+            margin-left: -10%;
         }
     }
 
     .track-snippets {
-        padding-left: 0%;
+        padding-left: 0;
+        padding-right: 15%;
 
         &__heading, &__paragraph {
             padding-left: 15%;
         }
 
         &__description {
-            display: flex;
+            grid-template-columns: 3fr 2fr;
+            grid-gap: 40px;
             align-items: center;
         }
     }
@@ -331,7 +335,6 @@ h3 { font-size: 1.25rem; }
         }
 
         &--track-snippets {
-            width: 50%;
             text-align: left;
             grid-gap: 40px;
         }
@@ -366,6 +369,12 @@ h3 { font-size: 1.25rem; }
 }
 
 @media screen and (min-width: 1024px) {
+    .track-snippets {
+        &__description {
+            grid-gap: 64px;
+        }
+    }
+
     .features {
         &--track-snippets {
             grid-gap: 72px;
@@ -415,13 +424,17 @@ h3 { font-size: 1.25rem; }
         max-width: 60%;
     }
 
-    .image--track-snippets {
-        width: 90%;
-        margin: 0 5% 0 -15%;
-    }
-
     .footer {
         padding-top: 64px;
         padding-bottom: 64px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .image{
+        &--track-snippets {
+            // width: 120%;
+            // margin-left: -20%;
+        }
     }
 }
