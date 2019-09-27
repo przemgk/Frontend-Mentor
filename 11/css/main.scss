@@ -71,6 +71,7 @@ h3 { font-size: 1.25rem; }
 
 .button {
     width: 100%;
+    max-width: 300px;
     padding: 16px 0;
     color: $white;
     font-family: 'Bai Jamjuree', sans-serif;
@@ -104,6 +105,7 @@ h3 { font-size: 1.25rem; }
 
 .choose-apps {
     display: grid;
+    justify-items: center;
     grid-gap: 24px;
     width: 100%;
     padding: 0 8%;
@@ -113,6 +115,9 @@ h3 { font-size: 1.25rem; }
 .access-anywhere,
 .workflow,
 .mobile-apps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     padding: 0 8% 160px;
 
@@ -155,12 +160,6 @@ h3 { font-size: 1.25rem; }
         margin-bottom: 16px;
         text-transform: capitalize;
     }
-}
-
-.access-anywhere {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .workflow {
@@ -403,6 +402,14 @@ h3 { font-size: 1.25rem; }
 }
 
 @media screen and (min-width: 1280px) {
+    .track-snippets,
+    .access-anywhere,
+    .workflow,
+    .mobile-apps {
+        &__heading, &__paragraph {
+            max-width: 60%;
+        }
+    }
     .image--track-snippets {
         width: 80%;
         margin: 0 5% 0 -5%;
