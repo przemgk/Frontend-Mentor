@@ -1,0 +1,135 @@
+// Load normalize file
+@import 'normalize.scss';
+
+// Colors
+$soft-blue: hsl(231, 69%, 60%);
+$soft-red: hsl(0, 94%, 66%);
+$grayish-blue: hsl(229, 8%, 60%);
+$very-dark-blue: hsl(229, 31%, 21%);
+$white: hsl(0, 100%, 100%);
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    background-color: $white;
+    color: $very-dark-blue;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+}
+
+h1 {font-size: 2rem;}
+h2 {font-size: 1.5rem;}
+h3 {font-size: 1.25rem;}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px 32px;
+}
+
+.logo {
+    width: 120px;
+    display: inline-block;
+
+    &__svg {
+        display: block;
+        width: 100%;
+    }
+}
+
+.hamburger {
+    padding: 10px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    &__inner {
+        position: relative;
+        width: 22px;
+        height: 17px;
+    }
+
+    &__bar {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $very-dark-blue;
+
+        &::before {
+            position: absolute;
+            top: 7px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 3px;
+            background-color: $very-dark-blue;
+        }
+
+        &::after {
+            position: absolute;
+            top: -7px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 3px;
+            background-color: $very-dark-blue;
+        }
+    }
+
+    &--active .hamburger__bar {
+        background-color: transparent;
+
+        &::before {
+            transform: translateY(-7px) rotate(45deg);
+        }
+
+        &::after {
+            transform: translateY(7px) rotate(-45deg);
+        }
+    }
+}
+
+.navigation {
+    display: none;
+    width: 100%;
+}
+
+.socials {
+    background: #000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    &__item {
+        display: flex;
+        align-content: center;
+        width: 24px;
+        height: 24px;
+
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+    }
+
+    &__svg {
+        width: 100%;
+    }
+}
