@@ -1,12 +1,23 @@
 // Load normalize file
-@import 'normalize.scss';
+    @import 'normalize.scss';
 
 // Colors
-$soft-blue: hsl(231, 69%, 60%);
-$soft-red: hsl(0, 94%, 66%);
-$grayish-blue: hsl(229, 8%, 60%);
-$very-dark-blue: hsl(229, 31%, 21%);
-$white: hsl(0, 100%, 100%);
+    $soft-blue: hsl(231, 69%, 60%);
+    $soft-red: hsl(0, 94%, 66%);
+    $grayish-blue: hsl(229, 8%, 60%);
+    $very-dark-blue: hsl(229, 31%, 21%);
+    $white: hsl(0, 100%, 100%);
+
+// Variables for hamburger icon animation
+    $timing-function: cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    $duration-time: 0.3s;
+    $delay-time: 0.1s;
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -34,30 +45,11 @@ h2 {font-size: 1.5rem;}
 h3 {font-size: 1.25rem;}
 
 .header {
-    // position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 40px 32px;
-
-    &::after {
-        position: fixed;
-        content: '';
-        top: calc(50% - 10px);
-        right: calc(50% - 10px);;
-        background: $very-dark-blue;
-        width: 20px;
-        height: 20px;
-        border-radius: 100%;
-        opacity: 0;
-        transition: transform 0.4s ease-in, opacity 0.4s ease-in;
-    }
-
-    &--opened::after {
-        transform: scale(100);
-        opacity: 1;
-    }
 }
 
 .logo {
@@ -75,56 +67,83 @@ h3 {font-size: 1.25rem;}
     border: 0;
     background-color: transparent;
     cursor: pointer;
-    z-index: 2;
 
     &__inner {
+        display: block;
         position: relative;
-        width: 22px;
-        height: 17px;
+        width: 25px;
+        height: 20px;
     }
 
     &__bar {
-        top: 50%;
-        transform: translateY(-50%);
-        transition: background-color 0.2s ease-in;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background-color: $very-dark-blue;
 
-        &, &::before, &::after {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: $very-dark-blue;
+        &:nth-child(1) {
+            top: 0;
         }
 
-        &::before, &::after {
-            content: '';
-            transition: transform 0.2s ease-in;
+        &:nth-child(2) {
+            top: 8px;
         }
 
-        &::before {
-            top: 7px;
-        }
-
-        &::after {
-            top: -7px;
+        &:nth-child(3) {
+            bottom: 0;
         }
     }
 
-    &--active .hamburger__bar {
-        background-color: transparent;
-
-        &::before, &::after {
-            background-color: $white;
+    &--active &__bar {
+        &:nth-child(1), &:nth-child(3) {
+            transition: transform $duration-time $delay-time $timing-function;
         }
 
-        &::before {
-            transform: translateY(-7px) rotate(45deg);
-        }
-
-        &::after {
-            transform: translateY(7px) rotate(-45deg);
+        &:nth-child(2) {
+            transition: transform $duration-time $timing-function,
+                        opacity $duration-time $timing-function;
         }
     }
+
+    &:not(&--active) &__bar {
+        &:nth-child(1), &:nth-child(3) {
+            transition: transform $duration-time $timing-function;
+        }
+
+        &:nth-child(2) {
+            transition: transform $duration-time $delay-time $timing-function,
+                        opacity $duration-time $delay-time $timing-function;
+        }
+    }
+
+    &--active &__bar {
+        &:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        &:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+}
+
+// Styles for elements which are only for sreen reader
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 .navigation {
