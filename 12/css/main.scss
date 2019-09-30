@@ -164,8 +164,8 @@ h3 {font-size: 1.25rem;}
 .nav-container {
     position: fixed;
     top: 0;
+    bottom: 0;
     right: -100%;
-    min-height: 100vh;
     min-width: 100vw;
     background-color: rgba($very-dark-blue, 0.95);
     color: $white;
