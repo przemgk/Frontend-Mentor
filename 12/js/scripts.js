@@ -1,7 +1,9 @@
 const hamburger = document.querySelector(".hamburger");
-const header = document.querySelector(".header");
+const navContainer = document.querySelector(".nav-container");
+const logo = document.querySelector(".header .logo");
 
 hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("hamburger--active");
-    header.classList.toggle("header--opened");
+    navContainer.classList.toggle("nav-container--opened");
+    logo.classList.toggle("logo--white");
 });

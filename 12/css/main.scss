@@ -51,28 +51,6 @@ h3 {font-size: 1.25rem;}
     flex-wrap: wrap;
     padding: 32px 24px;
     position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 32px;
-        right: 24px;
-        width: 44px;
-        height: 39px;
-        background-color: $very-dark-blue;
-        border-radius: 100%;
-        z-index: -1;
-        will-change: transform, opacity;
-        transform: scale(0);
-        opacity: 0;
-        transition: transform 0.3s ease-in,
-                    opacity 0.3s ease-in;
-    }
-
-    &--opened::after {
-        opacity: 1;
-        transform: scale(100);
-    }
 }
 
 .logo {
@@ -82,6 +60,20 @@ h3 {font-size: 1.25rem;}
     &__svg {
         display: block;
         width: 100%;
+    }
+
+    &__text, &__circle, &__mark {
+        transition: fill 0.1s 0.2s ease-in;
+    }
+
+    &--white {
+        .logo__text, .logo__circle {
+            fill: $white;
+        }
+
+        .logo__mark {
+            fill: $very-dark-blue;
+        }
     }
 }
 
@@ -106,7 +98,7 @@ h3 {font-size: 1.25rem;}
         height: 3px;
         border-radius: 2px;
         background-color: $very-dark-blue;
-        will-change: transform, background-color;
+        will-change: transform;
 
         &:nth-child(1) {
             top: 0;
@@ -114,7 +106,7 @@ h3 {font-size: 1.25rem;}
 
         &:nth-child(2) {
             top: 8px;
-            will-change: transform, background-color, opacity;
+            will-change: transform, opacity;
         }
 
         &:nth-child(3) {
@@ -169,14 +161,55 @@ h3 {font-size: 1.25rem;}
     border: 0;
 }
 
+.nav-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba($very-dark-blue, 0.95);
+    color: $white;
+    padding: 103px 24px 32px;
+    margin: 0;
+    opacity: 0;
+    will-change: transform, opacity;
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: -1;
+
+    &--opened {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+}
+
 .navigation {
     width: 100%;
-    display: none;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    &__item {
+        padding: 24px 0;
+        border-top: 1px solid rgba($white, 0.2);
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    &__link {
+        color: $white;
+        text-decoration: none;
+    }
 }
 
 .socials {
-    background: #000;
-    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -188,7 +221,7 @@ h3 {font-size: 1.25rem;}
         height: 24px;
 
         &:not(:last-child) {
-            margin-right: 16px;
+            margin-right: 24px;
         }
     }
 
@@ -197,15 +230,19 @@ h3 {font-size: 1.25rem;}
     }
 }
 
-// Styles for elements in active hamburger menu (.header--active)
-.header--opened {
-    .logo {
-        &__circle, &__text {
-            fill: $white;
-        }
+.button {
+    border-radius: 8px;
+    font-weight: 500;
 
-        &__mark {
-            fill: $very-dark-blue;
-        }
+    &--ghost {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid $white;
+        width: 100%;
+        max-width: 400px;
+        margin: 24px 0;
+        padding: 16px 0;
     }
 }
