@@ -50,6 +50,29 @@ h3 {font-size: 1.25rem;}
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 32px 24px;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 32px;
+        right: 24px;
+        width: 44px;
+        height: 39px;
+        background-color: $very-dark-blue;
+        border-radius: 100%;
+        z-index: -1;
+        will-change: transform, opacity;
+        transform: scale(0);
+        opacity: 0;
+        transition: transform 0.3s ease-in,
+                    opacity 0.3s ease-in;
+    }
+
+    &--opened::after {
+        opacity: 1;
+        transform: scale(100);
+    }
 }
 
 .logo {
@@ -67,6 +90,7 @@ h3 {font-size: 1.25rem;}
     border: 0;
     background-color: transparent;
     cursor: pointer;
+    z-index: 1;
 
     &__inner {
         display: block;
@@ -82,6 +106,7 @@ h3 {font-size: 1.25rem;}
         height: 3px;
         border-radius: 2px;
         background-color: $very-dark-blue;
+        will-change: transform, background-color;
 
         &:nth-child(1) {
             top: 0;
@@ -89,6 +114,7 @@ h3 {font-size: 1.25rem;}
 
         &:nth-child(2) {
             top: 8px;
+            will-change: transform, background-color, opacity;
         }
 
         &:nth-child(3) {
@@ -97,6 +123,8 @@ h3 {font-size: 1.25rem;}
     }
 
     &--active &__bar {
+        background-color: $white;
+
         &:nth-child(1), &:nth-child(3) {
             transition: transform $duration-time $delay-time $timing-function;
         }
@@ -142,8 +170,8 @@ h3 {font-size: 1.25rem;}
 }
 
 .navigation {
-    display: none;
     width: 100%;
+    display: none;
 }
 
 .socials {
@@ -166,5 +194,18 @@ h3 {font-size: 1.25rem;}
 
     &__svg {
         width: 100%;
+    }
+}
+
+// Styles for elements in active hamburger menu (.header--active)
+.header--opened {
+    .logo {
+        &__circle, &__text {
+            fill: $white;
+        }
+
+        &__mark {
+            fill: $very-dark-blue;
+        }
     }
 }
