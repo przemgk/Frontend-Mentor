@@ -20,6 +20,9 @@
 </head>
 <body>
 
+    <!-- poprawić użycie svg jaki img lub object, nie wstawiać tak sobie svg inline -->
+
+
     <header class="header">
 
         <a class="logo" href="/" aria-label="Our logo, link to home page">
@@ -40,7 +43,16 @@
                 <span class="hamburger__bar"></span>
             </span>
         </button>
-
+<!--    te menu mozna potem wykomentować i to na razie jest pierwsza wersja
+        i można ją poprawić i jak zdecyduje ze dopracuje je jeszce to wykomentuje
+        je i nie bedzie mi przeszkadac i narazie koncze prace nad menu i lece dalej i potem wrócę
+        do niego jak skończę kodować reszte i poszukam jakiś inspiracji i dobrych przykładów,
+        a te menu mogę tez sobie zostwić i dobrze na codepenie dobre przykłady trzymać i
+        ostatecznie decyduje, że narazie zostawie te menu, ale pomyśle czy je jeszcze dopracowywać
+        i jak coś to wykomwntuje i potem wrócę ale dopiero jak zakoduje wersje mobilną
+        i to jest postanowione :), ale narazie zostaje jak zdecyduje ze zmienie potem to napisze
+        i wykomentuje
+     -->
         <div class="nav-container">
             <nav class="navigation">
                 <ul class="menu">
@@ -68,7 +80,51 @@
     </header>
 
 
+    <main>
 
+        <section class="intro">
+            <div class="illustration" aria-hidden="true">
+                <img class="illustration__image" src="assets/illustrations/illustration-hero.svg" alt="A simple bookmark manager">
+            </div>
+
+            <header class="section-header">
+                <h1 class="section-header__heading">A simple bookmark manager</h1>
+                <p class="section-header__paragraph">A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.</p>
+            </header>
+
+            <div class="button-container">
+                <button class="button button--primary-blue">Get it on Chrome</button>
+                <button class="button button--secondary">Get it on Firefox</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <header class="section-header">
+                <h2 class="section-header__heading">Features</h2>
+                <p class="section-header__paragraph">Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
+            </header>
+
+            <div class="carousel">
+                <div class="carousel__tabs-list">
+                    <a href="#" class="carousel__tab">Single bookmarking</a>
+                    <a href="#" class="carousel__tab">Speedy searching</a>
+                    <a href="#" class="carousel__tab">Easy sharing</a>
+                </div>
+                <div class="carousel__item">
+                    <div class="illustration" aria-hidden="true">
+                        <img class="illustration__image" src="assets/illustrations/illustration-features-tab-1.svg" alt="Single bookmarking">
+                        <div class="section-header">
+                            <h3 class="section-header__heading">Bookmark in one click</h3>
+                            <p class="section-header__paragraph">Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel__item"></div>
+                <div class="carousel__item"></div>
+            </div>
+        </section>
+
+    </main>
 
 
 
