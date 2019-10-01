@@ -335,5 +335,7 @@ h3 {font-size: 1.25rem;}
 }
 
 .features {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 160px;
 }
