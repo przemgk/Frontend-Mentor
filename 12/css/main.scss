@@ -242,7 +242,8 @@ h3 {font-size: 1.25rem;}
 .button-container{
     display: flex;
     align-items: center;
-    margin-top: 40px;
+    width: 100%;
+    padding: 40px 24px 0;
 }
 
 .button {
@@ -286,11 +287,12 @@ h3 {font-size: 1.25rem;}
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 24px 120px;
+    padding: 40px 0 120px;
 }
 
 .section-header {
     margin-top: 64px;
+    padding: 0 24px;
 
     &__heading {
         text-transform: capitalize;
@@ -308,7 +310,7 @@ h3 {font-size: 1.25rem;}
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 -24px;
+    width: 100%;
     padding-bottom: 24px;
     position: relative;
 
@@ -333,5 +335,5 @@ h3 {font-size: 1.25rem;}
 }
 
 .features {
-    padding: 0 24px 160px;
+    padding-bottom: 160px;
 }
