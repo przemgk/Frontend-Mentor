@@ -106,7 +106,7 @@ h3 {font-size: 1.25rem;}
         height: 3px;
         border-radius: 2px;
         background-color: $very-dark-blue;
-        will-change: transform;
+        will-change: transform, background-color;
 
         &:nth-child(1) {
             top: 0;
@@ -114,7 +114,7 @@ h3 {font-size: 1.25rem;}
 
         &:nth-child(2) {
             top: 8px;
-            will-change: transform, opacity;
+            will-change: transform, background-color, opacity;
         }
 
         &:nth-child(3) {
@@ -239,7 +239,7 @@ h3 {font-size: 1.25rem;}
 }
 
 // Styles for buttons and buttons container
-.button-container{
+.buttons-container{
     display: flex;
     align-items: center;
     width: 100%;
@@ -332,6 +332,10 @@ h3 {font-size: 1.25rem;}
         display: block;
         z-index: -1;
     }
+
+    &--carousel {
+        padding-bottom: 56px;
+    }
 }
 
 .features {
@@ -341,5 +345,22 @@ h3 {font-size: 1.25rem;}
 .carousel {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+
+    &__tabs-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px 24px 72px;
+    }
+
+    &__tab {
+        color: $very-dark-blue;
+        text-decoration: none;
+        font-size: 1.125rem;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
 }
