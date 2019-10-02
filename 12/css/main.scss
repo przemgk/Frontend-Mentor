@@ -70,6 +70,7 @@ h3 {font-size: 1.25rem;}
         width: 100%;
     }
 
+    // Do poprawieniq przy edycji hamburger menu
     &__text, &__circle, &__mark {
         transition: fill 0.1s 0.2s ease-in;
     }
@@ -345,22 +346,48 @@ h3 {font-size: 1.25rem;}
 .carousel {
     display: flex;
     flex-direction: column;
-
-    &__tabs-list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 40px 24px 72px;
-    }
-
-    &__tab {
-        color: $very-dark-blue;
-        text-decoration: none;
-        font-size: 1.125rem;
-    }
+    margin-top: 48px;
 
     &__item {
         display: flex;
         flex-direction: column;
     }
+
+    &__tabs-list {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 24px 72px;
+    }
+
+    &__tab {
+        display: block;
+        width: 100%;
+        color: $very-dark-blue;
+        text-decoration: none;
+        font-size: 1.125rem;
+        line-height: 1;
+        text-align: center;
+        color: $grayish-blue;
+        padding: 16px 0;
+        border-bottom: 2px solid rgba($grayish-blue, 0.16);
+
+        &:first-of-type {
+            border-top: 2px solid rgba($grayish-blue, 0.16);
+        }
+
+        &--active {
+            font-weight: 500;
+            color: $very-dark-blue;
+        }
+    }
+
+   &__indicator {
+       position: absolute;
+       top: calc(16px + 16px - 3px + 1.125rem);
+       width: 50%;
+       height: 5px;
+       background-color: $soft-red;
+   }
 }
