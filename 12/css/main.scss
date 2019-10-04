@@ -241,11 +241,26 @@ h3 {font-size: 1.25rem;}
 
 // Styles for buttons and buttons container
 .buttons-container{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 0 24px;
     margin-top: 40px;
+
+    &--dotted {
+        padding-top: 32px;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            content: '';
+            width: 100%;
+            height: 4px;
+            background: url('../assets/bg/bg-dots.svg') repeat-x center center/contain;
+        }
+    }
 }
 
 .button {
@@ -257,6 +272,7 @@ h3 {font-size: 1.25rem;}
     font-size: 0.875rem;
     font-weight: 500;
     padding: 16px 20px;
+    width: 100%;
 
     &:not(:last-child) {
         margin-right: 20px;
@@ -288,9 +304,6 @@ h3 {font-size: 1.25rem;}
 .intro,
 .features,
 .extensions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 160px;
 }
 
@@ -298,11 +311,8 @@ h3 {font-size: 1.25rem;}
     margin-top: 40px;
 }
 
-.intro .illustration {
-    margin-bottom: 56px;
-}
-
-.section-header {
+.text-box {
+    width: 100%;
     padding: 0 24px;
 
     &__heading {
@@ -316,6 +326,7 @@ h3 {font-size: 1.25rem;}
     }
 
     &__paragraph {
+        display: block;
         text-align: center;
         color: $grayish-blue;
     }
@@ -327,6 +338,7 @@ h3 {font-size: 1.25rem;}
     justify-content: center;
     width: 100%;
     padding-bottom: 24px;
+    margin-bottom: 56px;
     position: relative;
 
     &::after {
@@ -405,4 +417,30 @@ h3 {font-size: 1.25rem;}
        height: 4px;
        background-color: $soft-red;
    }
+}
+
+.extensions {
+
+    &__browsers-container {
+        display: grid;
+        grid-gap: 40px;
+        margin-top: 56px;
+    }
+
+    &__browser {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 48px);
+        margin: 0 24px;
+        padding: 40px 0 28px;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px -4px rgba($grayish-blue, 0.24);
+    }
+
+    &__logo {
+        display: block;
+        width: 40%;
+        margin-bottom: 40px;
+    }
 }
