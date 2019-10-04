@@ -457,6 +457,7 @@ h3 {font-size: 1.25rem;}
     &__item {
         border-bottom: 1px solid rgba($grayish-blue, 0.16);
         overflow: hidden;
+        transition: max-height 0.3s ease-in;
     }
 
     &__label {
@@ -494,10 +495,6 @@ h3 {font-size: 1.25rem;}
         }
     }
 
-    &__item--active {
-        max-height: auto;
-    }
-
     &__item--active &__label::after {
         transform: translateY(-50%) rotate(315deg);
     }
@@ -508,7 +505,7 @@ h3 {font-size: 1.25rem;}
     }
 
     &__answer {
-        margin: 16px 0 24px;
+        padding: 16px 0 24px;
         color: $grayish-blue;
     }
 }

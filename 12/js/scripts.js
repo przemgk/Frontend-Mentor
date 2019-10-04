@@ -12,14 +12,26 @@ hamburger.addEventListener("click", () => {
 // Carousel
 
 // FAQ Accordion
-const questions = Array.from(document.querySelectorAll(".questions__label"));
+const questions = Array.from(document.querySelectorAll(".questions__item"));
 
-questions.forEach( node => node.addEventListener("click", () => {
+questions.forEach( node => {
 
-    const answer = document.querySelector(".questions__answer");
+    const label =  node.querySelector(".questions__label");
+    const maxHeight = getComputedStyle(node).height;
+    const transition = getComputedStyle(node).transition;
 
-    node.parentNode.classList.toggle("questions__item--active");
+    node.style.maxHeight = getComputedStyle(label).height;
 
-    console.log(node.parentNode);
+    label.addEventListener("click", () => {
 
-}) );
+        node.classList.toggle("questions__item--active");
+
+        if(node.classList.contains("questions__item--active")) {
+            node.style.maxHeight = maxHeight;
+        } else {
+            node.style.maxHeight = getComputedStyle(label).height;
+        }
+
+    });
+
+} );
