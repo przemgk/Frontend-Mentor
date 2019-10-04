@@ -279,8 +279,6 @@ h3 {font-size: 1.25rem;}
     &--ghost {
         background-color: transparent;
         border: 1px solid $white;
-        width: 100%;
-        max-width: 400px;
         margin-top: 16px;
     }
 
@@ -296,6 +294,10 @@ h3 {font-size: 1.25rem;}
     &--secondary {
         background-color: hsl(0, 0, 97%);
         box-shadow: 0 12px 16px -8px rgba($very-dark-blue, 0.16);
+    }
+
+    &--fit-to-content {
+        width: auto;
     }
 }
 
@@ -423,7 +425,6 @@ h3 {font-size: 1.25rem;}
 }
 
 .extensions {
-
     &__browsers-container {
         display: grid;
         grid-gap: 40px;
@@ -445,5 +446,71 @@ h3 {font-size: 1.25rem;}
         display: block;
         width: 40%;
         margin-bottom: 40px;
+    }
+}
+
+.questions {
+    list-style: none;
+    margin: 72px 24px 0;
+    padding: 0;
+
+    &__item {
+        border-bottom: 1px solid rgba($grayish-blue, 0.16);
+        max-height: 4rem;
+        overflow: hidden;
+    }
+
+    &__label {
+        display: inline-block;
+        width: 100%;
+        line-height: 4rem;
+        padding-right: 24px;
+        cursor: pointer;
+        position: relative;
+
+        &::before, &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(calc(-50% - 3px)) rotate(135deg);
+            right: 3px;
+            content: '';
+            padding: 3px;
+            background-color: transparent;
+            border-width: 2px 2px 0 0;
+            border-style: solid;
+        }
+
+        &::after {
+            border-color: $soft-blue;
+            will-change: transform;
+            transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+        }
+
+        &::before {
+            border-color: $soft-red;
+            z-index: 1;
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4),
+                        opacity 0.3s linear;
+        }
+    }
+
+    &__item--active {
+        max-height: auto;
+    }
+
+    &__item--active &__label::after {
+        transform: translateY(-50%) rotate(315deg);
+    }
+
+    &__item--active &__label::before {
+        transform: translateY(-50%) rotate(315deg);
+        opacity: 1;
+    }
+
+    &__answer {
+        margin: 16px 0 24px;
+        color: $grayish-blue;
     }
 }
