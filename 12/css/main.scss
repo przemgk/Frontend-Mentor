@@ -70,7 +70,7 @@ h3 {font-size: 1.25rem;}
         width: 100%;
     }
 
-    // Do poprawieniq przy edycji hamburger menu
+    // Do poprawienia przy edycji hamburger menu
     &__text, &__circle, &__mark {
         transition: fill 0.1s 0.2s ease-in;
     }
@@ -243,8 +243,9 @@ h3 {font-size: 1.25rem;}
 .buttons-container{
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    padding: 40px 24px 0;
+    margin-top: 40px;
 }
 
 .button {
@@ -284,21 +285,34 @@ h3 {font-size: 1.25rem;}
     }
 }
 
-.intro {
+.intro,
+.features,
+.extensions {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0 120px;
+    margin-bottom: 160px;
+}
+
+.intro {
+    margin-top: 40px;
+}
+
+.intro .illustration {
+    margin-bottom: 56px;
 }
 
 .section-header {
-    margin-top: 64px;
     padding: 0 24px;
 
     &__heading {
         text-transform: capitalize;
         text-align: center;
         margin-bottom: 24px;
+
+        &--small {
+            margin-bottom: 12px;
+        }
     }
 
     &__paragraph {
@@ -324,8 +338,7 @@ h3 {font-size: 1.25rem;}
         height: 80%;
         background-color: $soft-blue;
         z-index: -2;
-        border-top-left-radius: 999rem;
-        border-bottom-left-radius: 999rem;
+        border-radius: 999rem 0 0 999rem;
     }
 
     &__image {
@@ -336,11 +349,13 @@ h3 {font-size: 1.25rem;}
 
     &--carousel {
         padding-bottom: 56px;
+        margin-bottom: 48px;
     }
-}
 
-.features {
-    padding-bottom: 160px;
+    &--carousel::after {
+        left: 0;
+        border-radius: 0 999rem 999rem 0;
+    }
 }
 
 .carousel {
@@ -370,7 +385,7 @@ h3 {font-size: 1.25rem;}
         line-height: 1;
         text-align: center;
         color: $grayish-blue;
-        padding: 16px 0;
+        padding: 20px 0;
         border-bottom: 2px solid rgba($grayish-blue, 0.16);
 
         &:first-of-type {
@@ -385,9 +400,9 @@ h3 {font-size: 1.25rem;}
 
    &__indicator {
        position: absolute;
-       top: calc(16px + 16px - 3px + 1.125rem);
+       top: calc(1.125rem + 20px + 20px - 2px);
        width: 50%;
-       height: 5px;
+       height: 4px;
        background-color: $soft-red;
    }
 }
