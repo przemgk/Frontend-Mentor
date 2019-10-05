@@ -101,82 +101,6 @@ h3 {font-size: 1.25rem;}
     }
 }
 .hamburger {
-	@keyframes top-bar-open {
-		0% {
-			background-color: $very-dark-blue;
-			transform: translateY(0);
-		}
-		33.33% {
-			background-color: $very-dark-blue;
-			transform: translateY(7px);
-		}
-		50%, 66.66% {
-			background-color: $white;
-			transform: translateY(7px);
-		}
-		100% {
-			background-color:$white;
-			transform: translateY(7px) rotate(45deg);
-		}
-	}
-
-	@keyframes top-bar-close {
-		0% {
-			background-color: $white;
-			transform: translateY(7px) rotate(45deg);
-		}
-		33.33% {
-			background-color: $white;
-			transform: translateY(7px) rotate(0deg);
-		}
-		50%, 66.66% {
-			background-color: $very-dark-blue;
-			transform: translateY(7px) rotate(0deg);
-		}
-		100% {
-			background-color: $very-dark-blue;
-			transform: translateY(0) rotate(0deg);
-		}
-	}
-
-	@keyframes bottom-bar-open {
-		0% {
-			background-color: $very-dark-blue;
-			transform: translateY(0);
-		}
-		33.33% {
-			background-color: $very-dark-blue;
-			transform: translateY(-7px);
-		}
-		50%, 66.66% {
-			background-color: $white;
-			transform: translateY(-7px);
-		}
-		100% {
-			background-color: $white;
-			transform: translateY(-7px) rotate(-45deg);
-		}
-	}
-
-	@keyframes bottom-bar-close {
-		0% {
-			background-color: $white;
-			transform: translateY(-7px) rotate(-45deg);
-		}
-		33.33% {
-			background-color: $white;
-			transform: translateY(-7px) rotate(0deg);
-		}
-		50%, 66.66% {
-			background-color: $very-dark-blue;
-			transform: translateY(-7px) rotate(0deg);
-		}
-		100% {
-			background-color: $very-dark-blue;
-			transform: translateY(0) rotate(0deg);
-		}
-	}
-
 	display: inline-block;
 	margin: 0;
 	padding: 10px;
@@ -194,9 +118,8 @@ h3 {font-size: 1.25rem;}
 	&__bar {
 		top: 50%;
 		transform: translateY(-50%);
-        background-color: $very-dark-blue;
+        transition: background-color 0.2s ease-in 0.2s;
         will-change: background-color;
-		transition: background-color 0s ease-in 0.2s;
 
 		&, &::before, &::after {
 			position: absolute;
@@ -204,38 +127,42 @@ h3 {font-size: 1.25rem;}
 			display: inline-block;
 			width: 100%;
 			height: 3px;
-			border-radius: 2px;
+			background-color: #000;
 		}
 
 		&::before, &::after {
-            content: '';
-            will-change: transform, background-color;
+			content: '';
+            transition: transform 0.3s ease-in;
+            will-change: background-color, transform;
 		}
 
 		&::before {
 			top: -7px;
-			animation: top-bar-close 0.6s ease-in 0s 1 normal forwards;
 		}
 
 		&::after {
 			top: 7px;
-			animation: bottom-bar-close 0.6s ease-in 0s 1 normal forwards;
 		}
 	}
 
 	&--active &__bar {
-        background-color: transparent;
+		background-color: transparent;
+		transition: background-color 0.2s ease-in;
+
+		&::before, &::after {
+			background-color: #fff;
+			transition: transform 0.3s ease-in 0.2s;
+		}
 
 		&::before {
-			animation: top-bar-open 0.6s ease-in 0s 1 normal forwards;
+			transform: translateY(7px) rotate(45deg);
 		}
 
 		&::after {
-			animation: bottom-bar-open 0.6s ease-in 0s 1 normal forwards;
+			transform: translateY(-7px) rotate(-45deg);
 		}
-    }
+	}
 }
-
 // Styles for elements which are only for screen reader
 .sr-only {
     position: absolute;
