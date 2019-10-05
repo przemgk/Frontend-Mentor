@@ -9,8 +9,82 @@
     $white: hsl(0, 100%, 100%);
 
 // @TODO
-// - poprawic wydajnosc hamburger menu bo zacina sie na telefonie srodkowa belka przy zamykaniu jest spowolnienie i nie jest to płynne
+// - uporządkować animacje
+@keyframes top-bar-open {
+    0% {
+        background-color: $very-dark-blue;
+        transform: translateY(0);
+    }
+    33.33% {
+        background-color: $very-dark-blue;
+        transform: translateY(7px);
+    }
+    50%, 66.66% {
+        background-color: $white;
+        transform: translateY(7px);
+    }
+    100% {
+        background-color:$white;
+        transform: translateY(7px) rotate(45deg);
+    }
+}
 
+@keyframes top-bar-close {
+    0% {
+        background-color: $white;
+        transform: translateY(7px) rotate(45deg);
+    }
+    33.33% {
+        background-color: $white;
+        transform: translateY(7px) rotate(0deg);
+    }
+    50%, 66.66% {
+        background-color: $very-dark-blue;
+        transform: translateY(7px) rotate(0deg);
+    }
+    100% {
+        background-color: $very-dark-blue;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes bottom-bar-open {
+    0% {
+        background-color: $very-dark-blue;
+        transform: translateY(0);
+    }
+    33.33% {
+        background-color: $very-dark-blue;
+        transform: translateY(-7px);
+    }
+    50%, 66.66% {
+        background-color: $white;
+        transform: translateY(-7px);
+    }
+    100% {
+        background-color: $white;
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+@keyframes bottom-bar-close {
+    0% {
+        background-color: $white;
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    33.33% {
+        background-color: $white;
+        transform: translateY(-7px) rotate(0deg);
+    }
+    50%, 66.66% {
+        background-color: $very-dark-blue;
+        transform: translateY(-7px) rotate(0deg);
+    }
+    100% {
+        background-color: $very-dark-blue;
+        transform: translateY(0) rotate(0deg);
+    }
+}
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -63,7 +137,7 @@ h3 {font-size: 1.25rem;}
 		min-width: 100vw;
 		min-height: 100vh;
 		transform-origin: top left;
-		background-color: #000;
+		background-color: rgba($very-dark-blue, 0.92);
         z-index: 0;
         will-change: transform;
 		transition: transform 0.2s ease-in 0.2s;
@@ -100,139 +174,64 @@ h3 {font-size: 1.25rem;}
         }
     }
 }
+
 .hamburger {
-	@keyframes top-bar-open {
-		0% {
-			background-color: $very-dark-blue;
-			transform: translateY(0);
-		}
-		33.33% {
-			background-color: $very-dark-blue;
-			transform: translateY(7px);
-		}
-		50%, 66.66% {
-			background-color: $white;
-			transform: translateY(7px);
-		}
-		100% {
-			background-color:$white;
-			transform: translateY(7px) rotate(45deg);
-		}
-	}
-
-	@keyframes top-bar-close {
-		0% {
-			background-color: $white;
-			transform: translateY(7px) rotate(45deg);
-		}
-		33.33% {
-			background-color: $white;
-			transform: translateY(7px) rotate(0deg);
-		}
-		50%, 66.66% {
-			background-color: $very-dark-blue;
-			transform: translateY(7px) rotate(0deg);
-		}
-		100% {
-			background-color: $very-dark-blue;
-			transform: translateY(0) rotate(0deg);
-		}
-	}
-
-	@keyframes bottom-bar-open {
-		0% {
-			background-color: $very-dark-blue;
-			transform: translateY(0);
-		}
-		33.33% {
-			background-color: $very-dark-blue;
-			transform: translateY(-7px);
-		}
-		50%, 66.66% {
-			background-color: $white;
-			transform: translateY(-7px);
-		}
-		100% {
-			background-color: $white;
-			transform: translateY(-7px) rotate(-45deg);
-		}
-	}
-
-	@keyframes bottom-bar-close {
-		0% {
-			background-color: $white;
-			transform: translateY(-7px) rotate(-45deg);
-		}
-		33.33% {
-			background-color: $white;
-			transform: translateY(-7px) rotate(0deg);
-		}
-		50%, 66.66% {
-			background-color: $very-dark-blue;
-			transform: translateY(-7px) rotate(0deg);
-		}
-		100% {
-			background-color: $very-dark-blue;
-			transform: translateY(0) rotate(0deg);
-		}
-	}
-
-	display: inline-block;
-	margin: 0;
-	padding: 10px;
-	border: 0;
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    border: 0;
     background-color: transparent;
     z-index: 1;
 
-	&__inner {
-		position: relative;
-		display: block;
-		width: 24px;
-		height: 17px;
-	}
+    &__inner {
+        position: relative;
+        display: block;
+        width: 24px;
+        height: 17px;
+    }
 
-	&__bar {
-		top: 50%;
-		transform: translateY(-50%);
+    &__bar {
+        top: 50%;
+        transform: translateY(-50%);
         background-color: $very-dark-blue;
         will-change: background-color;
-		transition: background-color 0s ease-in 0.2s;
+        transition: background-color 0s ease-in 0.2s;
 
-		&, &::before, &::after {
-			position: absolute;
-			left: 0;
-			display: inline-block;
-			width: 100%;
-			height: 3px;
-			border-radius: 2px;
-		}
+        &, &::before, &::after {
+            position: absolute;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+        }
 
-		&::before, &::after {
+        &::before, &::after {
             content: '';
             will-change: transform, background-color;
-		}
+        }
 
-		&::before {
-			top: -7px;
-			animation: top-bar-close 0.6s ease-in 0s 1 normal forwards;
-		}
+        &::before {
+            top: -7px;
+            animation: top-bar-close 0.6s ease-in 0s 1 normal forwards;
+        }
 
-		&::after {
-			top: 7px;
-			animation: bottom-bar-close 0.6s ease-in 0s 1 normal forwards;
-		}
-	}
+        &::after {
+            top: 7px;
+            animation: bottom-bar-close 0.6s ease-in 0s 1 normal forwards;
+        }
+    }
 
-	&--active &__bar {
+    &--active &__bar {
         background-color: transparent;
 
-		&::before {
-			animation: top-bar-open 0.6s ease-in 0s 1 normal forwards;
-		}
+        &::before {
+            animation: top-bar-open 0.6s ease-in 0s 1 normal forwards;
+        }
 
-		&::after {
-			animation: bottom-bar-open 0.6s ease-in 0s 1 normal forwards;
-		}
+        &::after {
+            animation: bottom-bar-open 0.6s ease-in 0s 1 normal forwards;
+        }
     }
 }
 
