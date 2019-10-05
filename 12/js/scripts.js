@@ -1,13 +1,13 @@
-// Hamburger menu - test version
+// Hamburger menu
 const hamburger = document.querySelector(".hamburger");
-const navContainer = document.querySelector(".nav-container");
-const logo = document.querySelector(".header .logo");
+const header = document.querySelector(".header");
 
 hamburger.addEventListener("click", () => {
+
     hamburger.classList.toggle("hamburger--active");
-    // navContainer.classList.toggle("nav-container--opened");
-    // logo.classList.toggle("logo--white");
-});
+    header.classList.toggle("header--opened");
+
+} );
 
 // Carousel
 

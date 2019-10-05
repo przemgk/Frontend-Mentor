@@ -8,11 +8,6 @@
     $very-dark-blue: hsl(229, 31%, 21%);
     $white: hsl(0, 100%, 100%);
 
-// Variables for hamburger icon animation
-    $timing-function: cubic-bezier(0.8, 0.5, 0.2, 1.4);
-    $duration-time: 0.3s;
-    $delay-time: 0.2s;
-
 // @TODO
 // - poprawic wydajnosc hamburger menu bo zacina sie na telefonie srodkowa belka przy zamykaniu jest spowolnienie i nie jest to płynne
 
@@ -59,6 +54,25 @@ h3 {font-size: 1.25rem;}
     flex-wrap: wrap;
     padding: 32px 24px;
     position: relative;
+
+    &::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: -100%;
+		min-width: 100vw;
+		min-height: 100vh;
+		transform-origin: top left;
+		background-color: #000;
+        z-index: 0;
+        will-change: transform;
+		transition: transform 0.2s ease-in 0.2s;
+		overflow: hidden;
+	}
+
+	&--opened::after {
+		transform: translateX(100%);
+    }
 }
 
 .logo {
@@ -86,73 +100,139 @@ h3 {font-size: 1.25rem;}
         }
     }
 }
-
 .hamburger {
-    padding: 10px;
-    border: 0;
+	@keyframes top-bar-open {
+		0% {
+			background-color: $very-dark-blue;
+			transform: translateY(0);
+		}
+		33.33% {
+			background-color: $very-dark-blue;
+			transform: translateY(7px);
+		}
+		50%, 66.66% {
+			background-color: $white;
+			transform: translateY(7px);
+		}
+		100% {
+			background-color:$white;
+			transform: translateY(7px) rotate(45deg);
+		}
+	}
+
+	@keyframes top-bar-close {
+		0% {
+			background-color: $white;
+			transform: translateY(7px) rotate(45deg);
+		}
+		33.33% {
+			background-color: $white;
+			transform: translateY(7px) rotate(0deg);
+		}
+		50%, 66.66% {
+			background-color: $very-dark-blue;
+			transform: translateY(7px) rotate(0deg);
+		}
+		100% {
+			background-color: $very-dark-blue;
+			transform: translateY(0) rotate(0deg);
+		}
+	}
+
+	@keyframes bottom-bar-open {
+		0% {
+			background-color: $very-dark-blue;
+			transform: translateY(0);
+		}
+		33.33% {
+			background-color: $very-dark-blue;
+			transform: translateY(-7px);
+		}
+		50%, 66.66% {
+			background-color: $white;
+			transform: translateY(-7px);
+		}
+		100% {
+			background-color: $white;
+			transform: translateY(-7px) rotate(-45deg);
+		}
+	}
+
+	@keyframes bottom-bar-close {
+		0% {
+			background-color: $white;
+			transform: translateY(-7px) rotate(-45deg);
+		}
+		33.33% {
+			background-color: $white;
+			transform: translateY(-7px) rotate(0deg);
+		}
+		50%, 66.66% {
+			background-color: $very-dark-blue;
+			transform: translateY(-7px) rotate(0deg);
+		}
+		100% {
+			background-color: $very-dark-blue;
+			transform: translateY(0) rotate(0deg);
+		}
+	}
+
+	display: inline-block;
+	margin: 0;
+	padding: 10px;
+	border: 0;
     background-color: transparent;
-    cursor: pointer;
     z-index: 1;
 
-    &__inner {
-        display: block;
-        position: relative;
-        width: 24px;
-        height: 19px;
-    }
+	&__inner {
+		position: relative;
+		display: block;
+		width: 24px;
+		height: 17px;
+	}
 
-    &__bar {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        border-radius: 2px;
+	&__bar {
+		top: 50%;
+		transform: translateY(-50%);
         background-color: $very-dark-blue;
-        overflow: hidden;
-        will-change: transform;
+        will-change: background-color;
+		transition: background-color 0s ease-in 0.2s;
 
-        &:nth-child(1) {
-            top: 0;
-        }
+		&, &::before, &::after {
+			position: absolute;
+			left: 0;
+			display: inline-block;
+			width: 100%;
+			height: 3px;
+			border-radius: 2px;
+		}
 
-        &:nth-child(2) {
-            top: 8px;
-            will-change: transform, opacity;
-        }
+		&::before, &::after {
+            content: '';
+            will-change: transform, background-color;
+		}
 
-        &:nth-child(3) {
-            bottom: 0;
-        }
-    }
+		&::before {
+			top: -7px;
+			animation: top-bar-close 0.6s ease-in 0s 1 normal forwards;
+		}
 
-    &--active &__bar {
-        &:nth-child(2) {
-            transition: transform $duration-time $timing-function,
-                        opacity $duration-time $timing-function;
-            opacity: 0;
-            transform: scaleX(0);
-        }
+		&::after {
+			top: 7px;
+			animation: bottom-bar-close 0.6s ease-in 0s 1 normal forwards;
+		}
+	}
 
-        &:nth-child(1) {
-            transition: transform $duration-time $delay-time $timing-function;
-            transform: translateY(8px) rotate(45deg);
-        }
+	&--active &__bar {
+        background-color: transparent;
 
-        &:nth-child(3) {
-            transition: transform $duration-time $delay-time $timing-function;
-            transform: translateY(-8px) rotate(-45deg);
-        }
-    }
+		&::before {
+			animation: top-bar-open 0.6s ease-in 0s 1 normal forwards;
+		}
 
-    &:not(&--active) &__bar {
-        &:nth-child(1), &:nth-child(3) {
-            transition: transform $duration-time $timing-function;
-        }
-
-        &:nth-child(2) {
-            transition: transform $duration-time $delay-time $timing-function,
-                        opacity $duration-time $delay-time $timing-function;
-        }
+		&::after {
+			animation: bottom-bar-open 0.6s ease-in 0s 1 normal forwards;
+		}
     }
 }
 
@@ -168,29 +248,9 @@ h3 {font-size: 1.25rem;}
     border: 0;
 }
 
-// Style do zmiany (z animacją menu)
-.nav-container {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: -100%;
-    min-width: 100vw;
-    background-color: rgba($very-dark-blue, 0.95);
-    color: $white;
-    padding: 103px 24px 32px;
-    margin: 0;
-    opacity: 0;
-    will-change: transform, opacity;
-    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
-
-    &--opened {
-        opacity: 1;
-        transform: translateX(-100%);
-    }
-}
-
 .navigation {
     width: 100%;
+    display: none;
 }
 
 .menu {
@@ -198,6 +258,7 @@ h3 {font-size: 1.25rem;}
     padding: 0;
     margin: 0;
     text-align: center;
+    display: none;
 
     &__item {
         padding: 24px 0;
@@ -213,6 +274,7 @@ h3 {font-size: 1.25rem;}
 }
 
 .socials {
+    display: none;
     position: absolute;
     bottom: 40px;
     left: 0;
