@@ -9,7 +9,14 @@
     $white: hsl(0, 100%, 100%);
 
 // @TODO
+// - poprawić wydajnośc hamburger menu (zrobione więcej FPS)
 // - uporządkować animacje
+// - strona na wersji mobilnej jest za szeroka (zrobione)
+// - poprawic animacje accordion
+// - poprawić do perfekcji animacjie hamburger menu, aby było 60 FPS, poziom FPS obniża się przez zmiane klasy za pomocą js (renderowanie DOM)
+
+
+
 @keyframes top-bar-open {
     0% {
         background-color: $very-dark-blue;
@@ -133,7 +140,7 @@ h3 {font-size: 1.25rem;}
 		position: absolute;
 		content: '';
 		top: 0;
-		left: -100%;
+		left: -100vw;
 		min-width: 100vw;
 		min-height: 100vh;
 		transform-origin: top left;
@@ -145,7 +152,7 @@ h3 {font-size: 1.25rem;}
 	}
 
 	&--opened::after {
-		transform: translateX(100%);
+		transform: translateX(100vw);
     }
 }
 
@@ -208,6 +215,7 @@ h3 {font-size: 1.25rem;}
 
         &::before, &::after {
             content: '';
+            background-color: $very-dark-blue;
             will-change: transform, background-color;
         }
 
