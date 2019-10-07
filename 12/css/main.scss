@@ -1,5 +1,5 @@
 // Load normalize file
-    @import 'normalize.scss';
+@import 'normalize.scss';
 
 // Colors
     $soft-blue: hsl(231, 69%, 60%);
@@ -13,85 +13,15 @@
 // - uporządkować animacje
 // - strona na wersji mobilnej jest za szeroka (zrobione)
 // - poprawic animacje accordion
-// - poprawić do perfekcji animacjie hamburger menu, aby było 60 FPS, poziom FPS obniża się przez zmiane klasy za pomocą js (renderowanie DOM)
+// - poprawić do perfekcji animacjie hamburger menu, aby było 60 FPS,
+//   poziom FPS obniża się przez zmiane klasy za pomocą js (renderowanie DOM) -> poczytać o requestAnimationFrame
+// - zrobić całe wydajne menu
+// - przebudowa na nowo z kopiowaniem
 
+@keyframes animation-hamburger-icon-top-open {
 
-
-@keyframes top-bar-open {
-    0% {
-        background-color: $very-dark-blue;
-        transform: translateY(0);
-    }
-    33.33% {
-        background-color: $very-dark-blue;
-        transform: translateY(7px);
-    }
-    50%, 66.66% {
-        background-color: $white;
-        transform: translateY(7px);
-    }
-    100% {
-        background-color:$white;
-        transform: translateY(7px) rotate(45deg);
-    }
 }
 
-@keyframes top-bar-close {
-    0% {
-        background-color: $white;
-        transform: translateY(7px) rotate(45deg);
-    }
-    33.33% {
-        background-color: $white;
-        transform: translateY(7px) rotate(0deg);
-    }
-    50%, 66.66% {
-        background-color: $very-dark-blue;
-        transform: translateY(7px) rotate(0deg);
-    }
-    100% {
-        background-color: $very-dark-blue;
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-@keyframes bottom-bar-open {
-    0% {
-        background-color: $very-dark-blue;
-        transform: translateY(0);
-    }
-    33.33% {
-        background-color: $very-dark-blue;
-        transform: translateY(-7px);
-    }
-    50%, 66.66% {
-        background-color: $white;
-        transform: translateY(-7px);
-    }
-    100% {
-        background-color: $white;
-        transform: translateY(-7px) rotate(-45deg);
-    }
-}
-
-@keyframes bottom-bar-close {
-    0% {
-        background-color: $white;
-        transform: translateY(-7px) rotate(-45deg);
-    }
-    33.33% {
-        background-color: $white;
-        transform: translateY(-7px) rotate(0deg);
-    }
-    50%, 66.66% {
-        background-color: $very-dark-blue;
-        transform: translateY(-7px) rotate(0deg);
-    }
-    100% {
-        background-color: $very-dark-blue;
-        transform: translateY(0) rotate(0deg);
-    }
-}
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -135,50 +65,15 @@ h3 {font-size: 1.25rem;}
     flex-wrap: wrap;
     padding: 32px 24px;
     position: relative;
-
-    &::after {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: -100vw;
-		min-width: 100vw;
-		min-height: 100vh;
-		transform-origin: top left;
-		background-color: rgba($very-dark-blue, 0.92);
-        z-index: 0;
-        will-change: transform;
-		transition: transform 0.2s ease-in 0.2s;
-		overflow: hidden;
-	}
-
-	&--opened::after {
-		transform: translateX(100vw);
-    }
 }
 
 .logo {
     width: 140px;
     display: inline-block;
-    z-index: 1;
 
     &__svg {
         display: block;
         width: 100%;
-    }
-
-    // Do poprawienia przy edycji hamburger menu
-    &__text, &__circle, &__mark {
-        transition: fill 0.1s 0.2s ease-in;
-    }
-
-    &--white {
-        .logo__text, .logo__circle {
-            fill: $white;
-        }
-
-        .logo__mark {
-            fill: $very-dark-blue;
-        }
     }
 }
 
@@ -188,7 +83,7 @@ h3 {font-size: 1.25rem;}
     padding: 10px;
     border: 0;
     background-color: transparent;
-    z-index: 1;
+    z-index: 2;
 
     &__inner {
         position: relative;
@@ -200,9 +95,6 @@ h3 {font-size: 1.25rem;}
     &__bar {
         top: 50%;
         transform: translateY(-50%);
-        background-color: $very-dark-blue;
-        will-change: background-color;
-        transition: background-color 0s ease-in 0.2s;
 
         &, &::before, &::after {
             position: absolute;
@@ -211,34 +103,19 @@ h3 {font-size: 1.25rem;}
             width: 100%;
             height: 3px;
             border-radius: 2px;
+            background-color: $very-dark-blue;
         }
 
         &::before, &::after {
             content: '';
-            background-color: $very-dark-blue;
-            will-change: transform, background-color;
         }
 
         &::before {
             top: -7px;
-            animation: top-bar-close 0.6s ease-in 0s 1 normal forwards;
         }
 
         &::after {
             top: 7px;
-            animation: bottom-bar-close 0.6s ease-in 0s 1 normal forwards;
-        }
-    }
-
-    &--active &__bar {
-        background-color: transparent;
-
-        &::before {
-            animation: top-bar-open 0.6s ease-in 0s 1 normal forwards;
-        }
-
-        &::after {
-            animation: bottom-bar-open 0.6s ease-in 0s 1 normal forwards;
         }
     }
 }
@@ -256,8 +133,26 @@ h3 {font-size: 1.25rem;}
 }
 
 .navigation {
-    width: 100%;
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding-top: 100px;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba($very-dark-blue, 0.92);
+    will-change: transform;
+    z-index: 1;
+
+    &--animatable {
+        transition: transform 300ms ease-in;
+    }
+
+    &--opened {
+        transform: none;
+    }
 }
 
 .menu {
@@ -265,7 +160,6 @@ h3 {font-size: 1.25rem;}
     padding: 0;
     margin: 0;
     text-align: center;
-    display: none;
 
     &__item {
         padding: 24px 0;
@@ -281,10 +175,8 @@ h3 {font-size: 1.25rem;}
 }
 
 .socials {
-    display: none;
     position: absolute;
     bottom: 40px;
-    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -348,7 +240,8 @@ h3 {font-size: 1.25rem;}
     &--ghost {
         background-color: transparent;
         border: 1px solid $white;
-        margin-top: 16px;
+        margin: 16px 24px 0;
+        width: calc(100% - 48px);
     }
 
     &--primary-red {
@@ -367,214 +260,5 @@ h3 {font-size: 1.25rem;}
 
     &--fit-to-content {
         width: auto;
-    }
-}
-
-.intro,
-.features,
-.extensions,
-.faq {
-    margin-bottom: 160px;
-}
-
-.intro {
-    margin-top: 40px;
-}
-
-.text-box {
-    width: 100%;
-    padding: 0 24px;
-
-    &__heading {
-        text-transform: capitalize;
-        text-align: center;
-        margin-bottom: 18px;
-
-        &--small {
-            margin-bottom: 10px;
-        }
-
-        &--big {
-            margin-bottom: 24px;
-        }
-    }
-
-    &__paragraph {
-        display: block;
-        text-align: center;
-        color: $grayish-blue;
-    }
-}
-
-.illustration {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-bottom: 24px;
-    margin-bottom: 56px;
-    position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 80%;
-        height: 80%;
-        background-color: $soft-blue;
-        z-index: -2;
-        border-radius: 999rem 0 0 999rem;
-    }
-
-    &__image {
-        width: calc(100% - 48px);
-        display: block;
-        z-index: -1;
-    }
-
-    &--carousel {
-        padding-bottom: 56px;
-        margin-bottom: 48px;
-    }
-
-    &--carousel::after {
-        left: 0;
-        border-radius: 0 999rem 999rem 0;
-    }
-}
-
-.carousel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 48px;
-
-    &__item {
-        display: flex;
-        flex-direction: column;
-    }
-
-    &__tabs-list {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0 24px 72px;
-    }
-
-    &__tab {
-        display: block;
-        width: 100%;
-        color: $very-dark-blue;
-        text-decoration: none;
-        font-size: 1.125rem;
-        line-height: 1;
-        text-align: center;
-        color: $grayish-blue;
-        padding: 20px 0;
-        border-bottom: 2px solid rgba($grayish-blue, 0.16);
-
-        &:first-of-type {
-            border-top: 2px solid rgba($grayish-blue, 0.16);
-        }
-
-        &--active {
-            font-weight: 500;
-            color: $very-dark-blue;
-        }
-    }
-
-   &__indicator {
-       position: absolute;
-       top: calc(1.125rem + 20px + 20px - 2px);
-       width: 50%;
-       height: 4px;
-       background-color: $soft-red;
-   }
-}
-
-.extensions {
-    &__browsers-container {
-        display: grid;
-        grid-gap: 40px;
-        margin-top: 56px;
-    }
-
-    &__browser {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: calc(100% - 48px);
-        margin: 0 24px;
-        padding: 40px 0 28px;
-        border-radius: 20px;
-        box-shadow: 0 8px 24px -4px rgba($grayish-blue, 0.24);
-    }
-
-    &__logo {
-        display: block;
-        width: 40%;
-        margin-bottom: 40px;
-    }
-}
-
-.questions {
-    list-style: none;
-    margin: 72px 24px 0;
-    padding: 0;
-
-    &__item {
-        border-bottom: 1px solid rgba($grayish-blue, 0.16);
-        overflow: hidden;
-        transition: max-height 0.3s ease-in;
-    }
-
-    &__label {
-        display: inline-block;
-        width: 100%;
-        padding: 24px 24px 24px 0;
-        cursor: pointer;
-        position: relative;
-
-        &::before, &::after {
-            position: absolute;
-            top: 50%;
-            transform: translateY(calc(-50% - 3px)) rotate(135deg);
-            right: 3px;
-            content: '';
-            padding: 3px;
-            background-color: transparent;
-            border-width: 2px 2px 0 0;
-            border-style: solid;
-        }
-
-        &::after {
-            border-color: $soft-blue;
-            will-change: transform;
-            transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
-        }
-
-        &::before {
-            border-color: $soft-red;
-            z-index: 1;
-            opacity: 0;
-            will-change: transform, opacity;
-            transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4),
-                        opacity 0.3s linear;
-        }
-    }
-
-    &__item--active &__label::after {
-        transform: translateY(-50%) rotate(315deg);
-    }
-
-    &__item--active &__label::before {
-        transform: translateY(-50%) rotate(315deg);
-        opacity: 1;
-    }
-
-    &__answer {
-        padding: 16px 0 24px;
-        color: $grayish-blue;
     }
 }
