@@ -93,12 +93,12 @@ h3 {font-size: 1.25rem;}
         transition: opacity $opacity-time $time-function ($rotation-time + $opacity-time);
     }
 
-    &--white &__svg {
+    .header--opened-menu &__svg {
         transition: opacity $opacity-time $time-function ($fold-time);
         opacity: 0;
     }
 
-    &--white::after {
+    .header--opened-menu &::after {
         transition: opacity $opacity-time $time-function ($fold-time);
         opacity: 1;
     }
@@ -233,7 +233,7 @@ h3 {font-size: 1.25rem;}
     transition: transform $menu-show-hide-time $time-function ($rotation-time);
     z-index: 1;
 
-    &--opened {
+    .header--opened-menu & {
         transform: translateX(100%);
         transition: transform $menu-show-hide-time $time-function ($fold-time);
     }
