@@ -19,9 +19,9 @@
 // - przebudowa na nowo z kopiowaniem
 
 // Hamburger menu animations properties
-    $fold-time: 0.3s*5;
-    $rotation-time: 0.3s*5;
-    $menu-show-hide-time: 0.3s*5;
+    $fold-time: 0.3s;
+    $rotation-time: 0.3s;
+    $menu-show-hide-time: 0.3s;
     $opacity-time: $menu-show-hide-time/2;
     $time-function: ease-in-out;
 
