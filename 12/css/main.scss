@@ -9,14 +9,9 @@
     $white: hsl(0, 100%, 100%);
 
 // @TODO
-// - poprawić wydajnośc hamburger menu (zrobione więcej FPS)
-// - uporządkować animacje
-// - strona na wersji mobilnej jest za szeroka (zrobione)
 // - poprawic animacje accordion
-// - poprawić do perfekcji animacjie hamburger menu, aby było 60 FPS,
-//   poziom FPS obniża się przez zmiane klasy za pomocą js (renderowanie DOM) -> poczytać o requestAnimationFrame
-// - zrobić całe wydajne menu
 // - przebudowa na nowo z kopiowaniem
+// - używac obj lub img do svg
 
 // Hamburger menu animations properties
     $fold-time: 0.2s;
@@ -70,12 +65,42 @@ h3 {font-size: 1.25rem;}
 }
 
 .logo {
-    width: 140px;
+    position: relative;
+    width: 148px;
+    margin: 0;
+    padding: 0;
+    border: 0;
     display: inline-block;
 
     &__svg {
         display: block;
         width: 100%;
+        opacity: 1;
+        transition: opacity $opacity-time $time-function ($rotation-time + $opacity-time);
+    }
+
+    &::after{
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        content: '';
+        background: url('../assets/others/logo-bookmark.svg') no-repeat top left/100% auto;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 2;
+        transition: opacity $opacity-time $time-function ($rotation-time + $opacity-time);
+    }
+
+    &--white &__svg {
+        transition: opacity $opacity-time $time-function ($fold-time);
+        opacity: 0;
+    }
+
+    &--white::after {
+        transition: opacity $opacity-time $time-function ($fold-time);
+        opacity: 1;
     }
 }
 
@@ -201,8 +226,7 @@ h3 {font-size: 1.25rem;}
     position: fixed;
     padding-top: 100px;
     top: 0;
-    left: 0;
-    transform: translateX(-100%);
+    left: -100%;
     min-width: 100%;
     min-height: 100%;
     background-color: rgba($very-dark-blue, 0.92);
@@ -210,7 +234,7 @@ h3 {font-size: 1.25rem;}
     z-index: 1;
 
     &--opened {
-        transform: none;
+        transform: translateX(100%);
         transition: transform $menu-show-hide-time $time-function ($fold-time);
     }
 }
