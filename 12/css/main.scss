@@ -18,11 +18,6 @@
 // - zrobić całe wydajne menu
 // - przebudowa na nowo z kopiowaniem
 
-@keyframes animation-hamburger-icon-top-open {
-
-}
-
-
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -90,12 +85,33 @@ h3 {font-size: 1.25rem;}
         display: block;
         width: 24px;
         height: 17px;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background-color: $white;
+            transform: none;
+            opacity: 0;
+            z-index: 2;
+            transition: opacity 0.3s ease-in-out 0.3s,
+                        transform 0.3s ease-in-out 0s;
+        }
+
+        &::before {
+            top: 7px;
+        }
+
+        &::after {
+            top: 7px;
+        }
     }
 
     &__bar {
-        top: 50%;
-        transform: translateY(-50%);
-
         &, &::before, &::after {
             position: absolute;
             left: 0;
@@ -104,18 +120,58 @@ h3 {font-size: 1.25rem;}
             height: 3px;
             border-radius: 2px;
             background-color: $very-dark-blue;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out 0.6s;
         }
+
+        top: 50%;
+        transform: translateY(-50%);
 
         &::before, &::after {
             content: '';
+            transition: transform 0.3s ease-in-out 0.9s;
         }
 
         &::before {
             top: -7px;
+
         }
 
         &::after {
             top: 7px;
+        }
+    }
+
+    &--active &__inner {
+        &::before, &::after {
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out 0.6s,
+                        transform 0.3s ease-in-out 0.9s;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &--active &__bar {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out 0.3s;
+
+        &::before, &::after {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &::before {
+            transform: translateY(7px);
+        }
+
+        &::after {
+            transform: translateY(-7px);
         }
     }
 }
@@ -143,15 +199,16 @@ h3 {font-size: 1.25rem;}
     min-width: 100%;
     min-height: 100%;
     background-color: rgba($very-dark-blue, 0.92);
-    will-change: transform;
+    transition: transform 0.3s ease-in-out 0.6s;
     z-index: 1;
 
     &--animatable {
-        transition: transform 300ms ease-in;
+        // transition: transform 0.3s ease-in;
     }
 
     &--opened {
         transform: none;
+        transition: transform 0.3s ease-in-out 0.3s;
     }
 }
 
