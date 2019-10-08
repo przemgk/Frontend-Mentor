@@ -174,7 +174,7 @@ h3 {font-size: 1.25rem;}
         }
     }
 
-    &--active &__inner {
+    .header--opened-menu &__inner {
         &::before, &::after {
             opacity: 1;
             transition: opacity $opacity-time $time-function ($fold-time + $opacity-time),
@@ -190,7 +190,7 @@ h3 {font-size: 1.25rem;}
         }
     }
 
-    &--active &__bar {
+    .header--opened-menu &__bar {
         opacity: 0;
         transition: opacity $opacity-time $time-function ($fold-time + $opacity-time);
 
