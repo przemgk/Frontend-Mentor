@@ -93,12 +93,12 @@ h3 {font-size: 1.25rem;}
         transition: opacity $opacity-time $time-function ($rotation-time + $opacity-time);
     }
 
-    .header--opened-menu &__svg {
+    &--white &__svg {
         transition: opacity $opacity-time $time-function ($fold-time);
         opacity: 0;
     }
 
-    .header--opened-menu &::after {
+    &--white::after {
         transition: opacity $opacity-time $time-function ($fold-time);
         opacity: 1;
     }
@@ -174,7 +174,7 @@ h3 {font-size: 1.25rem;}
         }
     }
 
-    .header--opened-menu &__inner {
+    &--active &__inner {
         &::before, &::after {
             opacity: 1;
             transition: opacity $opacity-time $time-function ($fold-time + $opacity-time),
@@ -190,7 +190,7 @@ h3 {font-size: 1.25rem;}
         }
     }
 
-    .header--opened-menu &__bar {
+    &--active &__bar {
         opacity: 0;
         transition: opacity $opacity-time $time-function ($fold-time + $opacity-time);
 
@@ -233,7 +233,7 @@ h3 {font-size: 1.25rem;}
     transition: transform $menu-show-hide-time $time-function ($rotation-time);
     z-index: 1;
 
-    .header--opened-menu & {
+    &--opened {
         transform: translateX(100%);
         transition: transform $menu-show-hide-time $time-function ($fold-time);
     }
