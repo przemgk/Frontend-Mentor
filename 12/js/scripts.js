@@ -41,14 +41,6 @@
 const hamburgerIcon = document.querySelector(".hamburger");
 const navigation = document.querySelector(".navigation");
 
-// navigation.addEventListener("transitionend", () => navigation.classList.remove("navigation--animatable"));
-
-// hamburgerIcon.addEventListener("click", () => {
-//     navigation.classList.add("navigation--animatable");
-//     navigation.classList.toggle("navigation--opened");
-// });
-
-
 hamburgerIcon.addEventListener("click", () => {
     hamburgerIcon.classList.toggle("hamburger--active");
     navigation.classList.toggle("navigation--opened");

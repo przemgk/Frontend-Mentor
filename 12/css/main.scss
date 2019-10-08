@@ -19,8 +19,8 @@
 // - przebudowa na nowo z kopiowaniem
 
 // Hamburger menu animations properties
-    $fold-time: 0.3s;
-    $rotation-time: 0.3s;
+    $fold-time: 0.2s;
+    $rotation-time: 0.2s;
     $menu-show-hide-time: 0.3s;
     $opacity-time: $menu-show-hide-time/2;
     $time-function: ease-in-out;
@@ -119,6 +119,9 @@ h3 {font-size: 1.25rem;}
     }
 
     &__bar {
+        top: 50%;
+        transform: translateY(-50%);
+
         &, &::before, &::after {
             position: absolute;
             left: 0;
@@ -130,9 +133,6 @@ h3 {font-size: 1.25rem;}
             opacity: 1;
             transition: opacity $opacity-time $time-function ($rotation-time);
         }
-
-        top: 50%;
-        transform: translateY(-50%);
 
         &::before, &::after {
             content: '';
@@ -208,10 +208,6 @@ h3 {font-size: 1.25rem;}
     background-color: rgba($very-dark-blue, 0.92);
     transition: transform $menu-show-hide-time $time-function ($rotation-time);
     z-index: 1;
-
-    &--animatable {
-        // transition: transform 0.3s ease-in;
-    }
 
     &--opened {
         transform: none;
