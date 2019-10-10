@@ -38,15 +38,15 @@
 
 
 // Hamburger menu
-
 const hamburgerIcon = document.querySelector(".hamburger");
 const navigation = document.querySelector(".navigation");
-const header = document.querySelector(".header");
 const logo = document.querySelector(".logo");
 
 hamburgerIcon.addEventListener("click", () => {
     hamburgerIcon.classList.toggle("hamburger--active");
     logo.classList.toggle("logo--white");
     navigation.classList.toggle("navigation--opened");
-    // header.classList.toggle("header--opened-menu");
 });
+
+
+// Carousel
