@@ -359,7 +359,7 @@ h3 {font-size: 1.25rem;}
     &--primary-red {
         background-color: $soft-red;
         color: $white;
-        box-shadow: 0 8px 16px -4px rgba($soft-blue, 0.4);
+        box-shadow: 0 8px 16px -4px rgba($soft-red, 0.4);
 
         &::after {
             border-color: $soft-red;
@@ -385,6 +385,14 @@ h3 {font-size: 1.25rem;}
 
     &--fit-to-content {
         width: auto;
+    }
+
+    &[disabled] {
+        background-color: rgba($soft-red, 0.75);
+
+        &::after {
+            content: none;
+        }
     }
 }
 
@@ -598,7 +606,8 @@ h3 {font-size: 1.25rem;}
     }
 
     &__answer {
-        padding: 16px 0 24px;
+        display: inline-block;
+        margin: 16px 0 24px;
         color: $grayish-blue;
     }
 }
@@ -612,10 +621,72 @@ h3 {font-size: 1.25rem;}
     &__pre-heading {
         display: inline-block;
         width: 100%;
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         font-weight: 400;
         letter-spacing: 5px;
         text-transform: uppercase;
         margin-bottom: 12px;
+    }
+
+    &__heading {
+        margin-bottom: 32px;
+    }
+}
+
+.form {
+    &__section {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+
+    &__input-box {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 14px;
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: url('../assets/icons/icon-error.svg') no-repeat center center/cover;
+            transform-origin: 0 0;
+            transform: scale(0);
+        }
+
+        &--error::after {
+            transform: scale(1);
+        }
+    }
+
+    &__input {
+        width: 100%;
+        display: inline-block;
+        padding: 16px 20px;
+        border: 2px solid $soft-red;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        line-height: 1;
+        z-index: 1;
+
+        &::placeholder {
+            color: rgba($very-dark-blue, 0.48);
+        }
+    }
+
+    &__message {
+        font-size: 0.75rem;
+        font-style: italic;
+        text-align: left;
+        display: inline-block;
+        color: $white;
+        background-color: $soft-red;
+        margin-top: -6px;
+        padding: 12px 12px 6px;
+        border-radius: 0 0 8px 8px;
+        transform: scaleY(0);
+        transform-origin: 0 0;
     }
 }
