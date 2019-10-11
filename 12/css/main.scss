@@ -315,7 +315,6 @@ h3 {font-size: 1.25rem;}
     border: 0;
     font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1;
     padding: 16px 20px;
     width: 100%;
     position: relative;
@@ -330,10 +329,9 @@ h3 {font-size: 1.25rem;}
     }
 
     &::after {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
         content: attr(data-buttonLabel);
         position: absolute;
         top: 0;
