@@ -12,6 +12,7 @@
 // - poprawic animacje accordion
 // - przebudowa na nowo z kopiowaniem
 // - używac obj lub img do svg
+// - moze dodac potem przesuwanie pod dotyk
 
 // Hamburger menu animations properties
     $fold-time: 0.2s;
@@ -315,6 +316,7 @@ h3 {font-size: 1.25rem;}
     border: 0;
     font-size: 0.875rem;
     font-weight: 500;
+    text-transform: capitalize;
     padding: 16px 20px;
     width: 100%;
     position: relative;
@@ -355,6 +357,14 @@ h3 {font-size: 1.25rem;}
     }
 
     &--primary-red {
+        background-color: $soft-red;
+        color: $white;
+        box-shadow: 0 8px 16px -4px rgba($soft-blue, 0.4);
+
+        &::after {
+            border-color: $soft-red;
+            color: $soft-red;
+        }
     }
 
     &--primary-blue {
@@ -387,6 +397,10 @@ h3 {font-size: 1.25rem;}
 
 .intro {
     margin-top: 40px;
+
+    .button {
+        text-transform: none;
+    }
 }
 
 .text-box {
@@ -516,8 +530,8 @@ h3 {font-size: 1.25rem;}
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: calc(100% - 48px);
-        margin: 0 24px;
+        width: calc(100% - 64px);
+        margin: 0 32px;
         padding: 40px 0 28px;
         border-radius: 20px;
         box-shadow: 0 8px 24px -4px rgba($grayish-blue, 0.24);
@@ -527,5 +541,81 @@ h3 {font-size: 1.25rem;}
         display: block;
         width: 40%;
         margin-bottom: 40px;
+    }
+}
+
+.questions {
+    list-style: none;
+    margin: 72px 24px 0;
+    padding: 0;
+
+    &__item {
+        border-bottom: 1px solid rgba($grayish-blue, 0.16);
+        overflow: hidden;
+        transition: max-height 0.3s ease-in;
+    }
+
+    &__label {
+        display: inline-block;
+        width: 100%;
+        padding: 24px 24px 24px 0;
+        cursor: pointer;
+        position: relative;
+
+        &::before, &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(calc(-50% - 3px)) rotate(135deg);
+            right: 3px;
+            content: '';
+            padding: 3px;
+            background-color: transparent;
+            border-width: 2px 2px 0 0;
+            border-style: solid;
+        }
+
+        &::after {
+            border-color: $soft-blue;
+            transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+        }
+
+        &::before {
+            border-color: $soft-red;
+            z-index: 1;
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4),
+                        opacity 0.3s linear;
+        }
+    }
+
+    &__item--active &__label::after {
+        transform: translateY(-50%) rotate(315deg);
+    }
+
+    &__item--active &__label::before {
+        transform: translateY(-50%) rotate(315deg);
+        opacity: 1;
+    }
+
+    &__answer {
+        padding: 16px 0 24px;
+        color: $grayish-blue;
+    }
+}
+
+.newsletter {
+    padding: 80px 24px 48px;
+    background-color: $soft-blue;
+    color: $white;
+    text-align: center;
+
+    &__pre-heading {
+        display: inline-block;
+        width: 100%;
+        font-size: 0.875rem;
+        font-weight: 400;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
     }
 }

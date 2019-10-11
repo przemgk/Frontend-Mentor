@@ -1,42 +1,3 @@
-// // Hamburger menu
-// const hamburger = document.querySelector(".hamburger");
-// const header = document.querySelector(".header");
-
-// hamburger.addEventListener("click", () => {
-
-//     hamburger.classList.toggle("hamburger--active");
-//     header.classList.toggle("header--opened");
-
-// } );
-
-// // Carousel
-
-// // FAQ Accordion
-// const questions = Array.from(document.querySelectorAll(".questions__item"));
-
-// questions.forEach( node => {
-
-//     const label =  node.querySelector(".questions__label");
-//     const maxHeight = getComputedStyle(node).height;
-//     const transition = getComputedStyle(node).transition;
-
-//     node.style.maxHeight = getComputedStyle(label).height;
-
-//     label.addEventListener("click", () => {
-
-//         node.classList.toggle("questions__item--active");
-
-//         if(node.classList.contains("questions__item--active")) {
-//             node.style.maxHeight = maxHeight;
-//         } else {
-//             node.style.maxHeight = getComputedStyle(label).height;
-//         }
-
-//     });
-
-// } );
-
-
 // Hamburger menu
 const hamburgerIcon = document.querySelector(".hamburger");
 const navigation = document.querySelector(".navigation");
@@ -104,31 +65,27 @@ carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
     }
 }));
 
-let posInitial, posFinal, minMovement;
-let posX1, posX2;
+// FAQ Accordion
+const questions = document.querySelectorAll(".questions__item");
 
-minMovement = 40;
+questions.forEach( elem => {
 
+    const label =  elem.querySelector(".questions__label");
+    const maxHeight = getComputedStyle(elem).height;
+    const transition = getComputedStyle(elem).transition;
 
-// Touch events
-carouselWrapper.addEventListener('touchstart', dragStart);
-// carouselWrapper.addEventListener('touchend', dragEnd);
-carouselWrapper.addEventListener('touchmove', dragAction);
+    elem.style.maxHeight = getComputedStyle(label).height;
 
-function dragStart(e) {
-    posInitial = carouselWrapper.offsetLeft;
+    label.addEventListener("click", () => {
 
-    if (e.type == 'touchstart') {
-        posX1 = e.changedTouches[0].clientX;
-    } else {
-        posX1 = e.clientX;
-        document.onmouseup = dragEnd;
-        document.onmousemove = dragAction;
-    }
-}
+        elem.classList.toggle("questions__item--active");
 
-function dragAction(e) {
-    posX2 = posX1 - e.changedTouches[0].clientX;
+        if(elem.classList.contains("questions__item--active")) {
+            elem.style.maxHeight = maxHeight;
+        } else {
+            elem.style.maxHeight = getComputedStyle(label).height;
+        }
 
-    carouselWrapper.style.transform = `translateX(${posInitial - posX2}px)`;
-}
+    });
+
+} );
