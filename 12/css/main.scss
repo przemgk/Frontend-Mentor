@@ -504,3 +504,28 @@ h3 {font-size: 1.25rem;}
        background-color: $soft-red;
    }
 }
+
+.extensions {
+    &__browsers-container {
+        display: grid;
+        grid-gap: 40px;
+        margin-top: 56px;
+    }
+
+    &__browser {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 48px);
+        margin: 0 24px;
+        padding: 40px 0 28px;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px -4px rgba($grayish-blue, 0.24);
+    }
+
+    &__logo {
+        display: block;
+        width: 40%;
+        margin-bottom: 40px;
+    }
+}

@@ -77,17 +77,6 @@ function calculateTabsHeights(tabs, tabsHeightsRef) {
     return heights;
 }
 
-// Move carousel
-function moveCarousel(index = undefined, width = undefined) {
-    if(index !== undefined) {
-        carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    if(width != undefined) {
-        carouselWrapper.style.transform = `translateX(${width*(-1)}%)`;
-    }
-}
-
 window.onload = () => {
     tabsHeights = calculateTabsHeights(carouselTabs);
     setIndicator(currentIndex, indicator);
@@ -108,9 +97,38 @@ carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
         setIndicator(index, indicator);
 
         // Move items
-        moveCarousel(index);
+        carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
 
         // Change current index
         currentIndex = index;
     }
 }));
+
+let posInitial, posFinal, minMovement;
+let posX1, posX2;
+
+minMovement = 40;
+
+
+// Touch events
+carouselWrapper.addEventListener('touchstart', dragStart);
+// carouselWrapper.addEventListener('touchend', dragEnd);
+carouselWrapper.addEventListener('touchmove', dragAction);
+
+function dragStart(e) {
+    posInitial = carouselWrapper.offsetLeft;
+
+    if (e.type == 'touchstart') {
+        posX1 = e.changedTouches[0].clientX;
+    } else {
+        posX1 = e.clientX;
+        document.onmouseup = dragEnd;
+        document.onmousemove = dragAction;
+    }
+}
+
+function dragAction(e) {
+    posX2 = posX1 - e.changedTouches[0].clientX;
+
+    carouselWrapper.style.transform = `translateX(${posInitial - posX2}px)`;
+}
