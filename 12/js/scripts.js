@@ -82,10 +82,7 @@ window.onload = () => {
     tabsHeights = calculateTabsHeights(carouselTabs);
     setIndicator(0, indicator);
 };
-window.onresize = () => {
-    tabsHeights = calculateTabsHeights(carouselTabs);
-    setIndicator(0, indicator);
-};
+window.onresize = () => tabsHeights = calculateTabsHeights(carouselTabs);
 
 
 carouselTabs.forEach( (tab, index) => {
