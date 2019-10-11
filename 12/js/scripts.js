@@ -66,7 +66,6 @@ function setIndicator(index, indicatorRef) {
     }
 
     height -= indicatorRef.getBoundingClientRect().height + Number.parseInt(getComputedStyle(carouselTabs[index]).borderBottomWidth);
-
     indicatorRef.style.transform = `translateY(${height}px)`;
 }
 
@@ -78,32 +77,40 @@ function calculateTabsHeights(tabs, tabsHeightsRef) {
     return heights;
 }
 
+// Move carousel
+function moveCarousel(index = undefined, width = undefined) {
+    if(index !== undefined) {
+        carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    if(width != undefined) {
+        carouselWrapper.style.transform = `translateX(${width*(-1)}%)`;
+    }
+}
+
 window.onload = () => {
     tabsHeights = calculateTabsHeights(carouselTabs);
-    setIndicator(0, indicator);
+    setIndicator(currentIndex, indicator);
 };
-window.onresize = () => tabsHeights = calculateTabsHeights(carouselTabs);
+window.onresize = () => {
+    tabsHeights = calculateTabsHeights(carouselTabs);
+};
 
+carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
+    e.preventDefault();
 
-carouselTabs.forEach( (tab, index) => {
-    tab.addEventListener("click", e => {
+    if(currentIndex != index) {
+        // Change tabs styles
+        carouselTabs[currentIndex].classList.remove("carousel__tab--active");
+        tab.classList.add("carousel__tab--active");
 
-        e.preventDefault();
+        // Move indicator
+        setIndicator(index, indicator);
 
-        if(currentIndex != index) {
-            // Change tabs styles
-            carouselTabs[currentIndex].classList.remove("carousel__tab--active");
-            tab.classList.add("carousel__tab--active");
+        // Move items
+        moveCarousel(index);
 
-            // Move indicator
-            setIndicator(index, indicator);
-
-            // Move items
-            carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
-
-            // Change current index
-            currentIndex = index;
-        }
-    });
-
-});
+        // Change current index
+        currentIndex = index;
+    }
+}));
