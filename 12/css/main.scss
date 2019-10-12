@@ -73,6 +73,10 @@ h3 {font-size: 1.25rem;}
     border: 0;
     display: inline-block;
 
+    &--footer {
+        margin: 40px 0;
+    }
+
     &__svg {
         display: block;
         width: 100%;
@@ -247,6 +251,17 @@ h3 {font-size: 1.25rem;}
     margin: 0;
     text-align: center;
 
+    &--footer {
+        display: grid;
+        grid-gap: 32px;
+    }
+
+    &--footer &__item {
+        border-top: 0;
+        font-weight: 400;
+        padding: 0;
+    }
+
     &__item {
         padding: 24px 0;
         border-top: 1px solid rgba($white, 0.2);
@@ -261,22 +276,24 @@ h3 {font-size: 1.25rem;}
 }
 
 .socials {
-    position: absolute;
-    bottom: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    margin: 48px 0;
+
+    &--menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     &__item {
         display: flex;
-        align-content: center;
         width: 24px;
         height: 24px;
-
-        &:not(:last-child) {
-            margin-right: 24px;
-        }
     }
 
     &__svg {
@@ -642,22 +659,25 @@ h3 {font-size: 1.25rem;}
 
     &__input-box {
         position: relative;
+        z-index: 1;
 
         &::after {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) scale(0);
+            opacity: 0;
             right: 14px;
             content: '';
             width: 20px;
             height: 20px;
             background: url('../assets/icons/icon-error.svg') no-repeat center center/cover;
-            transform-origin: 0 0;
-            transform: scale(0);
+            transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4),
+                        opacity 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
         }
 
         &--error::after {
-            transform: scale(1);
+            transform: translateY(-50%) scale(1);
+            opacity: 1;
         }
     }
 
@@ -669,7 +689,6 @@ h3 {font-size: 1.25rem;}
         border-radius: 8px;
         font-size: 0.875rem;
         line-height: 1;
-        z-index: 1;
 
         &::placeholder {
             color: rgba($very-dark-blue, 0.48);
@@ -684,9 +703,18 @@ h3 {font-size: 1.25rem;}
         color: $white;
         background-color: $soft-red;
         margin-top: -6px;
-        padding: 12px 12px 6px;
+        padding: 8px 12px 4px;
         border-radius: 0 0 8px 8px;
         transform: scaleY(0);
-        transform-origin: 0 0;
+        transform-origin: top center;
+        transition: transform 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
     }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $very-dark-blue;
 }

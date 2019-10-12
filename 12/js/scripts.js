@@ -37,13 +37,14 @@ function calculateTabsHeights(tabs, tabsHeightsRef) {
     return heights;
 }
 
-window.onload = () => {
+window.addEventListener("load", () => {
     tabsHeights = calculateTabsHeights(carouselTabs);
     setIndicator(currentIndex, indicator);
-};
-window.onresize = () => {
+});
+
+window.addEventListener("resize", () => {
     tabsHeights = calculateTabsHeights(carouselTabs);
-};
+});
 
 carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
     e.preventDefault();
@@ -67,7 +68,7 @@ carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
 // FAQ Accordion
 const questions = document.querySelectorAll(".questions__item");
 
-window.onload = () => {
+window.addEventListener("load", () => {
 
     questions.forEach( elem => {
         const label =  elem.querySelector(".questions__label");
@@ -88,14 +89,12 @@ window.onload = () => {
         });
     });
 
-};
-
-
-
+});
 
 // Form Validation
 const form = document.querySelector(".form");
-const emailInput = form.querySelector(".form__input");
+const inputBox = form.querySelector(".form__input-box");
+const emailInput = form.querySelector(".form__input[type='email']");
 const message = form.querySelector(".form__message");
 const buttonSubmit = form.querySelector("button[type='submit'");
 const regexp = /^[a-z0-9_\-.]+@\w+\.\w{2,4}((\.\w{2,4})?)$/gi;
@@ -105,21 +104,20 @@ buttonSubmit.style.transform = `translateY(-${Number.parseInt(getComputedStyle(m
 form.addEventListener("submit", e => {
 
     e.preventDefault();
-    message.style.transform = "scale(1)"
+    message.style.transform = "scaleY(1)"
     buttonSubmit.style.transform = "none";
 
     if(regexp.test(emailInput.value)) {
-        emailInput.classList.remove("from__message--error");
-        message.style.transform = "scale(0)"
-        buttonSubmit.style.transform = `translateY(-${Number.parseInt(getComputedStyle(message).height) + Number.parseInt(getComputedStyle(message).marginTop)}px)`;
+        inputBox.classList.remove("form__input-box--error");
+        message.style.transform = "scaleY(0)";
 
+        buttonSubmit.style.transform = `translateY(-${Number.parseInt(getComputedStyle(message).height) + Number.parseInt(getComputedStyle(message).marginTop)}px)`;
         buttonSubmit.setAttribute("disabled", "disabled");
         buttonSubmit.textContent = "Success!";
     } else {
-        emailInput.classList.add("from__message--error");
-        message.style.transform = "scale(1)"
+        inputBox.classList.add("form__input-box--error");
+        message.style.transform = "scaleY(1)"
         buttonSubmit.style.transform = "none";
     }
-
 
 } );
