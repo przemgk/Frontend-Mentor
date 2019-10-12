@@ -73,10 +73,6 @@ h3 {font-size: 1.25rem;}
     border: 0;
     display: inline-block;
 
-    &--footer {
-        margin: 40px 0;
-    }
-
     &__svg {
         display: block;
         width: 100%;
@@ -254,6 +250,7 @@ h3 {font-size: 1.25rem;}
     &--footer {
         display: grid;
         grid-gap: 32px;
+        margin: 40px 0;
     }
 
     &--footer &__item {
@@ -272,6 +269,10 @@ h3 {font-size: 1.25rem;}
     &__link {
         color: $white;
         text-decoration: none;
+
+        &:hover {
+            color: $soft-red;
+        }
     }
 }
 
@@ -279,16 +280,12 @@ h3 {font-size: 1.25rem;}
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 24px;
-    margin: 48px 0;
 
     &--menu {
         position: absolute;
-        margin: 0;
         left: 50%;
         transform: translateX(-50%);
         bottom: 40px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
     }
 
     &__item {
@@ -297,8 +294,16 @@ h3 {font-size: 1.25rem;}
         height: 24px;
     }
 
+    &__item:hover &__svg path {
+        fill: $soft-red;
+    }
+
     &__svg {
         width: 100%;
+
+        path {
+            transition: fill 0.3s ease-in-out;
+        }
     }
 }
 
@@ -368,6 +373,8 @@ h3 {font-size: 1.25rem;}
         border: 1px solid $white;
         margin: 16px 24px 0;
         width: calc(100% - 48px);
+        text-transform: uppercase;
+        font-size: 1rem;
 
         &::after {
             content: none;
@@ -476,7 +483,7 @@ h3 {font-size: 1.25rem;}
     }
 
     &__image {
-        max-width: calc(100% - 48px);
+        width: 90%;
         display: block;
         z-index: -1;
     }
@@ -484,6 +491,10 @@ h3 {font-size: 1.25rem;}
     &--carousel {
         padding-bottom: 56px;
         margin-bottom: 48px;
+    }
+
+    &--carousel &__image {
+        width: 80%;
     }
 
     &--carousel::after {
@@ -534,6 +545,10 @@ h3 {font-size: 1.25rem;}
             font-weight: 500;
             color: $very-dark-blue;
         }
+
+        &:hover {
+            color: $soft-red;
+        }
     }
 
    &__indicator {
@@ -549,15 +564,14 @@ h3 {font-size: 1.25rem;}
     &__browsers-container {
         display: grid;
         grid-gap: 40px;
-        margin-top: 56px;
+        margin: 56px 32px 0;
     }
 
     &__browser {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: calc(100% - 64px);
-        margin: 0 32px;
+        width: 100%;
         padding: 40px 0 28px;
         border-radius: 20px;
         box-shadow: 0 8px 24px -4px rgba($grayish-blue, 0.24);
@@ -587,6 +601,10 @@ h3 {font-size: 1.25rem;}
         padding: 24px 24px 24px 0;
         cursor: pointer;
         position: relative;
+
+        &:hover {
+            color: $soft-red;
+        }
 
         &::before, &::after {
             position: absolute;
@@ -714,8 +732,88 @@ h3 {font-size: 1.25rem;}
 
 .footer {
     display: flex;
+    padding: 40px 24px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: $very-dark-blue;
+}
+
+@media screen and (min-width: 600px) {
+    .illustration {
+        padding-bottom: 24px;
+        margin-bottom: 56px;
+
+        &::after {
+            width: 60%;
+            height: 80%;
+        }
+
+        &__image {
+            width: 80%;
+        }
+
+        &--carousel &__image {
+            width: 60%;
+        }
+
+        &--carousel {
+            padding-bottom: 40px;
+            margin-bottom: 48px;
+        }
+    }
+
+    .menu {
+        &--footer {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 24px;
+            margin: 0 0 0 24px;
+        }
+    }
+
+    .extensions {
+        &__browsers-container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 40px;
+        }
+    }
+
+    .footer {
+        justify-content: space-between;
+        flex-direction: row;
+
+        &__box {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header,
+    .buttons-container,
+    .text-box,
+    .newsletter,
+    .footer {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .extensions__browsers-container,
+    .questions {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .menu {
+        &--footer {
+            grid-gap: 40px;
+            margin-left: 48px;
+        }
+    }
+
+    .socials {
+        grid-gap: 40px;
+    }
+
 }
