@@ -17,6 +17,8 @@ const indicator = document.querySelector(".carousel__indicator");
 let tabsHeights = [];
 let currentIndex = 0;
 
+let windowWidth = window.innerWidth;
+
 // Set indicator position
 function setIndicator(index, indicatorRef) {
     let height = 0;
@@ -42,9 +44,9 @@ window.addEventListener("load", () => {
     setIndicator(currentIndex, indicator);
 });
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize", e => {
     tabsHeights = calculateTabsHeights(carouselTabs);
-    alert("resize");
+    setIndicator(currentIndex, indicator);
 });
 
 carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
