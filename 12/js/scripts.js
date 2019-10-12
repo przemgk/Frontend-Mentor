@@ -9,6 +9,22 @@ hamburgerIcon.addEventListener("click", () => {
     navigation.classList.toggle("navigation--opened");
 });
 
+// Changing login button class depending on resolution
+const loginButton = document.querySelector(".menu__link.button");
+
+const loginButtonChangeClasses = () => {
+    if(window.screen.width >= 768) {
+        loginButton.classList.remove("button--ghost");
+        loginButton.classList.add("button--primary-red");
+    } else {
+        loginButton.classList.add("button--ghost");
+        loginButton.classList.remove("button--primary-red");
+    }
+};
+
+window.addEventListener("resize", loginButtonChangeClasses);
+window.addEventListener("load", loginButtonChangeClasses);
+
 // Carousel
 const carouselTabs = document.querySelectorAll(".carousel__tab");
 const carouselWrapper = document.querySelector(".carousel__wrapper");

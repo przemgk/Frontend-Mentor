@@ -44,7 +44,7 @@
                 <li class="menu__item"><a class="menu__link" href="/">Features</a></li>
                 <li class="menu__item"><a class="menu__link" href="/">Pricing</a></li>
                 <li class="menu__item"><a class="menu__link" href="/">Contact</a></li>
-                <li class="menu__item"><a class="menu__link button button--ghost" href="/">Login</a></li>
+                <li class="menu__item"><a class="menu__link button button--ghost" href="/" data-buttonLabel="Login">Login</a></li>
             </ul>
 
             <div class="socials socials--menu">
@@ -225,7 +225,9 @@
 
             <form class="form" action="#" method="POST">
                 <div class="form__section">
-                    <div class="form__input-box"><input class="form__input" type="email" placeholder="Enter your email address"></div>
+                    <div class="form__input-box">
+                        <input class="form__input" type="email" aria-label="Email address" placeholder="Enter your email address">
+                    </div>
                     <span class="form__message">Whoops, make sure it's an email</span>
                 </div>
                 <div class="button__container">

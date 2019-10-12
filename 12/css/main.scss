@@ -263,7 +263,7 @@ h3 {font-size: 1.25rem;}
         padding: 24px 0;
         border-top: 1px solid rgba($white, 0.2);
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 400;
     }
 
     &__link {
@@ -371,8 +371,8 @@ h3 {font-size: 1.25rem;}
     &--ghost {
         background-color: transparent;
         border: 1px solid $white;
-        margin: 16px 24px 0;
-        width: calc(100% - 48px);
+        margin: 16px auto 0;
+        width: 85%;
         text-transform: uppercase;
         font-size: 1rem;
 
@@ -741,12 +741,8 @@ h3 {font-size: 1.25rem;}
 
 @media screen and (min-width: 600px) {
     .illustration {
-        padding-bottom: 24px;
-        margin-bottom: 56px;
-
         &::after {
             width: 60%;
-            height: 80%;
         }
 
         &__image {
@@ -768,6 +764,7 @@ h3 {font-size: 1.25rem;}
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 24px;
             margin: 0 0 0 24px;
+            line-height: 1;
         }
     }
 
@@ -805,15 +802,106 @@ h3 {font-size: 1.25rem;}
         margin-right: 40px;
     }
 
+    .header {
+        padding-top: 48px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .navigation {
+        position: relative;
+        padding-top: 0;
+        top: 0;
+        left: 0;
+        min-width: auto;
+        min-height: auto;
+        background-color: transparent;
+        transition: none;
+    }
+
     .menu {
+        display: flex;
+        align-items: center;
+        text-align: center;
+
         &--footer {
             grid-gap: 40px;
             margin-left: 48px;
+        }
+
+        &__item {
+            display: inline-block;
+            padding: 0;
+            border-top: 0;
+
+            &:not(:last-child) {
+                margin-right: 40px;
+            }
+
+            .button {
+                text-transform: uppercase;
+                padding: 12px 32px;
+
+                &::after {
+                    padding: 10px 30px;
+                }
+            }
+        }
+
+        &__link {
+            color: $very-dark-blue;
+        }
+    }
+
+    .buttons-container {
+        padding: 0;
+        // margin-top: 40px;
+    }
+
+    .button {
+        padding-left: 32px;
+        padding-right: 32px;
+
+        &--primary-red {
+            color: $white;
         }
     }
 
     .socials {
         grid-gap: 40px;
+
+        &--menu {
+            display: none;
+        }
+    }
+
+    .intro {
+        margin-top: 64px;
+    }
+
+    .text-box {
+        // width: 100%;
+        padding: 0;
+    }
+
+    .illustration {
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // position: relative;
+
+        // padding-bottom: 24px;
+        // margin-bottom: 56px;
+
+        &::after {
+            width: 80%;
+        }
+
+        &__image {
+            width: 90%;
+        }
     }
 
 }
