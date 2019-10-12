@@ -17,8 +17,6 @@ const indicator = document.querySelector(".carousel__indicator");
 let tabsHeights = [];
 let currentIndex = 0;
 
-let windowWidth = window.innerWidth;
-
 // Set indicator position
 function setIndicator(index, indicatorRef) {
     let height = 0;
@@ -106,7 +104,7 @@ buttonSubmit.style.transform = `translateY(-${Number.parseInt(getComputedStyle(m
 form.addEventListener("submit", e => {
 
     e.preventDefault();
-    message.style.transform = "scaleY(1)"
+    message.style.transform = "scaleY(1)";
     buttonSubmit.style.transform = "none";
 
     if(regexp.test(emailInput.value)) {
@@ -118,7 +116,7 @@ form.addEventListener("submit", e => {
         buttonSubmit.textContent = "Success!";
     } else {
         inputBox.classList.add("form__input-box--error");
-        message.style.transform = "scaleY(1)"
+        message.style.transform = "scaleY(1)";
         buttonSubmit.style.transform = "none";
     }
 
