@@ -44,6 +44,7 @@ window.addEventListener("load", () => {
 
 window.addEventListener("resize", () => {
     tabsHeights = calculateTabsHeights(carouselTabs);
+    alert("resize");
 });
 
 carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
