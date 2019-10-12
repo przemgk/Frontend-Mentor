@@ -44,7 +44,7 @@ window.addEventListener("load", () => {
     setIndicator(currentIndex, indicator);
 });
 
-window.addEventListener("resize", e => {
+window.addEventListener("resize", () => {
     tabsHeights = calculateTabsHeights(carouselTabs);
     setIndicator(currentIndex, indicator);
 });
@@ -74,14 +74,13 @@ const questions = document.querySelectorAll(".questions__item");
 window.addEventListener("load", () => {
 
     questions.forEach( elem => {
-        const label =  elem.querySelector(".questions__label");
-        const labelHeight = `${label.getBoundingClientRect().height}px`;
-        const maxHeight = `${elem.getBoundingClientRect().height}px`;
+        let label =  elem.querySelector(".questions__label");
+        let labelHeight = `${label.getBoundingClientRect().height}px`;
+        let maxHeight = `${elem.getBoundingClientRect().height}px`;
 
         elem.style.maxHeight = labelHeight;
 
         label.addEventListener("click", () => {
-
             elem.classList.toggle("questions__item--active");
 
             if(elem.classList.contains("questions__item--active")) {
