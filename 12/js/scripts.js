@@ -9,78 +9,62 @@ hamburgerIcon.addEventListener("click", () => {
     navigation.classList.toggle("navigation--opened");
 });
 
-// Changing login button class depending on resolution
-const loginButton = document.querySelector(".menu__link.button");
-
-const loginButtonChangeClasses = () => {
-    if(window.screen.width >= 768) {
-        loginButton.classList.remove("button--ghost");
-        loginButton.classList.add("button--primary-red");
-    } else {
-        loginButton.classList.add("button--ghost");
-        loginButton.classList.remove("button--primary-red");
-    }
-};
-
-window.addEventListener("resize", loginButtonChangeClasses);
-window.addEventListener("load", loginButtonChangeClasses);
-
 // Carousel
-const carouselTabs = document.querySelectorAll(".carousel__tab");
-const carouselWrapper = document.querySelector(".carousel__wrapper");
-const indicator = document.querySelector(".carousel__indicator");
+// const carouselTabs = document.querySelectorAll(".carousel__tab");
+// const carouselWrapper = document.querySelector(".carousel__wrapper");
+// const indicator = document.querySelector(".carousel__indicator");
 
-let tabsHeights = [];
-let currentIndex = 0;
+// let tabsHeights = [];
+// let currentIndex = 0;
 
-// Set indicator position
-function setIndicator(index, indicatorRef) {
-    let height = 0;
+// // Set indicator position
+// function setIndicator(index, indicatorRef) {
+//     let height = 0;
 
-    for(let i = 0; i <= index; i++) {
-        height += tabsHeights[i];
-    }
+//     for(let i = 0; i <= index; i++) {
+//         height += tabsHeights[i];
+//     }
 
-    height -= indicatorRef.getBoundingClientRect().height + Number.parseInt(getComputedStyle(carouselTabs[index]).borderBottomWidth);
-    indicatorRef.style.transform = `translateY(${height}px)`;
-}
+//     height -= indicatorRef.getBoundingClientRect().height + Number.parseInt(getComputedStyle(carouselTabs[index]).borderBottomWidth);
+//     indicatorRef.style.transform = `translateY(${height}px)`;
+// }
 
-// Calculate heights of tabs
-function calculateTabsHeights(tabs, tabsHeightsRef) {
-    const heights = [];
-    tabs.forEach( tab => heights.push(tab.getBoundingClientRect().height) );
+// // Calculate heights of tabs
+// function calculateTabsHeights(tabs, tabsHeightsRef) {
+//     const heights = [];
+//     tabs.forEach( tab => heights.push(tab.getBoundingClientRect().height) );
 
-    return heights;
-}
+//     return heights;
+// }
 
-window.addEventListener("load", () => {
-    tabsHeights = calculateTabsHeights(carouselTabs);
-    setIndicator(currentIndex, indicator);
-});
+// window.addEventListener("load", () => {
+//     tabsHeights = calculateTabsHeights(carouselTabs);
+//     setIndicator(currentIndex, indicator);
+// });
 
-window.addEventListener("resize", () => {
-    tabsHeights = calculateTabsHeights(carouselTabs);
-    setIndicator(currentIndex, indicator);
-});
+// window.addEventListener("resize", () => {
+//     tabsHeights = calculateTabsHeights(carouselTabs);
+//     setIndicator(currentIndex, indicator);
+// });
 
-carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
-    e.preventDefault();
+// carouselTabs.forEach( (tab, index) => tab.addEventListener("click", e => {
+//     e.preventDefault();
 
-    if(currentIndex != index) {
-        // Change tabs styles
-        carouselTabs[currentIndex].classList.remove("carousel__tab--active");
-        tab.classList.add("carousel__tab--active");
+//     if(currentIndex != index) {
+//         // Change tabs styles
+//         carouselTabs[currentIndex].classList.remove("carousel__tab--active");
+//         tab.classList.add("carousel__tab--active");
 
-        // Move indicator
-        setIndicator(index, indicator);
+//         // Move indicator
+//         setIndicator(index, indicator);
 
-        // Move items
-        carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
+//         // Move items
+//         carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
 
-        // Change current index
-        currentIndex = index;
-    }
-}));
+//         // Change current index
+//         currentIndex = index;
+//     }
+// }));
 
 // FAQ Accordion
 const questions = document.querySelectorAll(".questions__item");

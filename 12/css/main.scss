@@ -9,12 +9,9 @@
     $white: hsl(0, 100%, 100%);
 
 // @TODO
-// - poprawic animacje accordion
-// - przebudowa na nowo z kopiowaniem
-// - używac obj lub img do svg
-// - moze dodac potem przesuwanie pod dotyk
 // v1 scrola tylko po przyciskach
 // v2 scrolla przyciski, mobile dotyk przesuwanie + klawisze arrow left/right + latwiejszy js
+// spróbowac poprawic accordion
 
 // Hamburger menu animations properties
     $fold-time: 0.2s;
@@ -505,68 +502,52 @@ h3 {font-size: 1.25rem;}
     }
 }
 
-// .carousel {
-//     display: flex;
-//     flex-direction: column;
-//     margin-top: 48px;
-//     overflow: hidden;
-
-//     &__wrapper {
-//         width: 100%;
-//         display: grid;
-//         grid-template-columns: repeat(3, 100%);
-//         transition: transform 0.3s ease-in-out;
-//     }
-
-//     &__item {
-//         width: 100%;
-//         display: flex;
-//         flex-direction: column;
-//     }
-
-//     &__tabs-list {
-//         position: relative;
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         margin: 0 24px 72px;
-//         border-top: 2px solid rgba($grayish-blue, 0.16);
-//     }
-
-//     &__tab {
-//         display: block;
-//         width: 100%;
-//         text-decoration: none;
-//         line-height: 1;
-//         text-align: center;
-//         color: $grayish-blue;
-//         padding: 20px 0;
-//         border-bottom: 2px solid rgba($grayish-blue, 0.16);
-
-//         &--active {
-//             font-weight: 500;
-//             color: $very-dark-blue;
-//         }
-
-//         &:hover {
-//             color: $soft-red;
-//         }
-//     }
-
-//    &__indicator {
-//        position: absolute;
-//        top: 0;
-//        width: 50%;
-//        height: 4px;
-//        background-color: $soft-red;
-//    }
-// }
-
-
 .carousel {
     display: flex;
     flex-direction: column;
     margin-top: 48px;
+
+    &__tabs-list {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 24px 72px;
+        padding: 0;
+        border-top: 2px solid rgba($grayish-blue, 0.16);
+        list-style: none;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $grayish-blue;
+
+        &:hover {
+            color: $soft-red;
+        }
+
+        &--active {
+            font-weight: 500;
+            color: $very-dark-blue;
+        }
+    }
+
+    &__tab {
+        display: block;
+        width: 100%;
+        line-height: 1;
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 2px solid rgba($grayish-blue, 0.16);
+    }
+
+    &__indicator {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 4px;
+        background-color: $soft-red;
+    }
 
     &__wrapper {
         display: flex;
@@ -580,9 +561,17 @@ h3 {font-size: 1.25rem;}
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scroll-snap-stop: always;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+
     }
 
-    &__item {;
+    &__item {
         flex: none;
         width: 100%;
         height: 100%;
