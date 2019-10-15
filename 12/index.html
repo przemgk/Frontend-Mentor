@@ -44,7 +44,7 @@
                 <li class="menu__item"><a class="menu__link" href="/">Features</a></li>
                 <li class="menu__item"><a class="menu__link" href="/">Pricing</a></li>
                 <li class="menu__item"><a class="menu__link" href="/">Contact</a></li>
-                <li class="menu__item"><a class="menu__link button button--ghost" href="/" data-buttonLabel="Login">Login</a></li>
+                <li class="menu__item"><a class="menu__link button button--login" href="/" data-buttonLabel="Login">Login</a></li>
             </ul>
 
             <div class="socials socials--menu">
@@ -89,11 +89,23 @@
 
             <div class="carousel">
                 <ul class="carousel__tabs-list">
-                    <li class="carousel__tab"><a class="carousel__link carousel__link--active" href="#">Single bookmarking</a></li>
-                    <li class="carousel__tab"><a class="carousel__link" href="#">Speedy searching</a></li>
-                    <li class="carousel__tab"><a class="carousel__link" href="#">Easy sharing</a></li>
+                    <!-- <li class="carousel__tab"><a class="carousel__link carousel__link--active" href="#">Single bookmarking</a></li> -->
+                    <!-- <li class="carousel__tab"><a class="carousel__link" href="#">Speedy searching</a></li> -->
+                    <!-- <li class="carousel__tab"><a class="carousel__link" href="#">Easy sharing</a></li> -->
+                    <li class="carousel__tab">
+                        <input class="carousel__radio" type="radio" id="tab1" checked name="carousel__tab">
+                        <label class="carousel__label" for="tab1">Single bookmarking</label>
+                    </li>
+                    <li class="carousel__tab">
+                        <input class="carousel__radio" type="radio" id="tab2" name="carousel__tab">
+                        <label class="carousel__label" for="tab2">Speedy searching</label>
+                    </li>
+                    <li class="carousel__tab">
+                        <input class="carousel__radio" type="radio" id="tab3" name="carousel__tab">
+                        <label class="carousel__label" for="tab3">Easy sharing</label>
+                    </li>
 
-                    <div class="carousel__indicator"></div>
+                    <!-- <div class="carousel__indicator"></div> -->
                 </ul>
 
                 <ul class="carousel__wrapper">

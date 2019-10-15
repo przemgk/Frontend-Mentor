@@ -1,4 +1,4 @@
-// Hamburger menu
+// Hamburger Menu
 const hamburgerIcon = document.querySelector(".hamburger");
 const navigation = document.querySelector(".navigation");
 const logo = document.querySelector(".logo");
