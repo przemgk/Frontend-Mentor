@@ -970,4 +970,16 @@ h3 {font-size: 1.25rem;}
         }
     }
 
+    .carousel {
+        margin-top: 64px;
+
+        &__tabs-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 90%;
+            margin: 0 auto 72px;
+            border-top: 0;
+        }
+    }
+
 }
