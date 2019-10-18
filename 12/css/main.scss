@@ -9,12 +9,17 @@
     $white: hsl(0, 100%, 100%);
 
 // @TODO
+
+// skonczyc carousel (JS)!!!
+
 // v1 scrola tylko po przyciskach
 // v2 scrolla przyciski, mobile dotyk przesuwanie + klawisze arrow left/right + latwiejszy js
 // spróbowac poprawic accordion
 // zrobic carousel z jak najmniejszą liczbą js
 
-// refaktoryzacja kodu, używanie paddingów dla kontenrów a nie elementów
+// refaktoryzacja kodu, używanie paddingów dla kontenrów a nie elementów (zrobione)
+
+// po całym zakodowaniu wersji mobilnej refactoring kodu potrzebnych i nie potrzebnych instrukcji
 
 // Hamburger menu animations properties
     $fold-time: 0.2s;
@@ -333,14 +338,15 @@ h3 {font-size: 1.25rem;}
 }
 
 .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    // align-items: center;
+    // justify-content: center;
     border-radius: 8px;
     border: 0;
     font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.4;
+    vertical-align: middle;
     text-transform: capitalize;
     padding: 16px 20px;
     width: 100%;
@@ -863,20 +869,20 @@ h3 {font-size: 1.25rem;}
 }
 
 @media screen and (min-width: 768px) {
-    .header,
-    .buttons-container,
-    .text-box,
-    .newsletter,
-    .footer {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
+    // .header,
+    // .buttons-container,
+    // .text-box,
+    // .newsletter,
+    // .footer {
+    //     padding-left: 40px;
+    //     padding-right: 40px;
+    // }
 
-    .extensions__browsers-container,
-    .questions {
-        margin-left: 40px;
-        margin-right: 40px;
-    }
+    // .extensions__browsers-container,
+    // .questions {
+    //     margin-left: 40px;
+    //     margin-right: 40px;
+    // }
 
     .header {
         padding-top: 48px;
@@ -915,10 +921,6 @@ h3 {font-size: 1.25rem;}
             &:not(:last-child) {
                 margin-right: 40px;
             }
-
-            .button {
-                color: $white;
-            }
         }
 
         &--footer &__link {
@@ -931,16 +933,11 @@ h3 {font-size: 1.25rem;}
         }
     }
 
-    .buttons-container {
-        padding: 0;
-        // margin-top: 40px;
-    }
-
     .button {
-        padding: 18px 32px;
+        padding: 16px 32px;
 
         &::after {
-            padding: 16px 30px;
+            padding: 14px 30px;
         }
 
         &--login {
@@ -949,15 +946,15 @@ h3 {font-size: 1.25rem;}
             box-shadow: 0 8px 16px -4px rgba($soft-red, 0.4);
             border: 0;
             margin: 0;
+            padding-top: 14px;
+            padding-bottom: 14px;
             width: 100%;
-            padding-top: 16px;
-            padding-bottom: 16px;
             font-size: 0.875rem;
 
             &::after {
                 content: attr(data-buttonLabel);
-                padding-top: 14px;
-                padding-bottom: 14px;
+                padding-top: 12px;
+                padding-bottom: 12px;
                 border-color: $soft-red;
                 color: $soft-red;
             }
