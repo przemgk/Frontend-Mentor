@@ -14,6 +14,8 @@
 // spróbowac poprawic accordion
 // zrobic carousel z jak najmniejszą liczbą js
 
+// refaktoryzacja kodu, używanie paddingów dla kontenrów a nie elementów
+
 // Hamburger menu animations properties
     $fold-time: 0.2s;
     $rotation-time: 0.2s;
@@ -314,7 +316,6 @@ h3 {font-size: 1.25rem;}
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0 24px;
     margin-top: 40px;
 
     &--dotted {
@@ -339,6 +340,7 @@ h3 {font-size: 1.25rem;}
     border: 0;
     font-size: 0.875rem;
     font-weight: 500;
+    line-height: 1;
     text-transform: capitalize;
     padding: 16px 20px;
     width: 100%;
@@ -378,23 +380,6 @@ h3 {font-size: 1.25rem;}
 
         &::after {
             content: none;
-        }
-
-        @media screen and(min-width: 768px) {
-            text-transform: uppercase;
-            background-color: $soft-red;
-            color: $white;
-            box-shadow: 0 8px 16px -4px rgba($soft-red, 0.4);
-            margin: 0;
-            width: 100%;
-            padding: 12px 32px;
-
-            &::after {
-                content: attr(data-buttonLabel);
-                padding: 10px 30px;
-                border-color: $soft-red;
-                color: $soft-red;
-            }
         }
     }
 
@@ -445,6 +430,14 @@ h3 {font-size: 1.25rem;}
     margin-bottom: 160px;
 }
 
+.intro,
+.features,
+.faq,
+.newsletter {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
 .intro {
     margin-top: 40px;
 
@@ -454,8 +447,8 @@ h3 {font-size: 1.25rem;}
 }
 
 .text-box {
-    width: 100%;
-    padding: 0 24px;
+    // width: 100%;
+    // padding: 0 24px;
 
     &__heading {
         text-transform: capitalize;
@@ -482,9 +475,9 @@ h3 {font-size: 1.25rem;}
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: inherit;
     padding-bottom: 24px;
-    margin-bottom: 56px;
+    margin: 0 -24px 56px;
     position: relative;
 
     &::after {
@@ -507,7 +500,8 @@ h3 {font-size: 1.25rem;}
 
     &--carousel {
         padding-bottom: 56px;
-        margin-bottom: 48px;
+        margin: 0 0 48px;
+        width: 100%;
     }
 
     &--carousel &__image {
@@ -524,7 +518,8 @@ h3 {font-size: 1.25rem;}
     margin-top: 48px;
 
     &__tabs-list {
-        margin: 0 24px 72px;
+        // margin: 0 24px 72px;
+        margin-bottom: 72px;
         padding: 0;
         border-top: 2px solid rgba($grayish-blue, 0.16);
         list-style: none;
@@ -604,8 +599,8 @@ h3 {font-size: 1.25rem;}
         display: flex;
         flex: none;
         flex-flow: row nowrap;
-        width: 100%;
-        margin: 0;
+        width: inherit;
+        margin: 0 -24px;
         padding: 0;
         list-style: none;
         -webkit-overflow-scrolling: touch;
@@ -627,14 +622,18 @@ h3 {font-size: 1.25rem;}
         padding: 0;
         margin-right: 160px;
         scroll-snap-align: center;
+        overflow: visible;
     }
 }
 
 .extensions {
+    padding-left: 32px;
+    padding-right: 32px;
+
     &__browsers-container {
         display: grid;
         grid-gap: 40px;
-        margin: 56px 32px 0;
+        margin-top: 56px;
     }
 
     &__browser {
@@ -642,9 +641,14 @@ h3 {font-size: 1.25rem;}
         flex-direction: column;
         align-items: center;
         width: 100%;
-        padding: 40px 24px 28px;
+        padding: 40px 0 28px;
         border-radius: 20px;
         box-shadow: 0 8px 24px -4px rgba($grayish-blue, 0.24);
+
+        & .buttons-container {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
     }
 
     &__logo {
@@ -656,7 +660,8 @@ h3 {font-size: 1.25rem;}
 
 .questions {
     list-style: none;
-    margin: 72px 24px 0;
+    // margin: 72px 24px 0;
+    margin-top: 72px;
     padding: 0;
 
     &__item {
@@ -719,7 +724,8 @@ h3 {font-size: 1.25rem;}
 }
 
 .newsletter {
-    padding: 80px 24px 48px;
+    padding-top: 80px;
+    padding-bottom: 48px;
     background-color: $soft-blue;
     color: $white;
     text-align: center;
@@ -921,6 +927,7 @@ h3 {font-size: 1.25rem;}
 
         &__link {
             color: $very-dark-blue;
+            font-size: 0.875rem;
         }
     }
 
@@ -930,9 +937,31 @@ h3 {font-size: 1.25rem;}
     }
 
     .button {
-        padding-left: 32px;
-        padding-right: 32px;
+        padding: 18px 32px;
 
+        &::after {
+            padding: 16px 30px;
+        }
+
+        &--login {
+            background-color: $soft-red;
+            color: $white;
+            box-shadow: 0 8px 16px -4px rgba($soft-red, 0.4);
+            border: 0;
+            margin: 0;
+            width: 100%;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            font-size: 0.875rem;
+
+            &::after {
+                content: attr(data-buttonLabel);
+                padding-top: 14px;
+                padding-bottom: 14px;
+                border-color: $soft-red;
+                color: $soft-red;
+            }
+        }
     }
 
     .socials {
