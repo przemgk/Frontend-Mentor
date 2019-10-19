@@ -9,16 +9,6 @@
     $white: hsl(0, 100%, 100%);
 
 // @TODO
-
-// skonczyc carousel (JS)!!!
-
-// v1 scrola tylko po przyciskach
-// v2 scrolla przyciski, mobile dotyk przesuwanie + klawisze arrow left/right + latwiejszy js
-// spróbowac poprawic accordion
-// zrobic carousel z jak najmniejszą liczbą js
-
-// refaktoryzacja kodu, używanie paddingów dla kontenrów a nie elementów (zrobione)
-
 // po całym zakodowaniu wersji mobilnej refactoring kodu potrzebnych i nie potrzebnych instrukcji
 
 // Hamburger menu animations properties
@@ -339,8 +329,6 @@ h3 {font-size: 1.25rem;}
 
 .button {
     display: inline-block;
-    // align-items: center;
-    // justify-content: center;
     border-radius: 8px;
     border: 0;
     font-size: 0.875rem;
@@ -524,26 +512,11 @@ h3 {font-size: 1.25rem;}
     margin-top: 48px;
 
     &__tabs-list {
-        // margin: 0 24px 72px;
         margin-bottom: 72px;
         padding: 0;
         border-top: 2px solid rgba($grayish-blue, 0.16);
         list-style: none;
     }
-
-    // &__link {
-    //     text-decoration: none;
-    //     color: $grayish-blue;
-
-    //     &:hover {
-    //         color: $soft-red;
-    //     }
-
-    //     &--active {
-    //         font-weight: 500;
-    //         color: $very-dark-blue;
-    //     }
-    // }
 
     &__radio {
         position: absolute;
@@ -592,14 +565,6 @@ h3 {font-size: 1.25rem;}
     &__radio:checked + &__label::after {
         transform: translateX(-50%) scaleY(1);
     }
-
-    // &__indicator {
-    //     position: absolute;
-    //     top: 0;
-    //     width: 50%;
-    //     height: 4px;
-    //     background-color: $soft-red;
-    // }
 
     &__wrapper {
         display: flex;
@@ -672,14 +637,27 @@ h3 {font-size: 1.25rem;}
 
 .questions {
     list-style: none;
-    // margin: 72px 24px 0;
     margin-top: 72px;
     padding: 0;
 
     &__item {
+        display: flex;
+        flex-direction: column;
         border-bottom: 1px solid rgba($grayish-blue, 0.16);
         overflow: hidden;
-        transition: max-height 0.3s ease-in;
+        will-change: max-height;
+        transition: max-height 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    }
+
+    &__checkbox {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
     }
 
     &__label {
@@ -719,19 +697,20 @@ h3 {font-size: 1.25rem;}
         }
     }
 
-    &__item--active &__label::after {
+    &__checkbox:checked + &__label::after {
         transform: translateY(-50%) rotate(315deg);
     }
 
-    &__item--active &__label::before {
+    &__checkbox:checked + &__label::before {
         transform: translateY(-50%) rotate(315deg);
         opacity: 1;
     }
 
     &__answer {
         display: inline-block;
-        margin: 16px 0 24px;
         color: $grayish-blue;
+        overflow: hidden;
+        margin: 16px 0 24px;
     }
 }
 
@@ -825,193 +804,4 @@ h3 {font-size: 1.25rem;}
     align-items: center;
     flex-direction: column;
     background-color: $very-dark-blue;
-}
-
-@media screen and (min-width: 600px) {
-    .illustration {
-        &::after {
-            width: 60%;
-        }
-
-        &__image {
-            width: 80%;
-        }
-
-        &--carousel &__image {
-            width: 60%;
-        }
-
-        &--carousel {
-            padding-bottom: 40px;
-            margin-bottom: 48px;
-        }
-    }
-
-    .menu {
-        &--footer {
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 24px;
-            margin: 0 0 0 24px;
-            line-height: 1;
-        }
-    }
-
-    .extensions {
-        &__browsers-container {
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 40px;
-        }
-    }
-
-    .footer {
-        justify-content: space-between;
-        flex-direction: row;
-
-        &__box {
-            display: flex;
-            align-items: center;
-        }
-    }
-}
-
-@media screen and (min-width: 768px) {
-    // .header,
-    // .buttons-container,
-    // .text-box,
-    // .newsletter,
-    // .footer {
-    //     padding-left: 40px;
-    //     padding-right: 40px;
-    // }
-
-    // .extensions__browsers-container,
-    // .questions {
-    //     margin-left: 40px;
-    //     margin-right: 40px;
-    // }
-
-    .header {
-        padding-top: 48px;
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    .navigation {
-        position: relative;
-        padding-top: 0;
-        top: 0;
-        left: 0;
-        min-width: auto;
-        min-height: auto;
-        background-color: transparent;
-        transition: none;
-    }
-
-    .menu {
-        display: flex;
-        align-items: center;
-        text-align: center;
-
-        &--footer {
-            grid-gap: 40px;
-            margin-left: 48px;
-        }
-
-        &__item {
-            display: inline-block;
-            padding: 0;
-            border-top: 0;
-
-            &:not(:last-child) {
-                margin-right: 40px;
-            }
-        }
-
-        &--footer &__link {
-            color: $white;
-        }
-
-        &__link {
-            color: $very-dark-blue;
-            font-size: 0.875rem;
-        }
-    }
-
-    .button {
-        padding: 16px 32px;
-
-        &::after {
-            padding: 14px 30px;
-        }
-
-        &--login {
-            background-color: $soft-red;
-            color: $white;
-            box-shadow: 0 8px 16px -4px rgba($soft-red, 0.4);
-            border: 0;
-            margin: 0;
-            padding-top: 14px;
-            padding-bottom: 14px;
-            width: 100%;
-            font-size: 0.875rem;
-
-            &::after {
-                content: attr(data-buttonLabel);
-                padding-top: 12px;
-                padding-bottom: 12px;
-                border-color: $soft-red;
-                color: $soft-red;
-            }
-        }
-    }
-
-    .socials {
-        grid-gap: 40px;
-
-        &--menu {
-            display: none;
-        }
-    }
-
-    .intro {
-        margin-top: 64px;
-    }
-
-    .text-box {
-        // width: 100%;
-        padding: 0;
-    }
-
-    .illustration {
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        // position: relative;
-
-        // padding-bottom: 24px;
-        // margin-bottom: 56px;
-
-        &::after {
-            width: 80%;
-        }
-
-        &__image {
-            width: 90%;
-        }
-    }
-
-    .carousel {
-        margin-top: 64px;
-
-        &__tabs-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            width: 90%;
-            margin: 0 auto 72px;
-            border-top: 0;
-        }
-    }
-
 }
