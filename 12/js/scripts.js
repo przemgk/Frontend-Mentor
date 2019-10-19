@@ -27,25 +27,6 @@ window.addEventListener("load", () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //////////////////////////////////
 ////////   ZATWIERDZONE   ////////
 //////////////////////////////////
@@ -91,7 +72,7 @@ hamburgerIcon.addEventListener("click", () => {
                     carouselTabs[i].checked = true;
                 }
             }
-        }, 40);
+        }, 30);
     });
 })();
 
