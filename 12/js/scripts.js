@@ -1,13 +1,44 @@
-// Hamburger Menu
-const hamburgerIcon = document.querySelector(".hamburger");
-const navigation = document.querySelector(".navigation");
-const logo = document.querySelector(".logo");
+// Carousel
+const carouselTabs = document.querySelectorAll(".carousel__radio");
+const carouselWrapper = document.querySelector(".carousel__wrapper");
+const carouselItem = carouselWrapper.querySelector(".carousel__item");
+let timeout, itemMarginRight, scrollWidth, carouselScroll;
 
-hamburgerIcon.addEventListener("click", () => {
-    hamburgerIcon.classList.toggle("hamburger--active");
-    logo.classList.toggle("logo--white");
-    navigation.classList.toggle("navigation--opened");
+carouselTabs.forEach( (tab, index) => {
+    tab.addEventListener("change", () => {
+        itemMarginRight = Number.parseInt(getComputedStyle(carouselItem).marginRight);
+        scrollWidth = carouselWrapper.offsetWidth + itemMarginRight;
+
+        carouselWrapper.scrollTo(index * scrollWidth, 0);
+    });
 });
+
+carouselWrapper.addEventListener("scroll", () => {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(() => {
+        itemMarginRight = Number.parseInt(getComputedStyle(carouselItem).marginRight);
+        scrollWidth = carouselWrapper.offsetWidth + itemMarginRight;
+
+        carouselScroll = Math.floor(carouselWrapper.scrollLeft);
+
+        for(let i = 0; i < carouselTabs.length; i++) {
+            if(carouselScroll === (scrollWidth * i)) {
+                carouselTabs[i].checked = true;
+            }
+        }
+    }, 40);
+});
+
+
+
+
+
+// scroll to zamiana taba, klikniecie taba to scroll
+
+
+
+
 
 // Carousel
 // const carouselTabs = document.querySelectorAll(".carousel__tab");
@@ -89,6 +120,52 @@ window.addEventListener("load", () => {
         });
     });
 
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////
+////////   ZATWIERDZONE   ////////
+//////////////////////////////////
+
+// Hamburger Menu
+const hamburgerIcon = document.querySelector(".hamburger");
+const navigation = document.querySelector(".navigation");
+const logo = document.querySelector(".logo");
+
+hamburgerIcon.addEventListener("click", () => {
+    hamburgerIcon.classList.toggle("hamburger--active");
+    logo.classList.toggle("logo--white");
+    navigation.classList.toggle("navigation--opened");
 });
 
 // Form Validation

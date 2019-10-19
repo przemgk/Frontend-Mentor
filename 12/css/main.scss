@@ -615,6 +615,7 @@ h3 {font-size: 1.25rem;}
         scroll-snap-stop: always;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        scroll-behavior: smooth;
 
         &::-webkit-scrollbar {
             display: none;
@@ -629,6 +630,11 @@ h3 {font-size: 1.25rem;}
         margin-right: 160px;
         scroll-snap-align: center;
         overflow: visible;
+    }
+
+    & .text-box {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 }
 
