@@ -652,7 +652,7 @@ h3 {font-size: 1.25rem;}
         border-bottom: 1px solid rgba($grayish-blue, 0.16);
         overflow: hidden;
         will-change: max-height;
-        transition: max-height 0.3s $cubic-bezier;
+        transition: max-height 0.3s ease-in-out;
     }
 
     &__checkbox {
