@@ -1107,6 +1107,11 @@ h3 {
   }
 
   .carousel {
+    &__tabs-list {
+      width: 70%;
+      margin: 0 auto 72px;
+    }
+
     &__wrapper {
       margin: 0 0 0 -80px;
     }
@@ -1180,6 +1185,10 @@ h3 {
 
   .carousel {
     margin-top: 72px;
+
+    &__tabs-list {
+      width: 60%;
+    }
   }
 
   .extensions {
