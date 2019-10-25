@@ -1164,8 +1164,12 @@ h3 {
 
 @media screen and (min-width: 1280px) {
   .intro {
-    .buttons-container,
     .text-box {
+      width: 70%;
+      margin: 0;
+    }
+
+    .buttons-container {
       width: 70%;
     }
   }
