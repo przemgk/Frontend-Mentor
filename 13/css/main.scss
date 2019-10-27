@@ -1,0 +1,161 @@
+// Colors
+$red: hsl(0, 78%, 62%);
+$cyan: hsl(180, 62%, 55%);
+$orange: hsl(34, 97%, 64%);
+$blue: hsl(212, 86%, 64%);
+$very-dark-blue: hsl(234, 12%, 34%);
+$grayish-blue: hsl(229, 6%, 66%);
+$white: hsl(0, 0, 100%);
+
+// Fonts
+$font-light: 200;
+$font-regular: 400;
+$font-bold: 600;
+
+////////////////////////////////////////////////////////////////////////////////
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 62.5%; // 10px
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: $very-dark-blue;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  background-color: $white;
+  padding: 3.2rem;
+}
+
+h1,
+h2 {
+  font-weight: $font-bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.header {
+  margin-top: 48px;
+  text-align: center;
+
+  &__pre-heading {
+    font-size: 2rem;
+    font-weight: $font-light;
+    margin-bottom: 12px;
+  }
+
+  &__heading {
+    margin-bottom: 24px;
+  }
+
+  &__paragraph {
+    color: $grayish-blue;
+  }
+}
+
+.features {
+  display: grid;
+  grid-gap: 40px;
+  margin: 80px 0;
+
+  &__item {
+    position: relative;
+    width: 100%;
+    min-height: 220px;
+    padding: 28px 40px 28px 28px;
+    border-radius: 8px;
+    box-shadow: 0 24px 40px -16px rgba(darken($blue, 30%), 0.24);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: bottom 28px right 28px;
+    background-size: 56px 56px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    &:nth-of-type(1) {
+      background-image: url("../assets/img/icon-supervisor.svg");
+
+      &::before {
+        background-color: $cyan;
+      }
+    }
+
+    &:nth-of-type(2) {
+      background-image: url("../assets/img/icon-team-builder.svg");
+
+      &::before {
+        background-color: $red;
+      }
+    }
+
+    &:nth-of-type(3) {
+      background-image: url("../assets/img/icon-karma.svg");
+
+      &::before {
+        background-color: $orange;
+      }
+    }
+
+    &:nth-of-type(4) {
+      background-image: url("../assets/img/icon-calculator.svg");
+
+      &::before {
+        background-color: $blue;
+      }
+    }
+  }
+
+  &__heading {
+    margin-bottom: 8px;
+  }
+
+  &__paragraph {
+    color: $grayish-blue;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 4.8rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  .features {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    // grid-gap: 40px;
+    // margin: 80px 0;
+  }
+}
