@@ -178,6 +178,10 @@ h2 {
 
   .header {
     max-width: 480px;
+
+    &__pre-heading {
+      font-size: 2.8rem;
+    }
   }
 
   .features {
