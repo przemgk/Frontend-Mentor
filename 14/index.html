@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="description" content="Frontend Mentor solution">
+
+  <link rel="shortcut icon" href="assets/others/favicon-32x32.png" type="image/x-icon">
+
+  <title>URL shortening API landing page</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:500,700&display=swap" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <a class="logo" href="#"><img class="logo__img" src="assets/others/logo.svg" alt="Shortly"></a>
+
+    <nav class="navigation">
+      <ul class="menu">
+        <li class="menu__item"><a href="#">Features</a></li>
+        <li class="menu__item"><a href="#">Pricing</a></li>
+        <li class="menu__item"><a href="#">Resources</a></li>
+      </ul>
+      <button class="button button--ghost">Login</button>
+      <button class="button button--primary">Sign up</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      <h1 class="intro__header">More than just shorter links</h1>
+      <p class="intro__paragraph">Build your brand's recognition and get detailed insights on how your links are performing.</p>
+      <button class="button button--primary">Get started</button>
+    </section>
+
+    <form class="form" action="./index.html" method="POST" novalidate>
+      <input type="url" name="url">
+      <button type="submit">Shorten it!</button>
+    </form>
+
+  </main>
+
+
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
