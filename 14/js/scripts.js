@@ -69,10 +69,10 @@ class URLShortener {
 
     if (!existInLocalStorage) {
       this.useAPI("POST")
-        .then(({ hashid, created_at }) => {
+        .then(({ hashid }) => {
           localStorage.setItem(
             this.url,
-            JSON.stringify({ hashid, created_at })
+            JSON.stringify({ hashid, created: new Date().toJSON() })
           );
           URLShortener.displayLinks();
         })
@@ -87,12 +87,12 @@ class URLShortener {
 
     Object.keys(localStorage)
       .sort((first, second) => {
-        const firstDate = Date.parse(
-          JSON.parse(localStorage.getItem(first)).created_at
+        const firstDate = new Date(
+          JSON.parse(localStorage.getItem(first)).created
         );
 
-        const secondDate = Date.parse(
-          JSON.parse(localStorage.getItem(second)).created_at
+        const secondDate = new Date(
+          JSON.parse(localStorage.getItem(second)).created
         );
 
         return secondDate - firstDate;
@@ -100,7 +100,7 @@ class URLShortener {
       .forEach(url => {
         const data = JSON.parse(localStorage.getItem(url));
 
-        console.table(url, shortenLinkPrefix + data.hashid, data.created_at);
+        console.table(url, shortenLinkPrefix + data.hashid, data.created);
       });
   }
 }
