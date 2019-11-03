@@ -4,6 +4,11 @@
 // odczytywanie adresu
 // sprawdzanie adresu
 
+/*
+//
+// Poprawić sorotwanie bo nie dokońca działa
+//
+*/
 class URLShortener {
   constructor(url) {
     this.APILink = "https://rel.ink/api/links/";

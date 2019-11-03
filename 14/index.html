@@ -19,14 +19,24 @@
   <header class="header">
     <a class="logo" href="#"><img class="logo__img" src="assets/others/logo.svg" alt="Shortly"></a>
 
+    <button class="hamburger">
+      <span class="sr-only">Show menu</span>
+      <span class="hamburger__inner">
+          <span class="hamburger__bar"></span>
+      </span>
+    </button>
+
     <nav class="navigation">
       <ul class="menu">
         <li class="menu__item"><a href="#">Features</a></li>
         <li class="menu__item"><a href="#">Pricing</a></li>
         <li class="menu__item"><a href="#">Resources</a></li>
       </ul>
-      <button class="button button--ghost">Login</button>
-      <button class="button button--primary">Sign up</button>
+
+      <div>
+        <button class="button button--ghost">Login</button>
+        <button class="button button--primary">Sign up</button>
+      </div>
     </nav>
   </header>
 
@@ -35,17 +45,25 @@
     <section class="intro">
       <h1 class="intro__header">More than just shorter links</h1>
       <p class="intro__paragraph">Build your brand's recognition and get detailed insights on how your links are performing.</p>
-      <button class="button button--primary">Get started</button>
+      <button class="button button--primary button--rounded button--fit">Get started</button>
     </section>
 
-    <form class="form" action="./index.html" method="POST" novalidate>
-      <input type="url" name="url">
-      <button type="submit">Shorten it!</button>
-    </form>
+    <section class="links-shorten-wrapper">
+      <form class="form" action="./index.html" method="POST" novalidate>
+        <input type="url" name="url">
+        <button type="submit">Shorten it!</button>
+      </form>
+
+      <div class="links">
+        <div class="links__item">
+          <h3>http</h3>
+          <a href="#">rel</a>
+          <button>Copy</button>
+        </div>
+      </div>
+    </section>
 
   </main>
-
-
 
   <script src="js/scripts.js"></script>
 </body>
