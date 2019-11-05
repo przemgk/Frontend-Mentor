@@ -46,7 +46,7 @@ h2 {
 }
 
 h3 {
-  font: 2.2rem;
+  font: 2rem;
 }
 
 .header {
@@ -165,6 +165,10 @@ h3 {
   &--fit {
     width: auto;
   }
+
+  &--small {
+    padding: 12px 24px;
+  }
 }
 
 .intro {
@@ -172,8 +176,8 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("../assets/illustrations/illustration-working.svg") no-repeat
-    15vw 0 / auto 50vh $white;
+  background: url("../assets/illustrations/illustration-working.svg") no-repeat 10vw 0 / auto 50vh
+    $white;
   padding: 56vh 24px 150px;
   text-align: center;
 
@@ -193,7 +197,7 @@ h3 {
 }
 
 .form {
-  background: url("../assets/bg/bg-shorten-mobile.svg") no-repeat 0 0 / cover
+  background: url("../assets/bg/bg-shorten-mobile.svg") no-repeat left 0 bottom 0 / cover
     $dark-violet;
   padding: 24px;
   border-radius: 15px;
@@ -213,5 +217,37 @@ h3 {
       font-weight: 500;
       color: $grayish-violet;
     }
+  }
+}
+
+.links {
+  display: grid;
+  grid-gap: 24px;
+  margin: 24px 0 80px;
+  overflow: hidden;
+
+  &__item {
+    background: $white;
+    border-radius: 6px;
+  }
+
+  &__full-url {
+    color: $dark-violet;
+    padding: 16px 16px 12px;
+    border-bottom: 1px solid $gray;
+    font-size: 1.6rem;
+    word-wrap: break-word;
+  }
+
+  &__shortened-url {
+    display: inline-block;
+    margin: 16px;
+    color: $cyan;
+    text-decoration: none;
+  }
+
+  .button {
+    width: calc(100% - 32px);
+    margin: 8px 16px 16px;
   }
 }

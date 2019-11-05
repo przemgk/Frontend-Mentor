@@ -31,10 +31,7 @@ class URLShortener {
     const URLExec = URLRegex.exec(url);
     const { 1: protocol = "http", 2: hostname, 3: path } = { ...URLExec };
 
-    return (
-      URLExec &&
-      `${protocol}://${hostname}${path === undefined ? "" : "/" + path}`
-    );
+    return URLExec && `${protocol}://${hostname}${path === undefined ? "" : "/" + path}`;
   }
 
   useAPI(method) {
@@ -70,10 +67,7 @@ class URLShortener {
     if (!existInLocalStorage) {
       this.useAPI("POST")
         .then(({ hashid }) => {
-          localStorage.setItem(
-            this.url,
-            JSON.stringify({ hashid, created: new Date().toJSON() })
-          );
+          localStorage.setItem(this.url, JSON.stringify({ hashid, created: new Date().toJSON() }));
           URLShortener.displayLinks();
         })
         .catch(message => console.log(message));
@@ -84,23 +78,43 @@ class URLShortener {
 
   static displayLinks() {
     const shortenLinkPrefix = "https://rel.ink/";
+    const linksWrapper = document.querySelector(".links");
+    linksWrapper.innerHTML = "";
 
     Object.keys(localStorage)
       .sort((first, second) => {
-        const firstDate = new Date(
-          JSON.parse(localStorage.getItem(first)).created
-        );
+        const firstDate = new Date(JSON.parse(localStorage.getItem(first)).created);
 
-        const secondDate = new Date(
-          JSON.parse(localStorage.getItem(second)).created
-        );
+        const secondDate = new Date(JSON.parse(localStorage.getItem(second)).created);
 
         return secondDate - firstDate;
       })
       .forEach(url => {
         const data = JSON.parse(localStorage.getItem(url));
+        const linkItem = document.createElement("div");
+        linkItem.classList.add("links__item");
 
-        console.table(url, shortenLinkPrefix + data.hashid, data.created);
+        const linkFullURL = document.createElement("h3");
+        linkFullURL.classList.add("links__full-url");
+        linkFullURL.textContent = url;
+        linkItem.appendChild(linkFullURL);
+
+        const linkShortenedURL = document.createElement("a");
+        linkShortenedURL.classList.add("links__shortened-url");
+        linkShortenedURL.textContent = `${shortenLinkPrefix}${data.hashid}`;
+        linkShortenedURL.setAttribute("href", `${shortenLinkPrefix}${data.hashid}`);
+        linkShortenedURL.setAttribute("target", "_blank");
+        linkShortenedURL.setAttribute("rel", "noopener noreferrer");
+        linkItem.appendChild(linkShortenedURL);
+
+        const linkButton = document.createElement("button");
+        linkButton.classList.add("button", "button--primary", "button--small");
+        linkButton.textContent = "Copy";
+        linkItem.appendChild(linkButton);
+
+        console.log(linkFullURL);
+
+        linksWrapper.appendChild(linkItem);
       });
   }
 }
