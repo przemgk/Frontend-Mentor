@@ -24,7 +24,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1.6rem;
-  line-height: 1.5;
+  line-height: 1.6;
   background-color: rgba($gray, 0.3);
   color: $dark-violet;
 }
@@ -33,7 +33,7 @@ h1,
 h2,
 h3 {
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.3;
   color: $very-dark-violet;
 }
 
@@ -42,11 +42,11 @@ h1 {
 }
 
 h2 {
-  font: 2.6rem;
+  font-size: 2.8rem;
 }
 
 h3 {
-  font: 2rem;
+  font-size: 2rem;
 }
 
 .header {
@@ -208,6 +208,7 @@ h3 {
     padding: 16px 20px;
     border: 0;
     border-radius: 6px;
+    font-family: inherit;
     font-size: 1.4rem;
     font-weight: 700;
     color: $dark-violet;
@@ -226,7 +227,7 @@ h3 {
 .links {
   display: grid;
   grid-gap: 24px;
-  margin: 24px 0 80px;
+  margin: 24px 0 96px;
   overflow: hidden;
 
   &__item {
@@ -269,5 +270,46 @@ h3 {
   &--info {
     display: inline-block;
     color: $cyan;
+  }
+}
+
+.features {
+  display: grid;
+  grid-gap: 88px;
+  padding: 0 24px;
+  text-align: center;
+
+  &__item {
+    padding: 64px 24px 48px;
+    background: $white;
+    border-radius: 6px;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 8px;
+      height: 88px;
+      transform: translate(-50%, 100%);
+      background-color: $cyan;
+    }
+  }
+
+  &__paragraph {
+    margin-top: 16px;
+    color: $grayish-violet;
+  }
+
+  &__icon {
+    display: inline-block;
+    padding: 16px;
+    background-color: $very-dark-blue;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

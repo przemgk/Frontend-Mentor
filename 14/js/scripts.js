@@ -69,7 +69,7 @@ class URLShortener {
         })
         .catch(message => console.log(message));
     } else {
-      this.handleForm().message("You already shorten this link. Link copied to clipboard.", "info");
+      this.handleForm().message("You already shorten this link.", "info");
     }
   }
 
