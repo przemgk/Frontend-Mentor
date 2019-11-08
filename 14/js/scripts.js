@@ -4,20 +4,16 @@
 // odczytywanie adresu
 // sprawdzanie adresu
 
-/*
-//
-// Poprawić sorotwanie bo nie dokońca działa
-//
-*/
 class URLShortener {
-  constructor(url) {
+  constructor(urlInput) {
     this.APILink = "https://rel.ink/api/links/";
-    this.url = this.validateURL(url);
+    this.urlInput = urlInput;
+    this.url = this.validateURL(this.urlInput.value);
 
     if (this.url) {
       this.handleURL();
     } else {
-      console.log("Zły adres");
+      this.handleForm().message("Please add a link");
     }
   }
 
@@ -69,10 +65,11 @@ class URLShortener {
         .then(({ hashid }) => {
           localStorage.setItem(this.url, JSON.stringify({ hashid, created: new Date().toJSON() }));
           URLShortener.displayLinks();
+          this.handleForm().clear();
         })
         .catch(message => console.log(message));
     } else {
-      console.log("Link juz jest w storage");
+      this.handleForm().message("You already shorten this link. Link copied to clipboard.", "info");
     }
   }
 
@@ -84,7 +81,6 @@ class URLShortener {
     Object.keys(localStorage)
       .sort((first, second) => {
         const firstDate = new Date(JSON.parse(localStorage.getItem(first)).created);
-
         const secondDate = new Date(JSON.parse(localStorage.getItem(second)).created);
 
         return secondDate - firstDate;
@@ -112,10 +108,35 @@ class URLShortener {
         linkButton.textContent = "Copy";
         linkItem.appendChild(linkButton);
 
-        console.log(linkFullURL);
-
         linksWrapper.appendChild(linkItem);
       });
+  }
+
+  handleForm() {
+    //wyswietlanie wiadomosci
+    //czyszcenie formularza
+    const messageWrapper = document.querySelector(".message");
+    const self = this;
+
+    return {
+      clear() {
+        this.clearMessage();
+        self.urlInput.value = "";
+      },
+      message(messageText, messageType = "error") {
+        this.clearMessage();
+        if (messageType === "error") {
+          messageWrapper.classList.add("message--error");
+          messageWrapper.textContent = messageText;
+        } else if (messageType === "info") {
+          messageWrapper.classList.add("message--info");
+          messageWrapper.textContent = messageText;
+        }
+      },
+      clearMessage() {
+        messageWrapper.setAttribute("class", "message");
+      }
+    };
   }
 }
 
@@ -134,5 +155,5 @@ URLShortener.displayLinks();
 form.addEventListener("submit", e => {
   e.preventDefault();
 
-  new URLShortener(urlInput.value);
+  new URLShortener(urlInput);
 });
