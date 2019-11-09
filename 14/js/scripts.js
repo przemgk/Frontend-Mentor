@@ -106,6 +106,9 @@ class URLShortener {
         const linkButton = document.createElement("button");
         linkButton.classList.add("button", "button--primary", "button--small");
         linkButton.textContent = "Copy";
+        linkButton.addEventListener("click", e =>
+          URLShortener.copyLink(e.target, `${shortenLinkPrefix}${data.hashid}`)
+        );
         linkItem.appendChild(linkButton);
 
         linksWrapper.appendChild(linkItem);
@@ -139,8 +142,15 @@ class URLShortener {
     };
   }
 
-  static copyLink(element) {
-    console.log(element);
+  static copyLink(element, link) {
+    navigator.clipboard.writeText(link);
+    element.classList.add("button--copied");
+    element.textContent = "Copied";
+
+    setInterval(() => {
+      element.classList.remove("button--copied");
+      element.textContent = "Copy";
+    }, 2000);
   }
 }
 

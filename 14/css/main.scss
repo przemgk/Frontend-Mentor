@@ -194,6 +194,7 @@ h3 {
   font-weight: 700;
   text-transform: capitalize;
   width: 100%;
+  transition: background-color 0.3s ease-in;
 
   &--primary {
     background-color: $cyan;
@@ -215,6 +216,11 @@ h3 {
 
   &--small {
     padding: 12px 24px;
+  }
+
+  &--copied {
+    background: $dark-violet;
+    columns: $white;
   }
 }
 
