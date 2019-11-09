@@ -28,14 +28,14 @@
 
     <nav class="navigation">
       <ul class="menu">
-        <li class="menu__item"><a href="#">Features</a></li>
-        <li class="menu__item"><a href="#">Pricing</a></li>
-        <li class="menu__item"><a href="#">Resources</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Features</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Pricing</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Resources</a></li>
       </ul>
 
-      <div>
+      <div class="button-container">
         <button class="button button--ghost">Login</button>
-        <button class="button button--primary">Sign up</button>
+        <button class="button button--primary button--rounded">Sign up</button>
       </div>
     </nav>
   </header>
@@ -50,7 +50,7 @@
 
     <section class="links-shorten-wrapper">
       <form class="form" action="./index.html" method="POST" autocomplete="off" novalidate>
-        <input class="form__input" type="url" name="url" placeholder="Shorten a link here...">
+        <input class="form__input" type="url" name="url" placeholder="Shorten a link here..." aria-label="Link to shorten">
         <span class="message"></span>
         <button class="button button--primary" type="submit">Shorten it!</button>
       </form>
@@ -84,7 +84,53 @@
       </div>
     </section>
 
+    <section class="get-started">
+      <h2 class="get-started__heading">Boost your links today</h2>
+      <button class="button button--primary button--rounded button--fit">Get started</button>
+    </section>
+
   </main>
+
+  <footer class="footer">
+
+    <a class="logo logo--footer" href="#"><img class="logo__img" src="assets/others/logo.svg" alt="Shortly"></a>
+
+    <div class="footer__section">
+      <h3 class="footer__heading">Features</h3>
+      <ul class="footer__menu">
+        <li class="footer__item"><a class="footer__link" href="#">Link shortening</a></li>
+        <li class="footer__item"><a class="footer__link" href="#">Branded links</a></li>
+        <li class="footer__item"><a class="footer__link" href="#">Analytics</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__heading">Resources</h3>
+      <ul class="footer__menu">
+        <li class="footer__item"><a class="footer__link" href="#">Blog</a></li>
+        <li class="footer__item"><a class="footer__link" href="#">Developers</a></li>
+        <li class="footer__item"><a class="footer__link" href="#">Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h3 class="footer__heading">Company</h3>
+      <ul class="footer__menu">
+        <li class="footer__item"><a class="footer__link" href="#">About</a></li>
+        <li class="footer__item"><a class="footer__link" href="#">Our team</a></li>
+        <li class="footer__item"><a class="footer__link" href="#">Careers</a></li>
+        <li class="footer__item"><a class="footer__link" href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <ul class="socials">
+      <li class="socials__item"><a class="socials__link" href="https://facebook.com" rel="noopener noreferrer" target="_blank"><img src="assets/icons/icon-facebook.svg" alt="Facebook"></a></li>
+      <li class="socials__item"><a class="socials__link" href="https://twitter.com" rel="noopener noreferrer" target="_blank"><img src="assets/icons/icon-twitter.svg" alt="Twitter"></a></li>
+      <li class="socials__item"><a class="socials__link" href="https://pinterest.com" rel="noopener noreferrer" target="_blank"><img src="assets/icons/icon-pinterest.svg" alt="Pinterest"></a></li>
+      <li class="socials__item"><a class="socials__link" href="https://instagram.com" rel="noopener noreferrer" target="_blank"><img src="assets/icons/icon-instagram.svg" alt="Instagram"></a></li>
+    </ul>
+
+  </footer>
 
   <script src="js/scripts.js" defer></script>
 </body>

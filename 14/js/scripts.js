@@ -113,8 +113,6 @@ class URLShortener {
   }
 
   handleForm() {
-    //wyswietlanie wiadomosci
-    //czyszcenie formularza
     const messageWrapper = document.querySelector(".message");
     const self = this;
 
@@ -128,6 +126,7 @@ class URLShortener {
         if (messageType === "error") {
           messageWrapper.classList.add("message--error");
           messageWrapper.textContent = messageText;
+          self.urlInput.classList.add("form__input--error");
         } else if (messageType === "info") {
           messageWrapper.classList.add("message--info");
           messageWrapper.textContent = messageText;
@@ -135,8 +134,13 @@ class URLShortener {
       },
       clearMessage() {
         messageWrapper.setAttribute("class", "message");
+        self.urlInput.classList.remove("form__input--error");
       }
     };
+  }
+
+  static copyLink(element) {
+    console.log(element);
   }
 }
 
@@ -156,4 +160,12 @@ form.addEventListener("submit", e => {
   e.preventDefault();
 
   new URLShortener(urlInput);
+});
+
+const hamburgerButton = document.querySelector(".hamburger");
+const navigation = document.querySelector(".navigation");
+
+hamburgerButton.addEventListener("click", () => {
+  hamburgerButton.classList.toggle("hamburger--active");
+  navigation.classList.toggle("navigation--active");
 });

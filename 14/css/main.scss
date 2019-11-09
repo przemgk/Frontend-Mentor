@@ -61,6 +61,12 @@ h3 {
   display: flex;
   width: 120px;
 
+  &--footer {
+    display: inline-block;
+    margin: 0 auto;
+    filter: contrast(0) brightness(100);
+  }
+
   &__img {
     width: 100%;
   }
@@ -71,11 +77,36 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 120px;
   left: 24px;
   right: 24px;
-  transform: translateY(-100%);
+  padding: 32px 24px;
+  background-color: $dark-violet;
+  border-radius: 6px;
+  transform: translateY(-200%);
+  transition: transform 0.3s ease-in;
+
+  &--active {
+    transform: translateY(0);
+  }
+}
+
+.menu {
+  display: grid;
+  width: 100%;
+  padding-bottom: 32px;
+  margin-bottom: 16px;
+  grid-gap: 24px;
+  list-style: none;
+  text-align: center;
+  border-bottom: 1px solid rgba($gray, 0.3);
+
+  &__link {
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+  }
 }
 
 .sr-only {
@@ -105,6 +136,7 @@ h3 {
   &__bar {
     top: 50%;
     transform: translateY(-50%);
+    transition: background-color 0.3s ease-in;
 
     &,
     &::before,
@@ -118,13 +150,17 @@ h3 {
       border-radius: 10px;
     }
 
-    &::before {
+    &::before,
+    &::after {
       content: "";
+      transition: transform 0.3s ease-in;
+    }
+
+    &::before {
       top: -8px;
     }
 
     &::after {
-      content: "";
       top: 8px;
     }
   }
@@ -142,6 +178,12 @@ h3 {
   }
 }
 
+.button-container {
+  display: grid;
+  grid-gap: 8px;
+  width: 100%;
+}
+
 .button {
   display: block;
   padding: 16px 32px;
@@ -155,6 +197,11 @@ h3 {
 
   &--primary {
     background-color: $cyan;
+    color: $white;
+  }
+
+  &--ghost {
+    background-color: transparent;
     color: $white;
   }
 
@@ -197,8 +244,7 @@ h3 {
 }
 
 .form {
-  background: url("../assets/bg/bg-shorten-mobile.svg") no-repeat left 0 bottom 0 / cover
-    $dark-violet;
+  background: url("../assets/bg/bg-shorten-mobile.svg") no-repeat 0 0 / cover $dark-violet;
   padding: 24px;
   border-radius: 15px;
 
@@ -216,6 +262,10 @@ h3 {
     &::placeholder {
       font-weight: 500;
       color: $grayish-violet;
+    }
+
+    &--error {
+      border: 3px solid $red;
     }
   }
 
@@ -271,12 +321,17 @@ h3 {
     display: inline-block;
     color: $cyan;
   }
+
+  &__underline {
+    text-decoration: underline;
+  }
 }
 
 .features {
   display: grid;
   grid-gap: 88px;
   padding: 0 24px;
+  margin-bottom: 72px;
   text-align: center;
 
   &__item {
@@ -297,6 +352,10 @@ h3 {
     }
   }
 
+  &__heading {
+    text-transform: capitalize;
+  }
+
   &__paragraph {
     margin-top: 16px;
     color: $grayish-violet;
@@ -311,5 +370,68 @@ h3 {
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+}
+
+.get-started {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 32px;
+  background: url("../assets/bg/bg-boost-mobile.svg") no-repeat 0 0 / cover $dark-violet;
+  text-align: center;
+
+  &__heading {
+    margin-bottom: 24px;
+    color: $white;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-gap: 40px;
+  padding: 48px 0;
+  text-align: center;
+  background-color: $very-dark-violet;
+
+  &__heading {
+    font-size: 1.8rem;
+    color: $white;
+    margin-bottom: 16px;
+  }
+
+  &__menu {
+    display: grid;
+    grid-gap: 8px;
+    list-style: none;
+  }
+
+  &__link {
+    color: $gray;
+    text-decoration: none;
+  }
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+
+  &__link {
+    display: flex;
   }
 }
