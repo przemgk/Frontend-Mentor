@@ -86,6 +86,7 @@ h3 {
   border-radius: 6px;
   transform: translateY(-200%);
   transition: transform 0.3s ease-in;
+  will-change: transform;
 
   &--active {
     transform: translateY(0);
