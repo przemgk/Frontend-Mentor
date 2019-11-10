@@ -332,15 +332,13 @@ h3 {
   &--error {
     display: inline-block;
     color: $red;
+    order: 2;
   }
 
   &--info {
     display: inline-block;
     color: $cyan;
-  }
-
-  &__underline {
-    text-decoration: underline;
+    order: 2;
   }
 }
 
@@ -553,7 +551,19 @@ h3 {
   }
 
   .form {
+    display: flex;
+    flex-wrap: wrap;
     background: url("../assets/bg/bg-shorten-desktop.svg") no-repeat 0 0 / cover $dark-violet;
+    padding: 32px 40px;
+
+    &__input {
+      width: 75%;
+    }
+
+    .button {
+      width: 22.5%;
+      margin: 0 0 0 2.5%;
+    }
   }
 
   .links {
@@ -618,6 +628,10 @@ h3 {
 
   .links-shorten-wrapper {
     padding: 0 10%;
+  }
+
+  .form {
+    padding: 40px 56px;
   }
 
   .features {
