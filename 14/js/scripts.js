@@ -1,9 +1,3 @@
-// klasa
-// dodawanie adresu
-// zapis adresu do storage
-// odczytywanie adresu
-// sprawdzanie adresu
-
 class URLShortener {
   constructor(urlInput) {
     this.APILink = "https://rel.ink/api/links/";
@@ -150,15 +144,9 @@ class URLShortener {
     setInterval(() => {
       element.classList.remove("button--copied");
       element.textContent = "Copy";
-    }, 2000);
+    }, 3000);
   }
 }
-
-/*
-1. Po kliknięciu sprawdzamy adres
-2. Jeżeli jest ok to skracamy
-3. Zapisujemy do pamięci i wyświetlamy
-*/
 
 const form = document.querySelector(".form");
 const urlInput = form.querySelector('[name="url"]');
