@@ -254,6 +254,10 @@ h3 {
     width: calc(150% + 24px);
     margin: 0 -184px 40px 0;
   }
+
+  .button {
+    margin: 0 auto;
+  }
 }
 
 .links-shorten-wrapper {
@@ -543,6 +547,10 @@ h3 {
     &__illustration {
       width: calc(50% + 40px);
       margin: 0 -100px 0 5%;
+    }
+
+    .button {
+      margin: 0;
     }
   }
 
